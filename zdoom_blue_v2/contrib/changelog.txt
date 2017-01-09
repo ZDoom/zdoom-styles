@@ -1,0 +1,38 @@
+// ----------------------------------
+//  CHANGE LOG
+// --------------
+
+1.0.8:	-> Updated style for compatibility with phpBB 3.0.12
+	-> Fixed issue where profiles on posts could pick up an unwanted vertical scrollbar
+
+1.0.7:	-> Updated style for compatibility with phpBB 3.0.11
+	-> Implemented template inheritance with prosilver
+	-> Minor bug fix in lastpost display in smaller resolutions
+	-> Rewrote readme file
+
+1.0.6:	-> Updated style for compatibility with phpBB 3.0.10
+	-> Fixed issue where "last post" box would be moved at low resolutions
+	-> Fixed issue where search box would be moved at low resolutions
+
+1.0.5:	-> Updated style for compatibility with phpBB 3.0.9
+
+1.0.4:  -> Minor colour adjustments.
+
+1.0.3:	-> Added four alternate style colourings (pink, red, yellow, and blue)
+	-> Replaced certain icons in 'theme/images' with new colour-thematic ones
+	-> Increased contrast in greys for easier reading
+	-> Darkened & coloured text areas, input boxes, and buttons
+	-> Widened reading area to 90% of screen width
+	-> Widened quick reply box to 99% of area width
+	-> Changed quote background from transparent to dark grey
+	-> Other minor colour adjustments
+	-> Minor bug fixes
+
+1.0.2:	-> Added basic notification box to overall_header.html for new and unread PMs
+	-> Fixed issue with category names not displaying properly on mobile devices
+	-> Fixed signature alignment issue in memberlist_view.html
+
+1.0.1:	-> Minor link colour changes
+	-> Minor bug fixes
+
+1.0.0:	-> Initial release
