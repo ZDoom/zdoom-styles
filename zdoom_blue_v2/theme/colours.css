@@ -671,7 +671,7 @@ fieldset.polls dd div {
 }
 
 .offline .postprofile {
-	border-left 3x #363d42;
+	border-left: solid 3px #363d42;
 }
 
 /*  	
