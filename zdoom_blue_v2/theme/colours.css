@@ -666,14 +666,12 @@ fieldset.polls dd div {
    background-image: none;
 }
 
-.online .postprofile::after {
-	border-bottom: solid 2px #0082c8;
-	content: "Online";
+.online .postprofile {
+	border-left: solid 3px #0082c8;
 }
 
-.offline .postprofile:after {
-	border-bottom: solid 2px #363d42;
-	content: "Offline"
+.offline .postprofile {
+	border-left 3x #363d42;
 }
 
 /*  	
