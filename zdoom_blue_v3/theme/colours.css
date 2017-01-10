@@ -506,12 +506,19 @@ dl.codebox code {
 	color: #CCCCCC;
 }
 
-.syntaxbg		{ color: #FFFFFF; }
+/*.syntaxbg		{ color: #FFFFFF; }
 .syntaxcomment	{ color: #FF8000; }
 .syntaxdefault	{ color: #0000BB; }
 .syntaxhtml		{ color: #000003; }
 .syntaxkeyword	{ color: #006413; }
-.syntaxstring	{ color: #DD0000; }
+.syntaxstring	{ color: #DD0000; }*/
+
+.syntaxbg		{ color: #000000; }
+.syntaxcomment	{ color: #808024; }
+.syntaxdefault	{ color: #4D97C4; }
+.syntaxhtml		{ color: #999999; }
+.syntaxkeyword	{ color: #A36D7C; }
+.syntaxstring	{ color: #3C993C; }
 
 /* Attachments
 ----------------------------------------*/
