@@ -287,7 +287,8 @@ a.topictitle {
 /* a.topictitle:visited { color: #368AD2; } */
 
 a.topictitle:hover {
-	color: #148ccc;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 a.topictitle:active {
