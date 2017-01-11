@@ -554,8 +554,8 @@ blockquote.uncited {
 /* Code block */
 dl.codebox {
 	padding: 3px;
-	background-color: #FFFFFF;
-	border: 1px solid #d8d8d8;
+	background-color: #000000;
+	border: 1px solid #dl.codebox;
 	font-size: 1em;
 }
 
