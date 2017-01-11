@@ -378,9 +378,9 @@ ul.topiclist li {
 	color: #CCCCCC;
 }
 
-/* ul.topiclist dd {
-	border-left-color: #31393f;
-} */
+ul.topiclist dd {
+	border-left: 0px solid #000000;
+} 
 
 .rtl ul.topiclist dd {
 	border-right-color: #31393f;
