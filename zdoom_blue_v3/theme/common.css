@@ -178,6 +178,11 @@ a#logo:hover {
 
 #site-description h1 {
 	margin-right: 0;
+	display: none;
+}
+
+#site-description p {
+	display: none;
 }
 
 /* Round cornered boxes and backgrounds
