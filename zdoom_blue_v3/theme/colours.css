@@ -395,8 +395,8 @@ ul.topiclist li.row dt a.subforum.unread {
 }
 
 li.row {
-	border-top-color: #1f2d37;
-/*	border-bottom-color: #0a1a2a; */
+	border-top: 1px solid #142431;
+	border-bottom: 0px solid #142431;
 }
 
 li.row strong {
