@@ -288,12 +288,18 @@ div[class].topic-actions {
 }
 .leftprofile .postbody {
 	float: right;
-	/*border-left: 1px solid #FFFFFF;*/
+	border-left: 1px solid #0F293E;
 	padding-left: 10px;
+	text-align: center;
 }
 
 .postbody .ignore {
 	font-size: 1.1em;
+}
+
+.custitle {
+	font-style: italic;
+	font-size: 0.9em
 }
 
 .postbody h3.first {
