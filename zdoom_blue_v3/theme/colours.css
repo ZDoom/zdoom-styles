@@ -404,7 +404,8 @@ li.row strong {
 }
 
 li.row:hover {
-	background-color: #091929;
+	background-color: #162534;
+	background-color: rgba(255,255,255,0.05);
 }
 
 li.row:hover dd {
