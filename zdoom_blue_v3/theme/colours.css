@@ -318,7 +318,7 @@ a.topictitle:active {
 
 /* Profile links */
 .postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
-	color: #c9d0d6;
+	color: #60a0d6;
 }
 
 .postprofile a:hover, .postprofile dt.author a:hover {
@@ -646,7 +646,8 @@ fieldset.polls dd div {
 ----------------------------------------*/
 .postprofile {
 	color: #b8b8b8;
-	border-right-color: #27323a;
+	border-right-color: transparent;
+	border-left-color: transparent;
 }
 
 .rtl .postprofile {
