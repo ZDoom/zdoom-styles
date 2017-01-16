@@ -298,6 +298,8 @@ a.topictitle:active {
 /* Post body links */
 .postlink {
 	color: #51afe0;
+	text-decoration: none;
+	border-bottom: none;
 }
 
 .postlink:visited {
@@ -309,6 +311,7 @@ a.topictitle:active {
 }
 
 .postlink:hover {
+	background-color: transparent;
 	color: #148ccc;
 }
 
@@ -557,7 +560,7 @@ dl.file dd {
 
 dl.thumbnail img {
 	border-color: #666666;
-	background-color: #FFFFFF;
+	background-color: #3F3F3F;
 }
 
 dl.thumbnail dd {
@@ -565,7 +568,7 @@ dl.thumbnail dd {
 }
 
 dl.thumbnail dt a:hover {
-	background-color: #EEEEEE;
+	background-color: #3E3E3E;
 }
 
 dl.thumbnail dt a:hover img {
