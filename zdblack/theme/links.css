@@ -44,19 +44,19 @@ a.forumtitle {
 	font-family: "Trebuchet MS", Helvetica, Arial, Sans-serif;
 	font-size: 1.2em;
 	font-weight: bold;
-	color: #898989;
+	color: #cccccc;
 	text-decoration: none;
 }
 
 /* a.forumtitle:visited { color: #898989; } */
 
 a.forumtitle:hover {
-	color: #bcbcbc;
+	color: #eeeeee;
 	text-decoration: underline;
 }
 
 a.forumtitle:active {
-	color: #898989;
+	color: #aaaaaa;
 }
 
 a.topictitle {
@@ -107,7 +107,7 @@ a.topictitle:active {
 /* Profile links */
 .postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
 	font-weight: bold;
-	color: #898989;
+	color: ##5aa2d2;
 	text-decoration: none;
 }
 
