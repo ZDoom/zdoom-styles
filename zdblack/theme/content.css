@@ -137,6 +137,13 @@ dl.icon dt {
 	background-position: 5px 95%;		/* Position of topic icon */
 }
 
+.topictag 
+{
+	text-align: right;
+	font-weight: bold;
+	float: right;
+}
+
 dd.posts, dd.topics, dd.views {
 	width: 8%;
 	text-align: center;
