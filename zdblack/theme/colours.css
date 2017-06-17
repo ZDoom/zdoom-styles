@@ -700,8 +700,22 @@ fieldset.polls dd div {
 	color: #a2a2a3;
 }
 
-.online {
+/*.online {
 	background-image: url("{IMG_ICON_USER_ONLINE_SRC}");
+} */
+
+.online {
+   background-image: none;
+}
+
+.online .postprofile::after {
+	border-bottom: solid 2px #0082c8;
+	content: "Online";
+}
+
+.offline .postprofile::after {
+	border-bottom: solid 2px #363d42;
+	content: "Offline";
 }
 
 /*  	
