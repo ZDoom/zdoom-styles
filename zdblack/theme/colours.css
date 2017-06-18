@@ -416,11 +416,11 @@ ul.topiclist li {
 }
 
 ul.topiclist dd {
-	border-left-color: #1c2027;
+	border-left-color: #262d35;
 }
 
 .rtl ul.topiclist dd {
-	border-right-color: #1c2027;
+	border-right-color: #262d35;
 	border-left-color: transparent;
 }
 
