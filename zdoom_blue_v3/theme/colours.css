@@ -653,6 +653,10 @@ fieldset.polls dd div {
 	border-left-color: transparent;
 }
 
+.leftprofile .postbody {
+	border-right-color: transparent;
+}
+
 .rtl .postprofile {
 	border-right-color: #27323a;
 /*	border-left-color: transparent; */
