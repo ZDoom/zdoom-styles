@@ -295,6 +295,12 @@ div[class].topic-actions {
 	clear: both;
 }
 
+.leftprofile .postbody {
+	float: right;
+	border-left: 1px solid #FFFFFF;
+	padding-left: 10px;
+}
+
 .postbody .ignore {
 	font-size: 1.1em;
 }
@@ -803,6 +809,15 @@ fieldset.polls dd div {
 	float: right;
 	display: inline;
 }
+
+.leftprofile .postprofile {
+	float: left;
+	border-left: none;
+	padding-left: 0px;
+	margin-left: 0px;
+	width: 150px;
+}
+
 .pm .postprofile {
 	border-left: 1px solid #DDDDDD;
 }
@@ -826,6 +841,10 @@ fieldset.polls dd div {
 	background-image: none;
 	background-position: 100% 0;
 	background-repeat: no-repeat;
+}
+
+.leftprofile .online {
+	background-position: 100% 0;
 }
 
 /* Poster profile used by search*/
