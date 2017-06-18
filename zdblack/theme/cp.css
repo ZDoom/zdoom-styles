@@ -122,19 +122,19 @@ ul.cplist {
 
 /* CP tabbed menu
 ----------------------------------------*/
-#tabs {
+#tabs, #ptabs {
 	line-height: normal;
 	margin: 20px 0 -1px 7px;
 	min-width: 570px;
 }
 
-#tabs ul {
+#tabs ul, #ptabs ul {
 	margin:0;
 	padding: 0;
 	list-style: none;
 }
 
-#tabs li {
+#tabs li, #ptabs li {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -142,7 +142,7 @@ ul.cplist {
 	font-weight: bold;
 }
 
-#tabs a {
+#tabs a, #ptabs a {
 	float: left;
 	background: none no-repeat 0% -35px;
 	margin: 0 1px 0 0;
@@ -152,7 +152,7 @@ ul.cplist {
 	cursor: pointer;
 }
 
-#tabs a span {
+#tabs a span, #ptabs a span {
 	float: left;
 	display: block;
 	background: none no-repeat 100% -35px;
@@ -161,34 +161,34 @@ ul.cplist {
 	white-space: nowrap;
 }
 
-#tabs a:hover span {
+#tabs a:hover span, #ptabs a:hover span {
 	color: #bcbcbc;
 }
 
-#tabs .activetab a {
+#tabs .activetab a, #ptabs .activetab a {
 	background-position: 0 0;
 	border-bottom: 1px solid #ebebeb;
 }
 
-#tabs .activetab a span {
+#tabs .activetab a span, #ptabs .activetab a span {
 	background-position: 100% 0;
 	padding-bottom: 7px;
-	color: #22262e;
+	color: #333333;
 }
 
-#tabs a:hover {
+#tabs a:hover, #ptabs a:hover {
 	background-position: 0 -70px;
 }
 
-#tabs a:hover span {
+#tabs a:hover span, #ptabs a:hover span {
 	background-position:100% -70px;
 }
 
-#tabs .activetab a:hover {
+#tabs .activetab a:hover, #ptabs .activetab a:hover {
 	background-position: 0 0;
 }
 
-#tabs .activetab a:hover span {
+#tabs .activetab a:hover span, #ptabs .activetab a:hover span {
 	color: #000000;
 	background-position: 100% 0;
 }

@@ -546,11 +546,11 @@
 
 /* CP tabbed menu
 ----------------------------------------*/
-.rtl #tabs {
+.rtl #tabs, .rtl #ptabs {
 	margin: 20px 7px -1px 0;
 }
 
-.rtl #tabs a {
+.rtl #tabs a, .rtl #ptabs {
 	float: right;
 }
 
