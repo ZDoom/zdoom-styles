@@ -939,7 +939,7 @@ ul.cplist {
 }
 
 dl.mini dt {
-	color: #425067;
+	color: #aaaaaa;
 }
 
 /* PM Styles
@@ -956,15 +956,15 @@ dl.mini dt {
 }
 
 .pmlist li.pm_marked_colour, .pm_marked_colour {
-	border-color: #a1c3b2;
+	border-color: #b31a1a;
 }
 
 .pmlist li.pm_replied_colour, .pm_replied_colour {
-	border-color: #666666;
+	border-color: #888888;
 }
 
 .pmlist li.pm_friend_colour, .pm_friend_colour {
-	border-color: #555555;
+	border-color: #71a1c5;
 }
 
 pmlist li.pm_foe_colour, .pm_foe_colour {
