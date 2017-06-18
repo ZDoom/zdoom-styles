@@ -173,7 +173,7 @@ ul.cplist {
 #tabs .activetab a span, #ptabs .activetab a span {
 	background-position: 100% 0;
 	padding-bottom: 7px;
-	color: #333333;
+	color: #aaaaaa;
 }
 
 #tabs a:hover, #ptabs a:hover {
@@ -189,7 +189,7 @@ ul.cplist {
 }
 
 #tabs .activetab a:hover span, #ptabs .activetab a:hover span {
-	color: #000000;
+	color: #cfcfcf;
 	background-position: 100% 0;
 }
 
