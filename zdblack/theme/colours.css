@@ -990,7 +990,7 @@ Colours and backgrounds for forms.css
 ----------------------------------------*/
 select {
 	border-color: #336b99;
-	background-color: #666666;
+	background-color: #999999;
 	border-style: solid;
 }
 
@@ -1026,13 +1026,13 @@ fieldset.quick-login input.inputbox {
 ----------------------------------------*/
 
 message-box textarea {
-	color: #a7a7a9;
+	color: #bbbbbb;
 }
 
 /* Input field styles
 ---------------------------------------- */
 .inputbox {
-	background-color: #1c2027; 
+	background-color: #111215; 
 	border-color: #336b99;
 	border-style: solid;
 	color: #a7a7a9;
