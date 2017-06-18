@@ -222,9 +222,13 @@ dl.details dd {
 	color: #BC2A4D;
 }
 
-/*.reported {
-	background-color: transparent;
-}*/
+.reported .inner {
+    background-color: rgba(95, 0, 0, 0.75);
+}
+
+.reported {
+	background-color: rgba(95, 0, 0, 0.75);
+}
 
 li.reported:hover {
 	background-color: #34373d !important;
