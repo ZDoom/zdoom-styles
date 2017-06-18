@@ -144,11 +144,53 @@ dl.icon dt {
 	float: right;
 }
 
-dd.posts, dd.topics, dd.views {
+.viewtopictag
+{
+	font-size: smaller;
+}
+
+dd.posts, dd.topics, dd.views, dd.thumbs {
 	width: 8%;
 	text-align: center;
 	line-height: 2.2em;
 	font-size: 1.2em;
+}
+
+ul.topics dd.thumbs
+{
+	width: 80px;
+	padding: 0 2px;
+	height: 48px;
+}
+
+dl.thumbed dt
+{
+	width: 41%;
+}
+
+dl.thumbed dd.lastpost
+{
+	width: 20%;
+}
+
+dl.thumbeds dd.thumbs
+{
+	width: 52px;
+}
+
+ul.topics dl.thumbeds dd.thumbs
+{
+	height: 32px;
+}
+
+dl.thumbeds dt
+{
+	width: 41%;
+}
+
+dl.thumbeds dd.lastpost
+{
+	width: 20%;
 }
 
 /* List in forum description */
