@@ -239,8 +239,8 @@ div.rules {
 }
 
 p.rules {
-	background-color: #3594c2;
-	color: #a7a7a9;
+	background-color: #2584a2;
+	color: #d7d7d9;
 }
 
 /*  	
@@ -805,7 +805,7 @@ ul.cplist {
 }
 
 #cp-main table.table1 thead th {
-	color: #22262e;
+	color: #aaaaaa;
 	border-bottom-color: #22262e;
 }
 
