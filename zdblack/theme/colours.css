@@ -554,7 +554,7 @@ dl.codebox code {
 
 .syntaxbg		{ color: #a7a7a9; }
 .syntaxcomment	{ color: #8ad2df; }
-.syntaxdefault	{ color: #666666; }
+.syntaxdefault	{ color: #999999; }
 .syntaxhtml		{ color: #999a9a; }
 .syntaxkeyword	{ color: #007700; }
 .syntaxstring	{ color: #DD0000; }
