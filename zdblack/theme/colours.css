@@ -222,9 +222,9 @@ dl.details dd {
 	color: #BC2A4D;
 }
 
-.reported {
-	background-color: #F7ECEF;
-}
+/*.reported {
+	background-color: transparent;
+}*/
 
 li.reported:hover {
 	background-color: #ECD5D8 !important;
@@ -239,7 +239,7 @@ div.rules {
 }
 
 p.rules {
-	background-color: #2584a2;
+	background-color: #2f566b;
 	color: #d7d7d9;
 }
 

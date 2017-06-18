@@ -593,9 +593,9 @@ li.pagination {
 	font-size: 1em;
 }
 
-.reported {
-	background-color: #f7f7f7;
-}
+/*.reported {
+	background-color: #f7eceF;
+}*/
 
 li.reported:hover {
 	background-color: #ececec;
