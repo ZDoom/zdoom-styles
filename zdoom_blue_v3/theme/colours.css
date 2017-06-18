@@ -654,7 +654,7 @@ fieldset.polls dd div {
 }
 
 .leftprofile .postbody {
-	border-right-color: transparent;
+	border-left-color: transparent;
 }
 
 .rtl .postprofile {
