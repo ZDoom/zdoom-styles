@@ -42,7 +42,7 @@ html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/ra
 	visibility: hidden;
 }*/
 
-.clearfix, #tabs, #minitabs, fieldset dl, ul.topiclist dl, dl.polls {
+.clearfix, #tabs, #ptabs, #minitabs, fieldset dl, ul.topiclist dl, dl.polls {
 	height: 1%;
 	overflow: hidden;
 }
