@@ -60,7 +60,6 @@ hr.dashed {
 
 .forabg {
 	background-color: #20242d;
-	background-image: url("{T_THEME_PATH}/images/bg_list.gif");
 }
 
 .forumbg {
@@ -411,8 +410,7 @@ Colours and backgrounds for content.css
 -------------------------------------------------------------- */
 
 ul.forums {
-	background-color: #17181a;
-	background-image: url("{T_THEME_PATH}/images/gradient.gif");
+	background-color: rgba(22, 23, 25, 1);
 }
 
 ul.topiclist li {
