@@ -460,7 +460,7 @@ li.row:hover dd {
 }
 
 li.header dt, li.header dd {
-	color: #FFFFFF;
+	color: #bdbdbd;
 	font-weight: bold;
 	text-decoration: none;
 }
