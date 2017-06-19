@@ -822,11 +822,10 @@ ul.cplist {
 /* CP tabbed menu
 ----------------------------------------*/
 #tabs a {
-	background-image: url("{T_THEME_PATH}/images/bg_tabs1.gif");
+	background-color:#20252d
 }
 
 #tabs a span {
-	background-image: url("{T_THEME_PATH}/images/bg_tabs2.gif");
 	color: #5aa2d2;
 }
 
@@ -835,7 +834,8 @@ ul.cplist {
 }
 
 #tabs .activetab a {
-	border-bottom-color: #121212;
+	background-color:#30353d;
+	border-bottom-color: #5aa2c7;
 }
 
 #tabs .activetab a span {
