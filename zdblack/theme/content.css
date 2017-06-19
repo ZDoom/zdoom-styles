@@ -52,7 +52,6 @@ ul.topiclist dt {
 ul.topiclist dd {
 	display: block;
 	float: left;
-	border-left: 1px solid #FFFFFF;
 	padding: 4px 0;
 }
 
