@@ -48,8 +48,7 @@ hr.dashed {
 /* Round cornered boxes and backgrounds
 ---------------------------------------- */
 .headerbar {
-	background-color: #2f3239;
-	background-image: url("{T_THEME_PATH}/images/bg_header.gif");
+	background-color: #20252d;
 	color: #a7a7a9;
 	font-weight: bold;
 	text-decoration: none;
