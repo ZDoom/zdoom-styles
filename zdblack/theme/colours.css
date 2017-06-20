@@ -865,6 +865,7 @@ ul.cplist {
 #navigation a {
 	color: #a1a2a3;
 	background-color: #1c1f26;
+	margin-right: 5px;
 }
 
 .rtl #navigation a {
