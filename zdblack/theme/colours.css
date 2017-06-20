@@ -357,7 +357,7 @@ a.topictitle:active {
 
 /* Profile links */
 .postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
-	color: #58a2d2;
+	color: #7ca8c5;
 }
 
 .postprofile a:hover, .postprofile dt.author a:hover {
