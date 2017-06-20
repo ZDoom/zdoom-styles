@@ -787,6 +787,9 @@ Colours and backgrounds for cp.css
 
 /* Main CP box
 ----------------------------------------*/
+#cp-menu hr {
+	margin-right:5px;
+}
 
 #cp-main h3, #cp-main hr, #cp-menu hr {
 	border-color: #555555;
