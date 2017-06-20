@@ -712,7 +712,7 @@ fieldset.polls dd div {
 }
 
 .online .postprofile::after {
-	border-bottom: solid 2px #0082c8;
+	border-bottom: solid 2px #83bfff;
 	content: "Online";
 }
 
