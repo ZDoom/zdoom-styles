@@ -222,11 +222,11 @@ dl.details dd {
 }
 
 .reported .inner {
-    background-color: rgba(95, 0, 0, 0.75);
+    background-color: rgb(89, 0, 0);
 }
 
 .reported {
-	background-color: rgba(95, 0, 0, 0.75);
+	background-color: rgb(89, 0, 0);
 }
 
 li.reported:hover {
