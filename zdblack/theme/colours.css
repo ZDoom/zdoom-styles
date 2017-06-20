@@ -9,7 +9,7 @@ html, body {
 }
 
 h1 {
-	color: #5aa2d2;
+	color: #7ca8c5;
 }
 
 h2 {
@@ -27,7 +27,7 @@ hr {
 }
 
 hr.dashed {
-	border-top-color: #5aa2d2;
+	border-top-color: #7ca8c5;
 }
 
 /* Search box
@@ -173,7 +173,7 @@ dl.details dd {
 }
 
 .pagination span a, .pagination span a:link, .pagination span a:visited {
-	color: #5aa2d2;
+	color: #7ca8c5;
 	background-color: #1c1e24;
 	border-color: #616161;
 }
@@ -251,20 +251,20 @@ p.rules {
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
 
-a:link	{ color: #5aa2d2; }
-a:visited	{ color: #5aa2d2; }
+a:link	{ color: #7ca8c5; }
+a:visited	{ color: #7ca8c5; }
 a:hover	{ color: #a7a7a9; }
 a:active	{ color: #606161; }
 
 /* Links on gradient backgrounds */
 #search-box a:link, .navbg a:link, .forumbg .header a:link, .forabg .header a:link, th a:link {
-	color: #5aa2d2;
+	color: #7ca8c5;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 #search-box a:visited, .navbg a:visited, .forumbg .header a:visited, .forabg .header a:visited, th a:visited {
-	color: #5aa2d2;
+	color: #7ca8c5;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -276,14 +276,14 @@ a:active	{ color: #606161; }
 }
 
 #search-box a:active, .navbg a:active, .forumbg .header a:active, .forabg .header a:active, th a:active {
-	color: #5aa2d2;
+	color: #7ca8c5;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 /* Links for forum/topic lists */
 a.forumtitle {
-	color: #5aa2d2;
+	color: #7ca8c5;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -823,7 +823,7 @@ ul.cplist {
 }
 
 #tabs a span {
-	color: #5aa2d2;
+	color: #7ca8c5;
 }
 
 #tabs a:hover span {
@@ -885,7 +885,7 @@ ul.cplist {
 }
 
 #navigation #active-subsection a:hover {
-	color: #5aa2d2;
+	color: #7ca8c5;
 }
 
 /* Preferences pane layout
@@ -1074,7 +1074,7 @@ a.button2, input.button2, input.button3 {
 
 /* <a> button in the style of the form buttons */
 a.button1, a.button1:link, a.button1:visited, a.button1:active, a.button2, a.button2:link, a.button2:visited, a.button2:active {
-	color: #5aa2d2;
+	color: #7ca8c5;
 }
 
 /* Hover states */
