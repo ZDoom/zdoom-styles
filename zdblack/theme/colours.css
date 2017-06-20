@@ -370,11 +370,11 @@ a.topictitle:active {
 
 /* Profile searchresults */	
 .search .postprofile a {
-	color: #38668c;
+	color: #7ca8c5;
 }
 
 .search .postprofile a:hover {
-	color: #7d9eb9;
+	color: #aac8e0;
 }
 
 /* Back to top of page */
@@ -516,8 +516,8 @@ dl.faq dt {
 blockquote {
 	background-color: #20252d;
 	background-image: url("{T_THEME_PATH}/images/quote.gif");
-	border-color:#3c76a3;
-	border-style: dashed;
+	border-color:#536b80;
+	border-style: solid;
 
 }
 
@@ -538,8 +538,8 @@ blockquote blockquote blockquote {
 /* Code block */
 dl.codebox {
 	background-color: #20252d;
-	border-color: #3c76a3;
-	border-style: dashed;
+	border-color: #536b80;
+	border-style: solid;
 }
 
 dl.codebox dt {
@@ -547,7 +547,7 @@ dl.codebox dt {
 }
 
 dl.codebox code {
-	color: #2E8B57;
+	color: #78b0bb;
 }
 
 .syntaxbg		{ color: #a7a7a9; }
