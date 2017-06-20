@@ -864,24 +864,21 @@ ul.cplist {
 /* Link styles for the sub-section links */
 #navigation a {
 	color: #a1a2a3;
-	background-color: #020202;
-	background-image: url("{T_THEME_PATH}/images/bg_menu.gif");
+	background-color: #1c1f26;
 }
 
 .rtl #navigation a {
-	background-image: url("{T_THEME_PATH}/images/bg_menu_rtl.gif");
 	background-position: 0 100%;
 }
 
 #navigation a:hover {
-	background-image: none;
-	background-color: #121212;
+	background-color: #30353d;
 	color: #a7a7a9;
 }
 
 #navigation #active-subsection a {
 	color: #7ca8c5;
-	background-color: #1c1f26;
+	background-color: #30353d;
 	background-image: none;
 }
 
