@@ -1057,7 +1057,6 @@ message-box textarea {
 a.button1, input.button1, input.button3, a.button2, input.button2 {
 	color: rgb(141, 171, 206);
 	background-color: rgb(43, 49, 60);
-	background-image: url("{T_THEME_PATH}/images/bg_button.gif");
 }
 
 a.button1, input.button1 {
