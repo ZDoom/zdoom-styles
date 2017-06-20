@@ -880,7 +880,7 @@ ul.cplist {
 }
 
 #navigation #active-subsection a {
-	color: #3d8ec5;
+	color: #7ca8c5;
 	background-color: #1c1f26;
 	background-image: none;
 }
@@ -892,7 +892,7 @@ ul.cplist {
 /* Preferences pane layout
 ----------------------------------------*/
 #cp-main h2 {
-	color: #3d8ec5;
+	color: #7ca8c5;
 }
 
 #cp-main .panel {
