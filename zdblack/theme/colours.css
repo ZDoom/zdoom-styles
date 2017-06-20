@@ -880,6 +880,7 @@ ul.cplist {
 	color: #7ca8c5;
 	background-color: #30353d;
 	background-image: none;
+	border-right:#7ca8c5 solid 1px
 }
 
 #navigation #active-subsection a:hover {
