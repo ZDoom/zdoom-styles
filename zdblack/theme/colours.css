@@ -621,7 +621,7 @@ fieldset.polls dl.voted {
 }
 
 fieldset.polls dd div {
-	color: #a7a7a9;
+	color: #dddddd;
 }
 
 .rtl .pollbar1, .rtl .pollbar2, .rtl .pollbar3, .rtl .pollbar4, .rtl .pollbar5 {
