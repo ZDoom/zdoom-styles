@@ -996,7 +996,7 @@ Colours and backgrounds for forms.css
 select {
 	border-color: #536b80;
 	background-color: #111215;
-	color: #7ca8c5;
+	color: #18191c;
 	border-style: solid;
 }
 
@@ -1060,11 +1060,11 @@ message-box textarea {
 
 a.button1, input.button1, input.button3, a.button2, input.button2 {
 	color: #7ca8c5;
-	background-color: #111215;
+	background-color: #18191c;
 }
 
 a.button1, input.button1 {
-	border-color: #1c1f25;
+	border-color: #536b80;
 }
 
 input.button3 {
