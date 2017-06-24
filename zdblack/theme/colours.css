@@ -180,9 +180,9 @@ dl.details dd {
 }
 
 .pagination span a:hover {
-	border-color: #515151;
+	border-color: #a7a7a9;
 	background-color: #707070;
-	color: #adc586;
+	color: #a7a7a9;
 }
 
 .pagination span a:active {
