@@ -168,7 +168,7 @@ dl.details dd {
 ---------------------------------------- */
 
 .pagination span strong {
-	color: #a7a7a9;
+	color: #cccccc;
 	background-color: #565656;
 	border-color: #1b1e23;
 }
@@ -181,8 +181,8 @@ dl.details dd {
 
 .pagination span a:hover {
 	border-color: #a7a7a9;
-	background-color: #707070;
-	color: #a7a7a9;
+	background-color: #505050;
+	color: #ECEDEE;
 }
 
 .pagination span a:active {
@@ -199,7 +199,7 @@ dl.details dd {
 }
 
 .row .pagination span a, li.pagination span a {
-	background-color: #020202;
+	background-color: #1c1e24;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -218,11 +218,7 @@ dl.details dd {
 }
 
 .error {
-	color: #BC2A4D;
-}
-
-.reported .inner {
-    background-color: rgb(89, 0, 0);
+	color: #bc2a2a;
 }
 
 .reported {
