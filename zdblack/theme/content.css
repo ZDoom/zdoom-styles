@@ -300,6 +300,10 @@ div[class].topic-actions {
 	padding-left: 10px;
 }
 
+.leftprofile .banned .postbody {
+	border-left-color:rgb(169, 0, 0);
+}
+
 .postbody .ignore {
 	font-size: 1.1em;
 }
@@ -809,12 +813,22 @@ fieldset.polls dd div {
 	display: inline;
 }
 
+.banned .postprofile {
+	background-color: rgba(105, 0, 0, 0.41);
+	border-left-color:rgb(169, 0, 0);
+}
+
 .leftprofile .postprofile {
 	float: left;
 	border-left: none;
 	padding-left: 0px;
 	margin-left: 0px;
 	width: 150px;
+}
+
+.leftprofile .banned .postprofile {
+	background-color: rgba(105, 0, 0, 0.41);
+	border-left-color:rgb(169, 0, 0);
 }
 
 .pm .postprofile {
