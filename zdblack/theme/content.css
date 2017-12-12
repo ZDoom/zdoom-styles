@@ -337,6 +337,10 @@ div[class].topic-actions {
 	width: 68%
 }
 
+dd.custitle {
+        word-wrap: break-word;
+}
+
 /* Topic review panel
 ----------------------------------------*/
 #review {
