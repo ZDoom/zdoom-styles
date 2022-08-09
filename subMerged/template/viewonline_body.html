@@ -1,0 +1,73 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{L_WHO_IS_ONLINE}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_WHO_IS_ONLINE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<h4>{TOTAL_REGISTERED_USERS_ONLINE}</h4>
+			<h4>{TOTAL_GUEST_USERS_ONLINE}<!-- IF S_SWITCH_GUEST_DISPLAY --> [ <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a> ]<!-- ENDIF --></h4>
+			{L_ONLINE_EXPLAIN}</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"><!-- IF LEGEND -->{L_LEGEND} :: {LEGEND}<!-- ENDIF --> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" /> <!-- IF PAGINATION -->
+<table width="740" cellspacing="0">
+	<tr>
+		<td nowrap="nowrap" width="1%"><!-- IF PREVIOUS_PAGE --><a title="{L_PREVIOUS}" href="{PREVIOUS_PAGE}"><img src="{T_IMAGESET_PATH}/topic_prev.gif" alt="" height="25" width="25" border="0" /></a><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="5" /> <!-- ELSE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="30" /> <!-- ENDIF --></td>
+		<td class="submerged" valign="bottom" nowrap="nowrap">{PAGE_NUMBER} </td>
+		<td class="submerged" align="left" valign="bottom" nowrap="nowrap" width="100%"><b><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b></td>
+		</td>
+		<td align="right" valign="middle" nowrap="nowrap"></td>
+		<td nowrap="nowrap" width="1%"><!-- IF NEXT_PAGE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="20" /><a title="{L_NEXT}" href="{NEXT_PAGE}"><img src="{T_IMAGESET_PATH}/topic_next.gif" alt="" height="25" width="25" border="0" /></a><!-- ELSE --> <img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="45" /><!-- ENDIF --></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="33%"><a href="{U_SORT_USERNAME}">{L_USERNAME}</a></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="33%"><a href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="33%"><a href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN user_row -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" style="background:{T_THEME_PATH}/images/sea-bkg.gif"></td>
+		
+		<td class="submerged"><p class="submerged">{user_row.USERNAME_FULL}</p><!-- IF user_row.USER_IP --><p class="submerged">{L_IP}: <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> &#187; <a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a></p><!-- ENDIF -->
+			<!-- IF user_row.USER_BROWSER -->{user_row.USER_BROWSER}<!-- ENDIF --></td>
+		<td class="submerged" valign="middle" width="33%"><p class="submerged">&nbsp;{user_row.LASTUPDATE}</p></td>
+		<td valign="middle" width="33%"><img src="{T_THEME_PATH}/images/breadcrumb.gif" alt="" height="8" width="8" /><a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a></td>
+		<td width="1%" style="background:{T_THEME_PATH}/images/sea-bkg.gif"></td>
+	</tr>
+	<!-- END user_row -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="3" align="right" width="98%"><!-- INCLUDE jumpbox.html --></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- IF PAGINATION -->
+<table width="740" cellspacing="0">
+	<tr>
+		<td nowrap="nowrap" width="1%"><!-- IF PREVIOUS_PAGE --><a title="{L_PREVIOUS}" href="{PREVIOUS_PAGE}"><img src="{T_IMAGESET_PATH}/topic_prev.gif" alt="" height="25" width="25" border="0" /></a><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="5" /> <!-- ELSE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="30" /> <!-- ENDIF --></td>
+		<td class="submerged" valign="bottom" nowrap="nowrap">{PAGE_NUMBER} </td>
+		<td class="submerged" align="left" valign="bottom" nowrap="nowrap" width="100%"><b><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a> <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b></td>
+		</td>
+		<td align="right" valign="middle" nowrap="nowrap"></td>
+		<td nowrap="nowrap" width="1%"><!-- IF NEXT_PAGE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="20" /><a title="{L_NEXT}" href="{NEXT_PAGE}"><img src="{T_IMAGESET_PATH}/topic_next.gif" alt="" height="25" width="25" border="0" /></a><!-- ELSE --> <img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="45" /><!-- ENDIF --></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<!-- INCLUDE overall_footer.html -->

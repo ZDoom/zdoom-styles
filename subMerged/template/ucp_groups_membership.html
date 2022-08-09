@@ -1,0 +1,107 @@
+<!-- INCLUDE ucp_header.html -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_USERGROUPS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><span class="submerged">{L_GROUPS_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2">{L_GROUP_DETAILS}</td>
+		<td class="table_title">{L_SELECT}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN leader --><!-- IF leader.S_FIRST_ROW -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="3"><b>{L_GROUP_LEADER}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF S_CHANGE_DEFAULT --><input type="radio" class="radio" name="default"<!-- IF leader.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{leader.GROUP_ID}" /><!-- ENDIF --></td>
+		<td><b class="submerged"><a href="{leader.U_VIEW_GROUP}">{leader.GROUP_NAME}</a></b> <!-- IF leader.GROUP_DESC --><br />
+			<span class="submerged">{leader.GROUP_DESC}</span><!-- ENDIF --> <!-- IF not leader.GROUP_SPECIAL --><br />
+			<i class="submerged">{leader.GROUP_STATUS}</i><!-- ENDIF --></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF not leader.GROUP_SPECIAL --><input class="radio" type="radio" name="selected" value="{leader.GROUP_ID}" /><!-- ENDIF --></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END leader --><!-- BEGIN member --><!-- IF member.S_FIRST_ROW -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="3"><b>{L_GROUP_MEMBER}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF S_CHANGE_DEFAULT --><input type="radio" class="radio" name="default"<!-- IF member.S_GROUP_DEFAULT --> checked="checked"<!-- ENDIF --> value="{member.GROUP_ID}" /><!-- ENDIF --></td>
+		<td><b class="submerged"><a href="{member.U_VIEW_GROUP}"<!-- IF member.GROUP_COLOUR --> style="color: #{member.GROUP_COLOUR};"<!-- ENDIF -->>{member.GROUP_NAME}</a></b><!-- IF member.GROUP_DESC --><br />
+			<span class="submerged">{member.GROUP_DESC}</span><!-- ENDIF --> <!-- IF not member.GROUP_SPECIAL --><br />
+			<i class="submerged">{member.GROUP_STATUS}</i><!-- ENDIF --></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF not member.GROUP_SPECIAL --><input class="radio" type="radio" name="selected" value="{member.GROUP_ID}" /><!-- ENDIF --></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END member --><!-- BEGIN pending --><!-- IF pending.S_FIRST_ROW -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="3"><b>{L_GROUP_PENDING}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="center" nowrap="nowrap" width="6%"> </td>
+		<td><b class="submerged"><a href="{pending.U_VIEW_GROUP}"<!-- IF pending.GROUP_COLOUR --> style="color: #{pending.GROUP_COLOUR};"<!-- ENDIF -->>{pending.GROUP_NAME}</a></b><!-- IF pending.GROUP_DESC --><br />
+			<span class="submerged">{pending.GROUP_DESC}</span><!-- ENDIF --><!-- IF not pending.GROUP_SPECIAL --><br />
+			<i class="submerged">{pending.GROUP_STATUS}</i><!-- ENDIF --></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF not pending.GROUP_SPECIAL --><input class="radio" type="radio" name="selected" value="{pending.GROUP_ID}" /><!-- ENDIF --></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END pending --><!-- BEGIN nonmember --><!-- IF nonmember.S_FIRST_ROW -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="3"><b>{L_GROUP_NONMEMBER}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="center" nowrap="nowrap" width="6%"> </td>
+		<td><b class="submerged"><a href="{nonmember.U_VIEW_GROUP}"<!-- IF nonmember.GROUP_COLOUR --> style="color: #{nonmember.GROUP_COLOUR};"<!-- ENDIF -->>{nonmember.GROUP_NAME}</a></b> <!-- IF nonmember.GROUP_DESC --><br />
+			<span class="submerged">{nonmember.GROUP_DESC}</span><!-- ENDIF --> <!-- IF not nonmember.GROUP_SPECIAL --><br />
+			<i class="submerged">{nonmember.GROUP_STATUS}</i><!-- ENDIF --></td>
+		<td align="center" nowrap="nowrap" width="6%"><!-- IF nonmember.S_CAN_JOIN --><input class="radio" type="radio" name="selected" value="{nonmember.GROUP_ID}" /><!-- ENDIF --></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END nonmember -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="3"><!-- IF S_CHANGE_DEFAULT -->
+			<div style="float: left;">
+				<input class="btnlite" type="submit" name="change_default" value="Change default group" /></div>
+			<!-- ENDIF -->
+			<div style="float:right">
+				<span class="submerged">{L_SELECT}: </span><select name="action">
+					<option value="join">{L_JOIN_SELECTED}</option>
+					<option value="resign">{L_RESIGN_SELECTED}</option>
+					<option value="demote">{L_DEMOTE_SELECTED}</option>
+				</select> <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" /> </div>
+		</td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

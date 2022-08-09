@@ -1,0 +1,45 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{MESSAGE_TITLE}</div>
+<form action="{S_CONFIRM_ACTION}" method="post" name="confirm">
+	<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+	<table width="80%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{MESSAGE_TITLE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="center" width="98%"><!-- IF ADDITIONAL_MSG --><span class="gensmall" style="color:red">{ADDITIONAL_MSG}</span><br />
+				<!-- ENDIF --><!-- IF S_NOTIFY_POSTER --><input class="radio" type="checkbox" name="notify_poster" checked="checked" /><span class="gensmall"><!-- IF S_APPROVE -->{L_NOTIFY_POSTER_APPROVAL}<!-- ELSE -->{L_NOTIFY_POSTER_DISAPPROVAL}<!-- ENDIF --></span><br />
+				<!-- ENDIF --><!-- IF not S_APPROVE --><br />
+				<table width="90%" border="0" cellspacing="2" cellpadding="1">
+					<tr>
+						<td align="left" width="22%"><b class="gensmall">{L_DISAPPROVE_REASON}:</b></td>
+						<td width="78%"><select name="reason_id">
+								<!-- BEGIN reason -->
+								<option selected="selected" value="{reason.ID}" <!-- IF reason.S_SELECTED -->="<!-- IF reason.S_SELECTED -->" <!-- ENDIF -->="<!-- ENDIF -->">{reason.DESCRIPTION}</option><!-- END reason -->
+							</select></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top"><span class="gensmall"><b>{L_MORE_INFO}:</b></span><br />
+							<span class="submerged">{L_CAN_LEAVE_BLANK}</span></td>
+						<td align="left"><textarea class="post" style="width:500px" name="reason" rows="10" cols="40">{REASON}</textarea></td>
+					</tr>
+				</table>
+				<br />
+				<!-- ENDIF --><br />
+				{S_HIDDEN_FIELDS}<span class="gensmall">{MESSAGE_TEXT}</span><br />
+				<br />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="center" width="98%"><input class="btnmain" type="submit" name="confirm" value="{YES_VALUE}" /><input class="btnlite" type="submit" name="cancel" value="{L_NO}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE overall_footer.html -->

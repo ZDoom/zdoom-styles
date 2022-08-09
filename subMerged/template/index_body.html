@@ -1,0 +1,328 @@
+<!-- DEFINE $S_IN_INDEX = 1 -->
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{L_FORUM_INDEX}</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr><!-- Start Left Panels -->
+		<td align="left" valign="top" width="15%"><!-- Start FAQ Panel -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" width="132"><a href="{U_FAQ}">{L_FAQ}</a></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<!-- IF S_BOARD_DISABLED -->
+				<tr>
+					<td class="panel_cell" colspan="3" align="center" width="150">
+						<table width="100%" cellspacing="3">
+							<tr>
+								<td valign="top" width="10%"><img src="{T_THEME_PATH}/images/disabled_info.gif" alt="" height="20" width="20" border="0" /></td>
+								<td width="90%">
+									<h4>{L_BOARD_DISABLED}!</h4>
+								</td>
+							</tr>
+						</table>
+						<hr />
+					</td>
+				</tr>
+				<!-- ENDIF -->
+				<!-- IF S_USER_LOGGED_IN -->
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{LAST_VISIT_DATE}</td>
+				</tr>
+				<!-- ENDIF -->
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{CURRENT_TIME}</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{S_TIMEZONE}
+						<hr />
+					</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">
+						<table width="100%" border="0" cellspacing="3" cellpadding="0">
+							<tr>
+								<td align="center" nowrap="nowrap" width="1%">{FORUM_NEW_IMG}</td>
+								<td width="99%" class="panel_txt">= {L_NEW_POSTS}</td>
+							</tr>
+							<tr>
+								<td align="center" nowrap="nowrap" width="1%">{FORUM_IMG}</td>
+								<td width="99%" class="panel_txt">= {L_NO_NEW_POSTS}</td>
+							</tr>
+							<tr>
+								<td align="center" nowrap="nowrap" width="1%"><img src="{T_IMAGESET_PATH}/forum_read_subforum.gif" alt="" height="19" width="19" border="0" /></td>
+								<td width="99%" class="panel_txt">= {L_SUBFORUM}</td>
+							</tr>
+							<tr>
+								<td align="center" nowrap="nowrap" width="1%"><img src="{T_IMAGESET_PATH}/forum_link.gif" alt="" height="19" width="19" border="0" /></td>
+								<td width="99%" class="panel_txt">= {L_FORUM_LINK}</td>
+							</tr>
+							<tr>
+								<td align="center" nowrap="nowrap" width="1%">{FORUM_LOCKED_IMG}</td>
+								<td width="99%" class="panel_txt">= {L_FORUM_LOCKED}</td>
+							</tr>
+							<!-- IF not S_IS_BOT or U_TEAM -->
+							<tr>
+								<td colspan="2" align="center" width="100%" class="panel_txt">
+								<hr />
+								<!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a><br /><!-- ENDIF -->
+								<!-- IF U_ACP --><a href="{U_ACP}">{L_ACP}</a><br /><!-- ENDIF -->
+								<!-- IF U_MCP --><a href="{U_MCP}">{L_MCP}</a><br /><!-- ENDIF -->
+								<!-- IF LEGEND -->{L_LEGEND}: {LEGEND}<br /><!-- ENDIF -->
+								<!-- IF U_TEAM --><a href="{U_TEAM}">{L_THE_TEAM}</a><!-- ENDIF -->
+								</td>
+							</tr>
+							<!-- ENDIF -->
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- End FAQ Panel -->
+			<!-- IF S_USER_LOGGED_IN -->
+			<!-- Start Statictics Panel -->
+			<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="10" width="1" /><br />
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" nowrap="nowrap" width="132">{L_STATISTICS}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{TOTAL_POSTS}</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{TOTAL_TOPICS}</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">{TOTAL_USERS}
+					<hr />
+					</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="center" width="150">{NEWEST_USER}</td>
+				</tr>
+				<tr>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- End Statictics Panel -->
+			<!-- ENDIF -->
+			<!-- IF S_USER_LOGGED_IN and S_DISPLAY_BIRTHDAY_LIST -->
+			<!-- Start Birthday Panel -->
+			<img src="{T_THEME_PATH}/images/spacer.gif" height="10" width="1" alt="" /><br />
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" nowrap="nowrap" width="132">{L_BIRTHDAYS}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="center" width="150">
+					<!-- IF BIRTHDAY_LIST -->
+					<p class="genmed">{L_CONGRATULATIONS}: <b>{BIRTHDAY_LIST}</b></p>
+					<!-- ELSE -->
+					{L_NO_BIRTHDAYS}
+					<!-- ENDIF -->
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- End Birthday Panel -->
+			<!-- ENDIF -->
+			</td>
+		<!-- End Left Panels -->
+		<td align="center" valign="top" width="70%">
+		<table width="95%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="center" width="100%">
+		<!-- INCLUDE forumlist_body.html -->
+				</td>
+			</tr>
+		</table>
+		</td>
+		<!-- Start Right Panels -->
+		<td align="right" valign="top" width="15%">
+		<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+		<!-- Start Login Panel -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" nowrap="nowrap" width="132"><a href="{U_LOGIN_LOGOUT}">{L_LOGIN}</a></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="center" width="150">
+						<form action="{S_LOGIN_ACTION}" method="post" name="forum_login">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td colspan="2" align="center" width="100%" class="panel_txt">{L_USERNAME}<br />
+									<img src="{T_THEME_PATH}/images/spacer.gif" height="3" width="1" alt="" /><br />
+									<input class="panel_input" type="text" name="username" maxlength="40" tabindex="1" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center" width="100%" class="panel_txt">{L_PASSWORD}<br />
+									<img src="{T_THEME_PATH}/images/spacer.gif" height="3" width="1" alt="" /><br />
+									<input class="panel_input" type="password" name="password" maxlength="25" tabindex="2" /></td>
+								</tr>
+								<tr>
+									<td align="center" width="20%"><input class="text" type="checkbox" name="autologin" tabindex="3" /></td>
+									<td align="left" width="80%" class="submerged">{L_LOG_ME_IN}</td>
+								</tr>
+								<tr>
+									<td align="center" width="20%"><input class="text" type="checkbox" name="viewonline" tabindex="4" /></td>
+									<td align="left" width="80%" class="submerged">{L_HIDE_ME}</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center" width="100%"><input type="hidden" name="sid" value="" /> <input type="hidden" name="redirect" value="" /> <input type="hidden" name="login" value="login" /> 
+									
+									
+										<a 
+										onclick="document.forum_login.submit(); return false;"
+										onmouseover = "rollover('user_login')" 
+										onmouseout  = "rollout('user_login')" 
+										><img 
+										src="{T_THEME_PATH}/images/send_0.gif" 
+										name="user_login" 
+										alt="" border="0" 
+										height="18" width="135"
+										></img></a>
+										<script type="text/javascript">
+										<!--
+										setrollover("{T_THEME_PATH}/images/send_0-over.gif");
+										//-->
+										</script>	
+									
+									</td>
+								</tr>
+						</table>
+						{S_LOGIN_REDIRECT}
+						</form>
+						<!--<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_REGISTER}</td></tr></table>');" onmouseout="return nd();" href="{U_REGISTER}"><img src="{T_THEME_PATH}/images/menu/subMenu_register.gif" alt="{L_REGISTER}" height="20" width="38" border="0" /></a><a href="{U_REGISTER}">{L_REGISTER}</a><br />
+						<a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>--></td>
+				</tr>
+				<tr>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- End Login Panel -->
+			<!-- ENDIF -->
+			<!-- IF S_DISPLAY_PM -->
+			<!-- Start PM Panel -->
+			<!-- IF S_USER_LOGGED_IN -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" nowrap="nowrap" width="98%"><a href="{U_PRIVATEMSGS}">{L_PRIVATE_MESSAGES}</a></td>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="center" width="150">{PRIVATE_MESSAGE_INFO}
+					<!-- IF PRIVATE_MESSAGE_INFO_UNREAD -->
+					, {PRIVATE_MESSAGE_INFO_UNREAD}
+					<!-- ENDIF --></td>
+				</tr>
+				<tr>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- ENDIF -->
+			<!-- End PM Panel -->
+			<!-- ENDIF -->
+			<!-- IF S_USER_LOGGED_IN and S_DISPLAY_ONLINE_LIST -->
+			<!-- Start Who's Online Panel -->
+			<img src="{T_THEME_PATH}/images/spacer.gif" height="10" width="1" alt="" /><br />
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" nowrap="nowrap" width="98%"><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></td>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="100%">{TOTAL_USERS_ONLINE}
+						<hr />
+					</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="100%">{LOGGED_IN_USER_LIST}
+						<hr />
+					</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="100%">{L_ONLINE_EXPLAIN}
+					<hr />
+					</td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="100%">{RECORD_USERS}</td>
+				</tr>
+				<tr>
+					<td valign="top" width="1%"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="98%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td valign="top" width="1%"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<!-- End Who's Online Panel -->
+			<!-- ENDIF -->
+			<!-- IF S_DISPLAY_SEARCH -->
+			<!-- Start Search Panel -->
+			<img src="{T_THEME_PATH}/images/spacer.gif" height="10" width="1" alt="" /><br />
+			<form action="{U_SEARCH}?mode=results" method="get" name="quicksearch">
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="9"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+						<td class="panel_top" align="center" nowrap="nowrap" width="132"><a href="{U_SEARCH}">{L_SEARCH}</a></td>
+						<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+					</tr>
+					<tr>
+						<td class="panel_cell" colspan="3" align="center" width="150"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="5" width="1" /><br />
+						<input class="panel_input" type="text" name="keywords" /><br />
+						<img src="{T_THEME_PATH}/images/spacer.gif" height="5" width="1" alt="" /><br />
+						
+							<a 
+							onclick="document.quicksearch.submit(); return false;"
+							onmouseover = "rollover('search_box')" 
+							onmouseout  = "rollout('search_box')" 
+							><img 
+							src="{T_THEME_PATH}/images/send_0.gif" 
+							name="search_box" 
+							alt="" border="0" 
+							height="18" width="135"
+							></img></a>
+							<script type="text/javascript">
+							<!--
+							setrollover("{T_THEME_PATH}/images/send_0-over.gif");
+							//-->
+							</script>
+						
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+						<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+						<td valign="top" width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+					</tr>
+			</table>
+			{S_FORM_TOKEN}
+			</form>
+			<!-- End Search Panel -->
+			<!-- ENDIF -->
+			</td>
+		<!-- End Right Panels -->
+		</tr>
+</table>
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,108 @@
+<!-- INCLUDE mcp_header.html -->
+<form action="{U_POST_ACTION}" method="post" name="mcp">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_SELECT_USER}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="center" width="98%">
+				<table width="75%" border="0" cellspacing="1" cellpadding="4" align="center">
+					<tr>
+						<td align="right" width="40%"><b class="gen">{L_FIND_USERNAME}: </b><br />
+							<span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+						<td align="left" width="60%"><input class="post" type="text" name="username" size="20" maxlength="50" /></td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="center" width="98%"><input class="btnmain" type="submit" name="submituser" value="{L_SUBMIT}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<b class="gen"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_MOST_WARNINGS}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap">{L_USERNAME}</td>
+		<td class="table_title" align="center" nowrap="nowrap">{L_WARNINGS}</td>
+		<td class="table_title" align="left" nowrap="nowrap">{L_LATEST_WARNING_TIME}</td>
+		<td class="table_title" align="left"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN highest -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+		<td align="left" valign="top" nowrap="nowrap" width="78%"><span class="name">{highest.USERNAME_FULL}</span></td>
+		<td align="center" nowrap="nowrap" width="15%"><span class="gensmall">{highest.WARNINGS}</span></td>
+		<td align="left" nowrap="nowrap" width="15%"><span class="gensmall">{highest.WARNING_TIME}</span></td>
+		<td align="left" valign="top" nowrap="nowrap" width="15%"><span class="gensmall"><a href="{highest.U_NOTES}">{L_VIEW_NOTES}</a></span></td>
+		<td width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><span class="gen">{L_WARNINGS_ZERO_TOTAL}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END highest -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<b class="gen"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_LATEST_WARNINGS}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap"> {L_USERNAME} </td>
+		<td class="table_title" align="left" nowrap="nowrap"> {L_TIME} </td>
+		<td class="table_title" align="center" nowrap="nowrap"> {L_TOTAL_WARNINGS} </td>
+		<td class="table_title" align="left"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN latest -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td align="left" width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+		<td align="left" valign="top" width="78%"><span class="name">{latest.USERNAME_FULL}</span></td>
+		<td align="left" valign="top" nowrap="nowrap" width="15%"><span class="gensmall">{latest.WARNING_TIME}</span></td>
+		<td align="center" valign="top" nowrap="nowrap" width="15%"><span class="gensmall">{latest.WARNINGS}</span></td>
+		<td align="left" valign="top" nowrap="nowrap" width="15%"><span class="gensmall"><a href="{latest.U_NOTES}">{L_VIEW_NOTES}</a></span></td>
+		<td width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><span class="gen">{L_WARNINGS_ZERO_TOTAL}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END latest -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE mcp_footer.html -->

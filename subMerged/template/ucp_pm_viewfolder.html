@@ -1,0 +1,124 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div id="pagecontent">
+
+<!-- IF not PROMPT --><!-- INCLUDE ucp_pm_message_header.html --><!-- ENDIF -->
+<!-- IF S_PM_ICONS --><!-- DEFINE $COLSPAN = 6 --><!-- ELSE --><!-- DEFINE $COLSPAN = 5 --><!-- ENDIF -->
+<form style="margin:0px" action="{S_PM_ACTION}" method="post" name="viewfolder">
+	<!-- IF PROMPT -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_l.gif" alt="" height="17" width="17" /></td>
+			<td class="table_title" colspan="2" align="center" width="98%">{L_OPTIONS}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="35%">{L_DELIMITER}:</td>
+			<td class="table_content" align="left"><input class="post" type="text" name="delimiter" value="," /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="35%">{L_ENCLOSURE}:</td>
+			<td class="table_content" align="left"><input class="post" type="text" name="enclosure" value="&quot;" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center"><input type="hidden" name="export_option" value="CSV" /><input class="btnmain" type="submit" name="submit_export" value="{L_EXPORT_FOLDER}" />  <input class="btnlite" type="reset" name="reset" value="Reset" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+</form>
+<!-- ELSE -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="<!-- IF S_PM_ICONS -->3<!-- ELSE -->2<!-- ENDIF -->" align="left"> {L_SUBJECT} </td>
+		<td class="table_title" align="left"> <!-- IF S_SHOW_RECIPIENTS -->{L_RECIPIENTS}<!-- ELSE -->{L_AUTHOR}<!-- ENDIF --> </td>
+		<td class="table_title" align="left"> {L_SENT_AT} </td>
+		<td class="table_title" align="center" width="1%"> {L_MARK} </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- IF NUM_NOT_MOVED or NUM_REMOVED -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="{$COLSPAN}" align="left"><span class="gen">
+
+				<!-- IF NUM_REMOVED -->
+
+				{RULE_REMOVED_MESSAGES}
+
+					<!-- IF NUM_NOT_MOVED --><br /><!-- ENDIF -->
+
+				<!-- ENDIF -->
+
+				<!-- IF NUM_NOT_MOVED -->
+
+				{NOT_MOVED_MESSAGES}<br />{RELEASE_MESSAGE_INFO}
+
+				<!-- ENDIF -->
+
+			</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- BEGIN messagerow -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="center" nowrap="nowrap" width="25">{messagerow.FOLDER_IMG}</td>
+		<!-- IF S_PM_ICONS -->
+		<td align="left" width="25">{messagerow.PM_ICON_IMG}</td>
+		<!-- ENDIF -->
+		<!-- IF messagerow.S_PM_DELETED -->
+		<td class="table_side"><!-- ELSE -->
+		<td><!-- ENDIF --><!-- IF not messagerow.PM_IMG and messagerow.PM_CLASS --><span class="{messagerow.PM_CLASS}" style="float: left;"><img src="images/spacer.gif" alt="" height="10" width="10" /></span>  <!-- ELSEIF messagerow.PM_IMG -->{messagerow.PM_IMG}  <!-- ENDIF --><span class="topictitle">{messagerow.ATTACH_ICON_IMG} <!-- IF messagerow.S_PM_DELETED -->{L_MESSAGE_REMOVED_FROM_OUTBOX}<br />
+				<a style="float:right;" href="{messagerow.U_REMOVE_PM}">{L_DELETE_MESSAGE}</a> <!-- ELSE --><b><a href="{messagerow.U_VIEW_PM}">{messagerow.SUBJECT}</a></b> <!-- ENDIF --></span></td>
+		<td align="left" width="100">
+			<p class="topicauthor"><!-- IF S_SHOW_RECIPIENTS -->{messagerow.RECIPIENTS}<!-- ELSE -->{messagerow.MESSAGE_AUTHOR_FULL}<!-- ENDIF --></p>
+		</td>
+		<td align="center" nowrap="nowrap" width="120"><span class="submerged"> {messagerow.SENT_TIME} </span></td>
+		<td align="center"><input class="radio" type="checkbox" name="marked_msg_id[]" value="{messagerow.MESSAGE_ID}" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="{$COLSPAN}" align="center" valign="middle" height="30"><span class="gen">
+		<!-- IF S_COMPOSE_PM_VIEW and S_NO_AUTH_SEND_MESSAGE -->
+			<!-- IF S_USER_NEW -->{L_USER_NEW_PERMISSION_DISALLOWED}<!-- ELSE -->{L_NO_AUTH_SEND_MESSAGE}<!-- ENDIF -->
+		<!-- ELSE -->
+			{L_NO_MESSAGES}
+		<!-- ENDIF -->
+		</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END messagerow -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="{$COLSPAN}" align="center" valign="middle"> </td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="{$COLSPAN}" align="left" width="98%"><!-- IF .messagerow -->
+			<div style="float: left;">
+				<select name="export_option">
+					<option value="CSV">{L_EXPORT_AS_CSV}</option>
+					<option value="CSV_EXCEL">{L_EXPORT_AS_CSV_EXCEL}</option>
+					<option value="XML">{L_EXPORT_AS_XML}</option>
+				</select> <input class="btnlite" type="submit" name="submit_export" value="{L_EXPORT_FOLDER}" /></div>
+			<div style="float: right;">
+				<select name="mark_option">
+					{S_MARK_OPTIONS}{S_MOVE_MARKED_OPTIONS}
+				</select> <input class="btnlite" type="submit" name="submit_mark" value="{L_GO}" /> </div>
+			<!-- ENDIF --> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" />
+<div style="padding: 2px;"></div>
+<!-- INCLUDE ucp_pm_message_footer.html --><!-- ENDIF -->
+</div>
+<!-- INCLUDE ucp_footer.html -->

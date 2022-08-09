@@ -1,0 +1,119 @@
+<!-- INCLUDE ucp_header.html -->
+<!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+   <tr>
+      <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+      <td class="table_title" align="left" width="98%"> </td>
+      <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+   </tr>
+   <tr>
+      <td width="1%"></td>
+      <td class="table_content" align="left" width="98%"><span class="gen" style="color:red">{ERROR}</span></td>
+      <td width="1%"></td>
+   </tr>
+   <tr>
+      <td width="1%"></td>
+      <td class="table_bot" align="left" width="98%"> </td>
+      <td width="1%"></td>
+   </tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+   <tr>
+      <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_avatar.gif" alt="" height="35" width="35" /></td>
+      <td class="table_title" colspan="2" align="left" width="98%">{L_TITLE}</td>
+      <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+   </tr>
+   <tr>
+      <td width="1%"></td>
+      <td class="table_content" width="98%">
+         <table width="100%" cellspacing="3">
+            <tr>
+               <td width="35%">
+               <b class="gensmall">{L_CURRENT_IMAGE}: </b><br />
+                  <span class="submerged">{L_AVATAR_EXPLAIN}</span></td>
+               <!-- IF AVATAR -->
+               <td align="left"><br />
+               {AVATAR}<br />
+                  <br />
+                  <input class="radio" type="checkbox" name="delete" /> <span class="submerged">{L_DELETE_AVATAR}</span></td>
+                  
+               <!-- ELSE -->
+               <td align="left"><br /><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" /><br /></td>
+               
+               <!-- ENDIF -->
+            </tr>
+            <!-- IF S_UPLOAD_AVATAR_FILE -->
+            <tr>
+               <td width="35%"><b class="gensmall">{L_UPLOAD_AVATAR_FILE}: </b></td>
+               <td><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_SIZE}" /><input class="post" type="file" name="uploadfile" /></td>
+            </tr>
+            <!-- ENDIF -->
+            <!-- IF S_UPLOAD_AVATAR_URL -->
+            <tr>
+               <td width="35%"><b class="gensmall">{L_UPLOAD_AVATAR_URL}: </b><br />
+                  <span class="submerged">{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></td>
+               <td><input class="post" type="text" name="uploadurl" value="{AVATAR_URL}" size="40" /></td>
+            </tr>
+            <!-- ENDIF -->
+            <!-- IF S_LINK_AVATAR -->
+            <tr>
+               <td width="35%"><b class="gensmall">{L_LINK_REMOTE_AVATAR}: </b><br />
+                  <span class="submerged">{L_LINK_REMOTE_AVATAR_EXPLAIN}</span></td>
+               <td><input class="post" type="text" name="remotelink" value="{AVATAR_REMOTE}" size="40" /></td>
+            </tr>
+            <tr>
+               <td width="35%"><b class="gensmall">{L_LINK_REMOTE_SIZE}: </b><br />
+                  <span class="submerged">{L_LINK_REMOTE_SIZE_EXPLAIN}</span></td>
+               <td><input class="post" type="text" name="width" value="{AVATAR_WIDTH}" size="3" /> <span class="gen">{L_PIXEL}</span><input class="post" type="text" name="height" value="{AVATAR_HEIGHT}" size="3" /> <span class="gen">{L_PIXEL}</span></td>
+            </tr>
+            <!-- ENDIF -->
+            <!-- IF S_DISPLAY_GALLERY -->
+            <tr>
+               <td width="35%" class="gensmall"><b>{L_AVATAR_GALLERY}: </b></td>
+               <td class="gensmall"><strong><a href="{U_GALLERY}">{L_DISPLAY_GALLERY}</a></strong></td>
+            </tr>
+            <!-- ENDIF -->
+            
+            <!-- IF S_IN_AVATAR_GALLERY -->
+            <tr>
+               <td colspan="2" align="left" width="98%" class="gensmall"><b>{L_AVATAR_GALLERY}: </b></td>
+            </tr>
+            <tr>
+               <td colspan="2" align="center" valign="middle" class="gensmall">{L_AVATAR_CATEGORY}: <select name="category">
+                     {S_CAT_OPTIONS}
+                  </select>  <input class="btnlite" type="submit" name="display_gallery" value="{L_GO}" /></td>
+            </tr>
+            <tr>
+               <td colspan="2" align="center">
+                  <table border="0" cellspacing="1" cellpadding="4">
+                     <!-- BEGIN avatar_row -->
+                     <tr><!-- BEGIN avatar_column -->
+                        <td class="table_content" align="center"><img title="{avatar_row.avatar_column.AVATAR_NAME}" src="{avatar_row.avatar_column.AVATAR_IMAGE}" alt="{avatar_row.avatar_column.AVATAR_NAME}" /></td>
+                        <!-- END avatar_column --></tr>
+                     <tr><!-- BEGIN avatar_option_column -->
+                        <td class="table_content" align="center"><input class="radio" type="radio" name="avatar_select" value="{avatar_row.avatar_option_column.S_OPTIONS_AVATAR}" /></td>
+                        <!-- END avatar_option_column --></tr>
+                     <!-- END avatar_row -->
+                  </table>
+               </td>
+            </tr>
+            <!-- ENDIF -->
+   
+         </table></td>
+      <td width="1%"></td>
+   </tr>
+   <tr>
+      <td width="1%"></td>
+      <td class="table_bot" align="center">
+      <!-- IF S_GALLERY_AVATAR or S_IN_AVATAR_GALLERY or S_LINK_AVATAR or S_UPLOAD_AVATAR_URL or S_UPLOAD_AVATAR_FILE or AVATAR -->
+      {S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <!-- IF S_IN_AVATAR_GALLERY -->
+      <input class="btnlite" type="submit" name="cancel" value="{L_CANCEL}" />
+      <!-- ELSE --><input class="btnlite" type="reset" name="reset" value="{L_RESET}" />
+      <!-- ENDIF -->
+      <!-- ENDIF -->
+      </td>
+      <td width="1%"></td>
+   </tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

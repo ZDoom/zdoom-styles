@@ -1,0 +1,169 @@
+<!-- INCLUDE overall_header.html -->
+<form action="{S_PROFILE_ACTION}" method="post">
+	<div class="subMerged_title">{L_VIEWING_PROFILE}</div>
+	<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%" height="35"><img src="{T_THEME_PATH}/images/table_icon_avatar.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" width="98%">{L_USER_PRESENCE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="center" width="98%">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="center" valign="top" width="30%">
+							<table border="0" cellspacing="4" cellpadding="2">
+								<!-- IF S_USER_INACTIVE -->
+					
+								<tr>
+					
+									<td align="center" style="color: red;"><b class="gen">{L_USER_IS_INACTIVE}</b><br />{L_INACTIVE_REASON}: {USER_INACTIVE_REASON}<br /><br /></td>
+					
+								</tr>
+					
+								<!-- ENDIF -->
+								<tr>
+									<td align="center"><!-- IF USER_COLOR --><b class="name" style="color: #{USER_COLOR}"><!-- ELSE --><b class="name"><!-- ENDIF -->{USERNAME}</b><!-- IF U_USER_BAN --><span class="genmed"> [ <a href="{U_USER_BAN}">{L_USER_BAN}</a> ]</span><!-- ENDIF --><!-- IF U_USER_ADMIN --><span class="genmed"> [ <a href="{U_USER_ADMIN}">{L_USER_ADMIN}</a> ]</span><!-- ENDIF --></td>
+								</tr>
+								<!-- IF ONLINE_IMG -->
+								<tr>
+									<td align="center">{ONLINE_IMG}</td>
+								</tr>
+								<!-- ENDIF --><!-- IF RANK -->
+								<tr>
+									<td class="postdetails" align="center">{RANK}</td>
+								</tr>
+								<!-- ENDIF --><!-- IF RANK_IMG -->
+								<tr>
+									<td align="center">{RANK_IMG}</td>
+								</tr>
+								<!-- ENDIF --><!-- IF AVATAR_IMG -->
+								<tr>
+									<td align="center">{AVATAR_IMG}</td>
+								</tr>
+								<!-- ENDIF -->
+								<tr>
+									<td class="gensmall" align="center"> </td>
+								</tr>
+							</table>
+							<!-- IF S_USER_LOGGED_IN and S_ZEBRA -->
+							<!-- IF U_REMOVE_FRIEND -->
+							<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_REMOVE_FRIEND}</td></tr></table>');" onmouseout="return nd();" href="{U_REMOVE_FRIEND}"><img src="{T_IMAGESET_PATH}/remove_friend.gif" alt="" height="18" width="22" border="0" /></a>
+							<!-- ELSEIF U_REMOVE_FOE -->
+							<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_REMOVE_FOE}</td></tr></table>');" onmouseout="return nd();" href="{U_REMOVE_FOE}"><img src="{T_IMAGESET_PATH}/remove_foe.gif" alt="" height="18" width="22" border="0" /></a>
+							<!-- ELSE -->
+								<!-- IF U_ADD_FRIEND --><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FRIEND}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FRIEND}"><img src="{T_IMAGESET_PATH}/add_friend.gif" alt="" height="18" width="22" border="0" /></a><!-- ENDIF --><!-- IF U_ADD_FOE --><!-- IF U_ADD_FRIEND --> | <!-- ENDIF --> <a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FOE}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FOE}"><img src="{T_IMAGESET_PATH}/add_foe.gif" alt="" height="18" width="22" border="0" /></a><!-- ENDIF -->
+							<!-- ENDIF -->
+							<!-- ENDIF --><!-- IF U_SWITCH_PERMISSIONS --><br />
+							[ <a href="{U_SWITCH_PERMISSIONS}">{L_USE_PERMISSIONS}</a> ] <!-- ENDIF --><!-- IF U_USER_ADMIN --><br />
+							<span class="gensmall">[ <a href="{U_USER_ADMIN}">{L_USER_ADMIN}</a> ]</span><!-- ENDIF --> </td>
+						<td align="center" valign="top" width="70%">
+							<table border="0" cellspacing="4" cellpadding="2">
+								<tr>
+									<td align="center" valign="top" width="100%"><div align="left"><b>{L_ABOUT_USER} :</b></div><hr />
+										<table border="0" cellspacing="5" cellpadding="2">
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_USERGROUPS}: </b></td>
+												<td class="gensmall"><select name="g">
+														{S_GROUP_OPTIONS}
+													</select> <input class="btnlite" type="submit" name="submit" value="{L_GO}" /></td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_LOCATION}: </b></td>
+												<td class="gensmall">{LOCATION}</td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_AGE}: </b></td>
+												<td class="gensmall">{AGE}</td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_OCCUPATION}: </b></td>
+												<td class="gensmall">{OCCUPATION}</td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_INTERESTS}: </b></td>
+												<td class="gensmall">{INTERESTS}</td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_WEBSITE}: </b></td>
+												<td class="gensmall"><!-- IF U_WWW --><a href="{U_WWW}" target="_userwww">{U_WWW}</a><!-- ENDIF --></td>
+											</tr>
+											<!-- IF S_PROFILE_FIELD1 --><!-- Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{PROFILE_FIELD1_NAME}: </b></td>
+												<td class="gensmall">{PROFILE_FIELD1_VALUE}</td>
+											</tr>
+											<!-- ENDIF --><!-- BEGIN custom_fields -->
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{custom_fields.PROFILE_FIELD_NAME}: </b></td>
+												<td class="gensmall">{custom_fields.PROFILE_FIELD_VALUE}</td>
+											</tr>
+											<!-- END custom_fields -->
+										</table>
+									
+									<div align="left"><b>{L_USER_FORUM} :</b></div><hr />
+										<table width="100%" border="0" cellspacing="5" cellpadding="2">
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_JOINED}: </b></td>
+												<td class="gensmall" align="left" width="100%">{JOINED}</td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" nowrap="nowrap"><b>{L_VISITED}: </b></td>
+												<td class="gensmall" align="left" width="100%">{VISITED}</td>
+											</tr>
+											<!-- IF S_WARNINGS -->
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_WARNINGS}: </b></td>
+												<td class="gensmall" align="left" width="100%">{WARNINGS}
+													<!-- IF U_NOTES or U_WARN --><br />
+														[ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a> <!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --> <a href="{U_WARN}">{L_WARN_USER}</a> <!-- ENDIF -->]
+													<!-- ENDIF -->
+												</td>
+											</tr>
+											<!-- ENDIF -->
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_TOTAL_POSTS}: </b></td>
+												<td class="gensmall" align="left">{POSTS}<!-- IF POSTS_PCT --><br />
+													[{POSTS_PCT} / {POSTS_DAY}]<!-- ENDIF -->
+													<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br />[<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>]<!-- ELSEIF POSTS_IN_QUEUE --><br />[{L_POSTS_IN_QUEUE}]<!-- ENDIF -->
+													<br />
+													<!-- IF S_DISPLAY_SEARCH --><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF -->
+												</td>
+											</tr>
+											<!-- IF S_SHOW_ACTIVITY -->
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_ACTIVE_IN_FORUM}: </b></td>
+												<td class="gensmall" align="left"><!-- IF ACTIVE_FORUM_PCT --><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a><br />
+													[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]<!-- ELSE -->-<!-- ENDIF --></td>
+											</tr>
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_ACTIVE_IN_TOPIC}: </b></td>
+												<td class="gensmall" align="left"><!-- IF ACTIVE_TOPIC_PCT neq 0 --><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a><br />
+													[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]<!-- ELSE -->-<!-- ENDIF --></td>
+											</tr>
+											<!-- ENDIF -->
+										</table>
+										</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="left" width="100%"><!-- IF SIGNATURE -->{L_SIGNATURE}<span class="sig">
+											<hr style="width:30%;text-align:left;" />
+											{SIGNATURE}</span><!-- ENDIF --></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="left" width="98%"> <!-- IF U_EMAIL --><a href="{U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF --><!-- IF U_PM --><a href="{U_PM}">{PM_IMG}</a> <!-- ENDIF --><!-- IF U_MSN --><a onclick="popup('{U_MSN}', 550, 320); return false" href="{U_MSN}">{MSN_IMG}</a> <!-- ENDIF --><!-- IF U_YIM --><a onclick="popup('{U_YIM}', 780, 550); return false" href="{U_YIM}">{YIM_IMG}</a> <!-- ENDIF --><!-- IF U_AIM --><a onclick="popup('{U_AIM}', 550, 320); return false" href="{U_AIM}">{AIM_IMG}</a> <!-- ENDIF --><!-- IF U_ICQ --><a onclick="popup('{U_ICQ}', 550, 320); return false" href="{U_ICQ}">{ICQ_IMG}</a> <!-- ENDIF --><!-- IF U_JABBER --><a onclick="popup('{U_JABBER}', 550, 320); return false" href="{U_JABBER}">{JABBER_IMG}</a> <!-- ELSEIF U_JABBER -->{JABBER_IMG}<!-- ENDIF --></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+</form>
+<!-- INCLUDE jumpbox.html --><!-- INCLUDE overall_footer.html -->

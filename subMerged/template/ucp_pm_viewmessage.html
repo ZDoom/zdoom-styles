@@ -1,0 +1,112 @@
+<!-- INCLUDE ucp_header.html -->
+<div id="pagecontent">
+<!-- INCLUDE ucp_pm_message_header.html -->
+<div style="padding: 2px;"></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="59%">{L_PM_SUBJECT}: {SUBJECT}</td>
+		<td class="table_title" align="right" width="39%">{L_SENT_AT}: {SENT_DATE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td width="50%" class="table_content" align="left" valign="bottom"><b>{L_PM_FROM}: </b>{MESSAGE_AUTHOR_FULL} <!-- IF U_AUTHOR_PROFILE --><a href="{U_AUTHOR_PROFILE}">{PROFILE_IMG}</a> <!-- ENDIF --><!-- IF U_EMAIL --><a href="{U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF --></td>
+		<td align="right" width="50%" class="table_content"><!-- IF U_PRINT_PM --><a title="{L_PRINT_PM}" href="{U_PRINT_PM}"><img src="{T_IMAGESET_PATH}/icon_post_print.gif" alt="" height="18" width="22" border="0" /></a>  <!-- ENDIF -->  <!-- IF U_REPORT --><a href="{U_REPORT}">{REPORT_IMG}</a> <!-- ENDIF --><!-- IF U_DELETE --><a href="{U_DELETE}">{DELETE_IMG}</a>  <!-- ENDIF --><!-- IF U_QUOTE --><a href="{U_QUOTE}">{QUOTE_IMG}</a>  <!-- ENDIF --> <!-- IF U_EDIT --><a href="{U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF --></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- IF S_TO_RECIPIENT -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2" align="left" nowrap="nowrap"><b>{L_TO}:</b> 
+		<!-- BEGIN to_recipient -->
+			<!-- IF to_recipient.IS_GROUP --><span class="blue"><a href="{to_recipient.U_VIEW}">{to_recipient.NAME}</a></span><!-- ELSE -->{to_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END to_recipient --></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF S_BCC_RECIPIENT -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" nowrap="nowrap"><b>{L_BCC}:</b></td>
+		<td class="table_content">
+		<!-- BEGIN bcc_recipient -->
+			<!-- IF bcc_recipient.IS_GROUP --><span class="blue"><a href="{bcc_recipient.U_VIEW}">{bcc_recipient.NAME}</a></span><!-- ELSE -->{bcc_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END bcc_recipient -->
+		</td></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2" valign="top">
+			<table width="100%" cellspacing="0">
+				<tr>
+					<td align="left">
+						<table width="100%" cellspacing="0">
+							<tr>
+								<td align="left" width="50%"><b>{L_MESSAGE}: </b></td>
+								
+							</tr>
+						</table>
+						<div class="postbody">
+							{MESSAGE}</div>
+						<br />
+						<!-- IF S_HAS_ATTACHMENTS -->
+						<table width="90%" cellspacing="0">
+							<tr>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_tl.gif" alt="" height="18" width="18" border="0" /></td>
+								<td class="table_attach_title" valign="bottom">{L_ATTACHMENTS}:</td>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_tr.gif" alt="" height="18" width="18" border="0" /></td>
+							</tr>
+							<!-- BEGIN attachment -->
+							<tr>
+								<td class="table_attach_cell" colspan="3" align="center"><span class="gensmall">{attachment.DISPLAY_ATTACHMENT}</span></td>
+							</tr>
+							<!-- END attachment -->
+							<tr>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_bl.gif" alt="" height="18" width="18" border="0" /></td>
+								<td class="table_attach_bot" width="98%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_br.gif" alt="" height="18" width="18" border="0" /></td>
+							</tr>
+						</table>
+						<!-- ENDIF --><!-- IF S_DISPLAY_NOTICE --><span class="submerged" style="color:red;"><br />
+							<br />
+							{L_DOWNLOAD_NOTICE}</span> <!-- ENDIF --><!-- IF SIGNATURE --><span class="sig">
+							<hr style="width:30%;text-align:left;" />
+							{SIGNATURE} </span><!-- ENDIF --><!-- IF EDITED_MESSAGE --><span class="submerged">{EDITED_MESSAGE}</span> <!-- ENDIF --><!-- IF not S_HAS_ATTACHMENTS --><br clear="all" />
+						<br />
+						<!-- ENDIF -->
+						<table width="100%" cellspacing="0">
+							<tr valign="middle">
+								<td class="submerged" align="right"><!-- IF U_INFO --><a href="{U_INFO}">{INFO_IMG}</a> <!-- ENDIF --></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center">
+		<!-- IF U_POST_REPLY_PM -->
+			<table cellspacing="0">
+				<tr>
+					<td><a href="{U_POST_REPLY_PM}">{REPLY_IMG} </a></td>
+					<td valign="middle" nowrap="nowrap">&nbsp;<b><a href="{U_POST_REPLY_PM}">{L_POST_REPLY}</a></b></td>
+					<td>&nbsp;&nbsp;</td>
+					<td><a title="{L_FORWARD_PM}" href="{U_FORWARD_PM}"><img src="{T_IMAGESET_PATH}/button_pm_forward.gif" alt="" height="18" width="22" border="0" /></a></td>
+					<td valign="middle" nowrap="nowrap">&nbsp;<b><a title="{L_FORWARD_PM}" href="{U_FORWARD_PM}">{L_FORWARD_PM}</a></b></td>
+				</tr>
+			</table>
+		<!-- ENDIF -->
+		</td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_pm_message_footer.html -->
+</div>
+<!-- IF S_DISPLAY_HISTORY --><!-- INCLUDE ucp_pm_history.html --><!-- ENDIF -->
+<!-- INCLUDE ucp_footer.html -->

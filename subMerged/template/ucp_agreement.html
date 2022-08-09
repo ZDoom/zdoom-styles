@@ -1,0 +1,111 @@
+<!-- INCLUDE overall_header.html -->
+
+<script type="text/javascript" defer="defer" >
+// <![CDATA[
+
+	var old_func = window.onload;
+
+	function disable(disabl)
+	{
+		document.getElementById("agreed").disabled = disabl;
+	}
+
+	function disable_and_handle()
+	{
+		if (old_func)
+		{
+			old_func();
+		}
+		disable(true);
+	}
+
+	<!-- IF S_TIME -->
+		window.onload = disable_and_handle;
+		setInterval("disable(false)", {S_TIME});
+	<!-- ENDIF -->
+// ]]>
+</script>
+
+<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+<!-- IF S_LANG_OPTIONS -->
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Change language
+	*/
+	function change_language(lang_iso)
+	{
+		document.forms['register'].change_lang.value = lang_iso;
+		document.forms['register'].submit();
+	}
+
+// ]]>
+</script>
+
+	<form method="post" action="{S_UCP_ACTION}" id="register">
+		<table width="100%" cellspacing="0">
+			<tr>
+				<td class="gensmall" align="{S_CONTENT_FLOW_END}">{L_LANGUAGE}: <select name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select></td>
+			</tr>
+		</table>
+		{S_HIDDEN_FIELDS}
+	</form>
+<!-- ENDIF -->
+
+<div class="subMerged_title">{SITENAME} - {L_REGISTRATION}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form action="{S_UCP_ACTION}" method="post">
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{SITENAME} - {L_REGISTRATION}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<!-- IF S_SHOW_COPPA --><b class="gen">{L_COPPA_BIRTHDAY}</b><br />
+				<br />
+				<div align="center" class="postbody">
+					<a href="{U_COPPA_NO}">{L_COPPA_NO}</a> :: <a href="{U_COPPA_YES}">{L_COPPA_YES}</a>
+				<!-- ELSE --><div class="genmed">{L_TERMS_OF_USE}</div><br />
+				<br />
+				<div align="center">
+					<input class="btnlite" type="submit" id="agreed" name="agreed" value="{L_AGREE}" />  <input class="btnlite" type="submit" name="not_agreed" value="{L_NOT_AGREE}" /></div>
+				<!-- ENDIF -->
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+{S_FORM_TOKEN}
+</form>
+<!-- ELSEIF S_AGREEMENT -->
+<div class="subMerged_title">
+	{SITENAME} - {AGREEMENT_TITLE}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{SITENAME} - {AGREEMENT_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%"><div class="gensmall">{AGREEMENT_TEXT}</div></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center" width="98%"><a href="{U_BACK}">{L_BACK}</a></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

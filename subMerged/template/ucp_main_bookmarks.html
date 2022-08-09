@@ -1,0 +1,80 @@
+<!-- INCLUDE ucp_header.html -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" width="99%">{L_UCP}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<p class="submerged">{L_BOOKMARKS_EXPLAIN}</p>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="5" width="99%">{L_BOOKMARKS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- IF S_NO_DISPLAY_BOOKMARKS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5" align="center"><b class="genmed">{L_BOOKMARKS_DISABLED}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ELSE --><!-- BEGIN topicrow -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td style="padding: 4px;" align="center" valign="middle" width="20">{topicrow.TOPIC_FOLDER_IMG}</td>
+		<!-- IF topicrow.S_DELETED_TOPIC -->
+		<td class="postdetails" style="padding: 4px" colspan="2" width="100%">{L_DELETED_TOPIC}</td>
+		<!-- ELSE -->
+		<td style="padding: 4px;" valign="top" width="100%">
+			<p class="topictitle">{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
+			<!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="gensmall"><b>{L_FORUM}: </b><a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF --> <!-- IF topicrow.PAGINATION --><br />
+			<span class="submerged">{GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION}</span> <!-- ENDIF --></td>
+		<td class="submerged" style="padding: 4px;" align="right" valign="top" nowrap="nowrap">{topicrow.LAST_POST_TIME}<br />
+			{topicrow.LAST_POST_AUTHOR_FULL} <a href="{topicrow.U_LAST_POST}">{topicrow.LAST_POST_IMG}</a></td>
+		<!-- ENDIF -->
+		<td style="padding: 4px;" align="center" valign="middle" nowrap="nowrap"> <!-- IF topicrow.U_MOVE_UP --><a href="{topicrow.U_MOVE_UP}">{L_MOVE_UP}</a><!-- ENDIF --><!-- IF topicrow.U_MOVE_UP and topicrow.U_MOVE_DOWN --> | <!-- ENDIF --><!-- IF topicrow.U_MOVE_DOWN --><a href="{topicrow.U_MOVE_DOWN}">{L_MOVE_DOWN}</a><!-- ENDIF --> </td>
+		<td style="padding: 4px;"><input class="radio" type="checkbox" name="t[{topicrow.TOPIC_ID}]" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%" class="table_side"></td>
+		<td class="table_content" colspan="5">
+			<hr />
+		</td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%" class="table_side"></td>
+		<td class="table_content" colspan="5" align="center"><b class="gensmall">{L_NO_BOOKMARKS}</b></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END topicrow -->
+	<tr>
+		<td width="1%" class="table_side"></td>
+		<td class="table_content" colspan="5" align="left" width="98%"><!-- IF not S_NO_DISPLAY_BOOKMARKS -->
+			<div class="gensmall" style="float: right; padding-top: 2px;">
+				<b><a href="javascript:marklist('ucp', 't', true);">{L_MARK_ALL}</a> :: <a href="javascript:marklist('ucp', 't', false);">{L_UNMARK_ALL}</a></b></div>
+			<!-- ENDIF --> </td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%" class="table_side"></td>
+		<td class="table_bot" colspan="5" align="right"><input class="btnlite" type="submit" name="unbookmark" value="{L_REMOVE_BOOKMARK_MARKED}" /> </td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- ENDIF -->
+</table>
+<!-- INCLUDE ucp_footer.html -->

@@ -1,0 +1,33 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">
+	{L_SEND_PASSWORD}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form action="{S_PROFILE_ACTION}" method="post">
+	<table width="50%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mail.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="2" align="left" nowrap="nowrap" width="98%">{L_SEND_PASSWORD}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="38%"><b class="gensmall">{L_USERNAME}: </b></td>
+			<td class="table_content"><input class="post" type="text" name="username" value="{USERNAME}" size="25" maxlength="60" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_EMAIL_ADDRESS}: </b><br />
+				<span class="submerged">{L_EMAIL_REMIND}</span></td>
+			<td class="table_content"><input class="post" type="text" name="email" value="{EMAIL}" size="25" maxlength="255" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE overall_footer.html -->

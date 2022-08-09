@@ -1,0 +1,113 @@
+<!-- INCLUDE ucp_header.html -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" width="99%">{L_UCP}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<p class="submerged">{L_WATCHED_EXPLAIN}</p>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="4" width="99%">{L_WATCHED_FORUMS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN forumrow -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td style="padding: 4px;" align="center" valign="middle" width="20">{forumrow.FORUM_FOLDER_IMG}</td>
+		<td style="padding: 4px;" width="100%">
+			<p class="topictitle"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></p>
+		</td>
+		<td class="submerged" style="padding: 4px;" align="right" valign="middle" nowrap="nowrap"><!-- IF forumrow.LAST_POST_TIME -->{forumrow.LAST_POST_TIME}<br />
+			{forumrow.LAST_POST_AUTHOR_FULL} <a href="{forumrow.U_LAST_POST}">{forumrow.LAST_POST_IMG}</a><!-- ELSE -->{L_NO_POSTS}<!-- ENDIF --></td>
+		<td style="padding: 4px;"><input class="radio" type="checkbox" name="f[{forumrow.FORUM_ID}]" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_FORUMS}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END forumrow -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="4" width="99%">{L_WATCHED_TOPICS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- IF TOTAL_TOPICS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4">
+			<table width="100%" cellspacing="1">
+				<tr>
+					<td class="nav" valign="middle" nowrap="nowrap"> {PAGE_NUMBER}<br />
+					</td>
+					<td class="gensmall" nowrap="nowrap"> [ {TOTAL_TOPICS} ] </td>
+					<td class="gensmall" align="right" nowrap="nowrap" width="100%"><!-- IF PAGINATION --><b><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b><!-- ENDIF --></td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF --><!-- BEGIN topicrow -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td style="padding-left:5px;padding-right:5px;" align="center" valign="middle" width="1%">{topicrow.TOPIC_FOLDER_IMG}</td>
+		<td valign="middle" width="95%">
+			<p class="topictitle"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{topicrow.NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
+			<!-- IF topicrow.PAGINATION --><span class="submerged">{GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION}</span> <!-- ENDIF --></td>
+		<td class="submerged" align="right" valign="top" nowrap="nowrap" width="2%">{topicrow.LAST_POST_TIME}<br />
+			{topicrow.LAST_POST_AUTHOR_FULL} <a href="{topicrow.U_LAST_POST}">{topicrow.LAST_POST_IMG}</a></td>
+		<td width="1%"><input class="radio" type="checkbox" name="t[{topicrow.TOPIC_ID}]" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%" class="table_side"></td>
+		<td class="table_content" colspan="4">
+			<hr />
+		</td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_TOPICS}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END topicrow -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="left" width="98%">
+			<div class="gensmall" style="float: right; padding-top: 2px;">
+				<b><a href="javascript:marklist('ucp', 't', true);">{L_MARK_ALL}</a> :: <a href="javascript:marklist('ucp', 't', false);">{L_UNMARK_ALL}</a></b></div>
+			 </td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4" align="right"><input class="btnlite" type="submit" name="unwatch" value="{L_UNWATCH_MARKED}" /> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

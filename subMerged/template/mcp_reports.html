@@ -1,0 +1,68 @@
+<!-- INCLUDE mcp_header.html -->
+<form id="mcp" action="{S_MCP_ACTION}" method="post" name="mcp">
+
+<div align="center"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}<!-- IF not S_PM -->&nbsp;<span class="gensmall">{L_FORUM}</span> 
+<select name="f">
+{S_FORUM_OPTIONS}
+</select>   <!-- IF TOPIC_ID --><input class="radio" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" />  <b>{L_ONLY_TOPIC}</b>   <!-- ENDIF --><input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+
+   <table width="100%" cellspacing="0">
+      <tr>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+		 <!-- IF S_PM -->
+		 <td class="table_title" align="left">{L_PM}</td>
+         <td class="table_title" align="left">{L_TO}</td>
+		 <!-- ELSE -->
+         <td class="table_title" align="left">{L_POST}</td>
+         <td class="table_title" align="left">{L_AUTHOR}</td>
+		 <!-- ENDIF -->
+         <td class="table_title" align="left">{L_REPORTER}</td>
+         <td class="table_title" align="left">{L_REPORT_TIME}</td>
+         <td class="table_title" width="5%"> {L_SELECT} </td>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <!-- BEGIN postrow -->
+      <tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+         <td width="1%" class="table_side"></td>		 
+		 <!-- IF S_PM -->
+		<td class="topictitle"><a href="{postrow.U_VIEW_DETAILS}">{postrow.PM_SUBJECT}</a>
+			<span class="submerged">{L_PM_FROM}: {postrow.PM_AUTHOR_FULL}</span></td>
+		<td align="left" valign="top" class="gensmall" nowrap="nowrap"><span class="submerged">{postrow.RECIPIENTS}</span><br />
+			<span class="submerged">{L_SENT_AT}: {postrow.PM_TIME}</span></td>
+		<!-- ELSE -->		 
+         <td class="topictitle">
+            <a href="{postrow.U_VIEWPOST}">{postrow.POST_SUBJECT}</a><br />
+            <span class="submerged"><!-- IF postrow.U_VIEWFORUM -->{L_FORUM}: <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a><!-- ELSE -->{postrow.FORUM_NAME}<!-- ENDIF --></span></td>
+         <td align="left" valign="top" class="gensmall" nowrap="nowrap">{postrow.POST_AUTHOR_FULL}<br />
+            <span class="submerged">{postrow.POST_TIME}</span></td>
+		<!-- ENDIF -->
+         <td align="left" valign="top" class="gensmall" nowrap="nowrap">{postrow.REPORTER_FULL}</td>
+         <td align="left" valign="top" class="gensmall" nowrap="nowrap">{postrow.REPORT_TIME}<br />
+            <span class="submerged">[ <a href="{postrow.U_VIEW_DETAILS}">{L_VIEW_DETAILS}</a> ]</span></td>
+         <td align="center"><input class="radio" type="checkbox" name="report_id_list[]" value="{postrow.REPORT_ID}" /></td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+      <tr>
+         <td width="1%" class="table_side"></td>
+         <td class="table_content" colspan="5">
+            <hr />
+         </td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+      <!-- BEGINELSE -->
+      <tr>
+         <td width="1%" class="table_side"></td>
+         <td class="table_content" colspan="5" align="center" valign="middle"><span class="gensmall">{L_NO_POSTS}</span></td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+      <!-- END postrow -->
+      <tr>
+         <td width="1%"></td>
+         <td class="table_bot" colspan="5" align="right"><b class="gensmall"><a href="#" onclick="marklist('mcp', '', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('mcp', '', false); updateCheckImage();">{L_UNMARK_ALL}</a></b><br />
+         <!-- IF S_CLOSED --><input class="btnmain" type="submit" name="action[delete]" value="{L_DELETE_REPORTS}" /> <!-- ELSE --><input class="btnmain" type="submit" name="action[close]" value="{L_CLOSE_REPORTS}" />   <input class="btnlite" type="submit" name="action[delete]" value="{L_DELETE_REPORTS}" /> <!-- ENDIF --></td>
+         <td width="1%"></td>
+      </tr>
+   </table>
+   {S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

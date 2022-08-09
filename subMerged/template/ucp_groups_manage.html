@@ -1,0 +1,402 @@
+<!-- INCLUDE ucp_header.html --><!-- IF S_EDIT -->
+
+<!-- IF S_ERROR -->
+<div class="errorbox">
+	<h3>{L_WARNING}</h3>
+	<p>{ERROR_MSG}</p>
+</div>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_USERGROUPS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><span class="submerged">{L_GROUPS_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2">{L_GROUP_DETAILS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="40%"><label<!-- IF not S_SPECIAL_GROUP --> for="group_name"<!-- ENDIF -->>{L_GROUP_NAME}:</label></td>
+		<td class="table_content" align="left"><!-- IF S_SPECIAL_GROUP --><b><!-- IF GROUP_COLOUR --> style="color: #{GROUP_COLOUR};"<!-- ENDIF -->>{GROUP_NAME}</b><!-- ENDIF --><input name="group_name" type="<!-- IF S_SPECIAL_GROUP -->hidden<!-- ELSE -->text<!-- ENDIF -->" id="group_name" value="{GROUP_INTERNAL_NAME}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><label for="group_desc">{L_GROUP_DESC}:</label></td>
+		<td class="table_content" align="left"><textarea id="group_desc" name="group_desc" rows="5" cols="45">{GROUP_DESC}</textarea><br />
+			<input type="checkbox" class="radio" name="desc_parse_bbcode"<!-- IF S_DESC_BBCODE_CHECKED --> checked="checked"<!-- ENDIF --> /> {L_PARSE_BBCODE} &nbsp; <input type="checkbox" class="radio" name="desc_parse_smilies"<!-- IF S_DESC_SMILIES_CHECKED --> checked="checked"<!-- ENDIF --> /> {L_PARSE_SMILIES} &nbsp; <input type="checkbox" class="radio" name="desc_parse_urls"<!-- IF S_DESC_URLS_CHECKED --> checked="checked"<!-- ENDIF --> /> {L_PARSE_URLS}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- IF not S_SPECIAL_GROUP -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="group_type">{L_GROUP_TYPE}:</label><br />
+			<span>{L_GROUP_TYPE_EXPLAIN}</span></td>
+		<td class="table_content"><input name="group_type" type="radio" class="radio" id="group_type" value="{GROUP_TYPE_FREE}"{GROUP_FREE} /> {L_GROUP_OPEN} &nbsp;
+		<input name="group_type" type="radio" class="radio" value="{GROUP_TYPE_OPEN}"{GROUP_OPEN} /> {L_GROUP_REQUEST} &nbsp;
+		<input name="group_type" type="radio" class="radio" value="{GROUP_TYPE_CLOSED}"{GROUP_CLOSED} /> {L_GROUP_CLOSED} &nbsp;
+		<input name="group_type" type="radio" class="radio" value="{GROUP_TYPE_HIDDEN}"{GROUP_HIDDEN} /> {L_GROUP_HIDDEN}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ELSE -->
+	<tr style="display:none;">
+		<td width="1%"></td>
+		<td class="table_content" colspan="2">&nbsp;<input type="hidden" name="group_type" value="{GROUP_TYPE_SPECIAL}" /></td>
+		<td width="1%"></td>
+	</tr>
+	 <!-- ENDIF -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2">{L_GROUP_SETTINGS_SAVE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="group_colour">{L_GROUP_COLOR}:</label><br />
+			<span>{L_GROUP_COLOR_EXPLAIN}</span></td>
+		<td class="table_content"><input id="group_colour" type="text" name="group_colour" value="{GROUP_COLOUR}" size="6" maxlength="6" />  <span>[ <a onclick="swatch(); return false" href="#">{L_COLOUR_SWATCH}</a> ]</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="group_rank">{L_GROUP_RANK}:</label></td>
+		<td class="table_content"><select id="group_rank" name="group_rank">
+				{S_RANK_OPTIONS}
+			</select></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_avatar.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2">{L_GROUP_AVATAR}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label>{L_CURRENT_IMAGE}:</label><br />
+			<span>{L_AVATAR_EXPLAIN}</span></td>
+		<td class="table_content">{AVATAR_IMAGE}<br />
+			<br />
+			<input class="radio" type="checkbox" name="delete" /> <span>{L_DELETE_AVATAR}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- IF not S_IN_AVATAR_GALLERY -->
+	<!-- IF S_UPLOAD_AVATAR_FILE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadfile">{L_UPLOAD_AVATAR_FILE}:</label></td>
+		<td class="table_content"><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_MAX_FILESIZE}" /><input id="uploadfile" type="file" name="uploadfile" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF S_UPLOAD_AVATAR_URL -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadurl">{L_UPLOAD_AVATAR_URL}:</label><br />
+			<span>{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></td>
+		<td class="table_content"><input id="uploadurl" type="text" name="uploadurl" value="" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF S_LINK_AVATAR -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="remotelink">{L_LINK_REMOTE_AVATAR}:</label><br />
+			<span>{L_LINK_REMOTE_AVATAR_EXPLAIN}</span></td>
+		<td class="table_content"><input id="remotelink" type="text" name="remotelink" value="" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="width">{L_LINK_REMOTE_SIZE}:</label><br />
+			<span>{L_LINK_REMOTE_SIZE_EXPLAIN}</span></td>
+		<td class="table_content"><input id="width" type="text" name="width" value="{AVATAR_WIDTH}" size="3" /> <span>px X </span><input type="text" name="height" value="{AVATAR_HEIGHT}" size="3" /> <span>px</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- IF S_DISPLAY_GALLERY -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_avatar.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" width="99%"><label>{L_AVATAR_GALLERY}:</label></td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="99%"><input class="button2" type="submit" name="display_gallery" value="{L_DISPLAY_GALLERY}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF --><!-- ELSE -->
+<tr>
+	<td width="1%"></td>
+	<td class="table_bot" colspan="2" align="left" width="98%"> </td>
+	<td width="1%"></td>
+</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_avatar.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2">{L_AVATAR_GALLERY}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="category">{L_AVATAR_CATEGORY}:</label></td>
+		<td class="table_content"><select id="category" name="category">
+				{S_CAT_OPTIONS}
+			</select> <input class="button2" type="submit" name="display_gallery" value="{L_GO}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%">
+			<table cellspacing="1">
+				<!-- BEGIN avatar_row -->
+				<tr><!-- BEGIN avatar_column -->
+					<td class="table_content" style="text-align: center;"><img title="{avatar_row.avatar_column.AVATAR_NAME}" src="{avatar_row.avatar_column.AVATAR_IMAGE}" alt="{avatar_row.avatar_column.AVATAR_NAME}" /></td>
+					<!-- END avatar_column --></tr>
+				<tr><!-- BEGIN avatar_option_column -->
+					<td class="table_content" style="text-align: center;"><input class="radio" type="radio" name="avatar_select" value="{avatar_row.avatar_option_column.S_OPTIONS_AVATAR}" /></td>
+					<!-- END avatar_option_column --></tr>
+				<!-- END avatar_row -->
+			</table>
+		</td>
+		<td class="table_content"><input class="button2" type="submit" name="cancel" value="{L_CANCEL}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<div align="center">
+	<input id="submit" class="button1" type="submit" name="update" value="{L_SUBMIT}" /> <input id="reset" class="button2" type="reset" name="reset" value="{L_RESET}" /></div>
+<!-- ELSEIF S_LIST -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_GROUP_MEMBERS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2"><span class="submerged">{L_GROUP_MEMBERS_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title">{L_USERNAME}</td>
+		<td class="table_title">{L_GROUP_DEFAULT}</td>
+		<td class="table_title">{L_JOINED}</td>
+		<td class="table_title">{L_POSTS}</td>
+		<td class="table_title">{L_MARK}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5"><b>{L_GROUP_LEAD}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGIN leader -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td><a href="{leader.U_USER_VIEW}">{leader.USERNAME}</a></td>
+		<td style="text-align: center;"><!-- IF leader.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></td>
+		<td style="text-align: center;">{leader.JOINED}</td>
+		<td style="text-align: center;">{leader.USER_POSTS}</td>
+		<td style="text-align: center;"></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- END leader -->
+	
+	<!-- BEGIN member --><!-- IF member.S_PENDING -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5"><b>{L_GROUP_PENDING}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ELSEIF member.S_APPROVED -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5"><b>{L_GROUP_APPROVED}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ELSE -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td><a href="{member.U_USER_VIEW}">{member.USERNAME_FULL}</a></td>
+		<td style="text-align: center;"><!-- IF member.S_GROUP_DEFAULT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></td>
+		<td style="text-align: center;">{member.JOINED}</td>
+		<td style="text-align: center;">{member.USER_POSTS}</td>
+		<td style="text-align: center;"><input class="radio" type="checkbox" name="mark[]" value="{member.USER_ID}" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- ENDIF --><!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" style="text-align: center;" colspan="5">{L_GROUPS_NO_MEMBERS}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END member -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="5" align="center">
+			<div style="float: right;">
+				<span class="small"><a href="javascript:marklist('ucp', 'mark', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="javascript:marklist('ucp', 'mark', false); updateCheckImage();">{L_UNMARK_ALL}</a></span></div>
+			<div style="float: left">
+				<select name="action">
+					<option class="sep" value="">{L_SELECT_OPTION}</option>{S_ACTION_OPTIONS}
+				</select> <input class="button2" type="submit" name="update" value="{L_SUBMIT}" /></div>
+		</td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<div class="pagination" style="padding-left:35px;padding-bottom:20px;">
+	<!-- IF PAGINATION --><a title="{L_JUMP_TO_PAGE}" href="javascript:jumpto();">{S_ON_PAGE}</a> • <span>{PAGINATION}</span> <!-- ELSE -->{S_ON_PAGE} <!-- ENDIF --></div>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_ADD_USERS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left"><span class="submerged">{L_ADD_USERS_UCP_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_profile.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" align="left" width="98%">{L_ADD_USERS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><label for="default">{L_USER_GROUP_DEFAULT}:</label><br />
+			<span>{L_USER_GROUP_DEFAULT_EXPLAIN}</span></td>
+		<td class="table_content"><input class="radio" type="radio" name="default" value="1" /> {L_YES}   <input id="default" class="radio" type="radio" name="default" value="0" checked="checked" /> {L_NO}</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><label for="usernames">{L_USERNAME}:</label><br />
+			<span>{L_USERNAMES_EXPLAIN}</span></td>
+		<td class="table_content"><textarea id="usernames" name="usernames" rows="5" cols="40"></textarea><br />
+			[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center"><input class="button2" type="submit" name="addusers" value="{L_SUBMIT}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ELSE -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="4" align="left" width="98%">{L_USERGROUPS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><span class="submerged">{L_GROUPS_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title">{L_GROUP_DETAILS}</td>
+		<td class="table_title" colspan="3">{L_OPTIONS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4"><b>{L_GROUP_LEADER}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGIN leader -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td><b class="submerged"<!-- IF leader.GROUP_COLOUR --> style="color: #{leader.GROUP_COLOUR};"<!-- ENDIF -->>{leader.GROUP_NAME}</b><!-- IF leader.GROUP_DESC -->
+			<p class="forumdesc">{leader.GROUP_DESC}</p>
+			<!-- ENDIF --></td>
+		<td style="text-align: center;"><a href="{leader.U_EDIT}">{L_EDIT}</a></td>
+		<td style="text-align: center;"><a href="{leader.U_LIST}">{L_GROUP_LIST}</a></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><b class="submerged">{L_NO_LEADERS}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END leader -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4" align="right"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF --><!-- INCLUDE ucp_footer.html -->

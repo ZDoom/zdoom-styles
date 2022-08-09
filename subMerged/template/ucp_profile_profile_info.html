@@ -1,0 +1,97 @@
+<!-- INCLUDE ucp_header.html --><!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td align="left" width="98%" class="table_content"><span class="gensmall" style="color:red">{ERROR}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td width="98%" class="table_content">
+		<table width="100%" cellspacing="5">
+			<tr>
+				<td colspan="2" align="left" class="submerged">{L_PROFILE_INFO_NOTICE}</td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_UCP_ICQ}: </b></td>
+				<td align="left"><input class="post" type="text" name="icq" value="{ICQ}" size="30" maxlength="15" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_UCP_AIM}: </b></td>
+				<td align="left"><input class="post" type="text" name="aim" value="{AIM}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_UCP_MSNM}: </b></td>
+				<td align="left"><input class="post" type="text" name="msn" value="{MSN}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_UCP_YIM}: </b></td>
+				<td align="left"><input class="post" type="text" name="yim" value="{YIM}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_UCP_JABBER}: </b></td>
+				<td align="left"><input class="post" type="text" name="jabber" value="{JABBER}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_WEBSITE}: </b></td>
+				<td align="left"><input class="post" type="text" name="website" value="{WEBSITE}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_LOCATION}: </b></td>
+				<td align="left"><input class="post" type="text" name="location" value="{LOCATION}" size="30" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_OCCUPATION}: </b></td>
+				<td align="left"><textarea class="post" name="occupation" rows="3" cols="30">{OCCUPATION}</textarea></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_INTERESTS}: </b></td>
+				<td align="left"><textarea class="post" name="interests" rows="3" cols="30">{INTERESTS}</textarea></td>
+			</tr>
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{L_BIRTHDAY}: </b><br />
+					<span class="submerged">{L_BIRTHDAY_EXPLAIN}</span></td>
+				<td align="left"><span class="gensmall">{L_DAY}:</span> <select name="bday_day">
+						{S_BIRTHDAY_DAY_OPTIONS}
+					</select> <span class="gensmall">{L_MONTH}:</span> <select name="bday_month">
+						{S_BIRTHDAY_MONTH_OPTIONS}
+					</select> <span class="gensmall">{L_YEAR}:</span> <select name="bday_year">
+						{S_BIRTHDAY_YEAR_OPTIONS}
+					</select></td>
+			</tr>
+			<!-- BEGIN profile_fields -->
+			<tr>
+				<td align="right" width="35%" class="gensmall"><b>{profile_fields.LANG_NAME}: </b><!-- IF profile_fields.S_REQUIRED --><b>*</b><!-- ENDIF --> <!-- IF profile_fields.LANG_EXPLAIN --><br />
+					<span class="submerged">{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF --></td>
+				<td align="left">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br />
+					<span class="submerged" style="color:red">{profile_fields.ERROR}</span><!-- ENDIF --></td>
+			</tr>
+			<!-- END profile_fields -->
+		</table></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

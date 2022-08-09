@@ -1,0 +1,407 @@
+/* Form Styles
+---------------------------------------- */
+
+/* General form styles
+----------------------------------------*/
+fieldset {
+	border-width: 0;
+}
+
+input[type="text"], input[type="password"], select, textarea {
+	font-weight: normal;
+    background: #fd006a;
+    color: #1ec73f;
+    outline-style: none;
+    border: solid 1px #e384ac;
+    border-radius: 15px;
+    font-family: Arial;
+    line-height: 1em;
+    padding: 5px 10px 5px 8px;
+    font-size: 14px;
+    -webkit-transition-property: border-color, background-color, color;
+    -moz-transition-property: border-color, background-color, color;
+    -o-transition-property: border-color, background-color, color;
+    -ms-transition-property: border-color, background-color, color;
+    transition-property: border-color, background-color, color;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    -ms-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+.quick-login input[type="text"] { background-color: #fd006a; }
+
+input[type="text"]:hover, input[type="password"]:hover, select:hover, textarea:hover {
+    border-color: #d6db75;
+    background-color: #fc1b7a;
+}
+input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
+    border-color: #d6db75;
+    background-color: #fe70ab;
+    color: #9dff00;
+}
+
+input {
+	cursor: pointer;
+	vertical-align: middle;
+	padding: 0 3px;
+	font-size: 12px;
+}
+
+select {
+	cursor: pointer;
+	vertical-align: middle;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	max-width: 400px;
+}
+
+option {
+	padding-right: 1em;
+}
+
+option.disabled-option {
+	color: #a1ba68;
+}
+
+textarea {
+	width: 60%;
+	padding: 6px 4px;
+	line-height: 1.4em;
+}
+
+label {
+	cursor: default;
+	padding-right: 5px;
+}
+
+label input {
+	vertical-align: middle;
+}
+
+label img {
+	vertical-align: middle;
+}
+
+/* Definition list layout for forms
+---------------------------------------- */
+fieldset dl {
+	padding: 4px 0;
+}
+
+fieldset dt {
+	float: left;	
+	width: 40%;
+	text-align: left;
+	display: block;
+}
+
+fieldset dd {
+	margin-left: 41%;
+	vertical-align: top;
+	margin-bottom: 3px;
+}
+
+/* Specific layout 1 */
+fieldset.fields1 dt {
+	width: 15em;
+	border-right-width: 0;
+}
+
+fieldset.fields1 dd {
+	margin-left: 15em;
+	border-left-width: 0;
+}
+
+fieldset.fields1 {
+	background-color: transparent;
+}
+
+fieldset.fields1 div {
+	margin-bottom: 3px;
+}
+
+/* Set it back to 0px for the reCaptcha divs: PHPBB3-9587 */
+fieldset.fields1 #recaptcha_widget_div div {
+	margin-bottom: 0;
+}
+
+/* Specific layout 2 */
+fieldset.fields2 dt {
+	width: 15em;
+	border-right-width: 0;
+}
+
+fieldset.fields2 dd {
+	margin-left: 16em;
+	border-left-width: 0;
+}
+
+/* Form elements */
+dt label {
+	font-weight: bold;
+	color: #444;
+	font-size: 12px;
+    font-family: Arial;
+	text-align: left;
+}
+
+dd label {
+	white-space: nowrap;
+}
+
+dd input, dd textarea {
+	margin-right: 3px;
+}
+
+dd select {
+	width: auto;
+}
+
+dd textarea {
+	width: 85%;
+}
+
+#timezone {
+	width: 95%;
+}
+
+/* Quick-login on index page */
+fieldset.quick-login {
+	margin-top: 5px;
+}
+
+fieldset.quick-login input {
+	width: auto;
+}
+
+fieldset.quick-login input.inputbox {
+	width: 15%;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+fieldset.quick-login label {
+	white-space: nowrap;
+	padding-right: 2px;
+}
+
+/* Display options on viewtopic/viewforum pages  */
+fieldset.display-options {
+	text-align: center;
+	margin: 3px 0 5px 0;
+}
+
+fieldset.display-options label {
+	white-space: nowrap;
+	padding-right: 2px;
+}
+
+fieldset.display-options a {
+	margin-top: 3px;
+}
+
+/* Display actions for ucp and mcp pages */
+fieldset.display-actions {
+	text-align: right;
+	line-height: 2em;
+	white-space: nowrap;
+	padding-right: 1em;
+}
+
+fieldset.display-actions label {
+	white-space: nowrap;
+	padding-right: 2px;
+}
+
+fieldset.sort-options {
+	line-height: 2em;
+}
+
+/* MCP forum selection*/
+fieldset.forum-selection {
+	margin: 5px 0 3px 0;
+	float: right;
+}
+
+fieldset.forum-selection2 {
+	margin: 13px 0 3px 0;
+	float: right;
+}
+
+/* Jumpbox */
+fieldset.jumpbox {
+	text-align: right;
+	margin-top: 15px;
+	height: 2.5em;
+}
+
+fieldset.quickmod {
+	width: 50%;
+	float: right;
+	text-align: right;
+	height: 2.5em;
+	margin-top: 6px;
+}
+
+/* Submit button fieldset */
+fieldset.submit-buttons {
+	text-align: center;
+	vertical-align: middle;
+	margin: 5px 0;
+}
+
+/* Posting page styles
+----------------------------------------*/
+
+/* Buttons used in the editor */
+#format-buttons {
+	margin: 5px 0 4px 0;
+}
+
+/* Main message box */
+#message-box {
+	width: 80%;
+}
+
+#message-box textarea {
+	width: 100%;
+}
+
+/* Emoticons panel */
+#smiley-box {
+	width: 18%;
+	float: right;
+}
+
+#smiley-box img {
+	margin: 3px;
+}
+
+/* Input field styles
+---------------------------------------- */
+.inputbox {
+	cursor: text;
+}
+
+input.inputbox	{ width: 85%; }
+input.medium	{ width: 50%; }
+input.narrow	{ width: 25%; }
+input.tiny		{ width: 125px; }
+
+textarea.inputbox {
+	width: 85%;
+}
+
+.autowidth {
+	width: auto !important;
+}
+
+/* Form button styles
+---------------------------------------- */
+input.button1, input.button2 {
+	font-size: 1em;
+}
+
+a.button1, input.button1, input.button3, a.button2, input.button2 {
+	width: auto !important;
+	padding-top: 1px;
+	padding-bottom: 1px;
+    background: #fd006a;
+    color: #1ec73f;
+    border: solid 1px #e384ac;
+    border-radius: 15px;
+    font-family: Arial;
+    line-height: 1em;
+    padding: 4px 8px;
+    font-size: 14px;
+    outline-style: none;
+}
+.browser-webkit a.button1, .browser-webkit input.button1, .browser-webkit input.button3, .browser-webkit a.button2, .browser-webkit input.button2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.browser-ie a.button1, .browser-ie input.button1, .browser-ie input.button3, .browser-ie a.button2, .browser-ie input.button2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a.button1, input.button1 {
+	font-weight: bold;
+}
+
+#format-buttons .button2, #format-buttons select {
+    padding: 2px 6px;
+    font-size: 12px;
+}
+.browser-webkit #format-buttons .button2, .browser-webkit #format-buttons select {
+    padding: 4px 6px;
+}
+
+input.button3 {
+	padding: 0;
+	margin: 0;
+	line-height: 5px;
+	height: 12px;
+	font-variant: small-caps;
+}
+
+/* Alternative button */
+a.button2, input.button2, input.button3 {
+}
+
+/* <a> button in the style of the form buttons */
+a.button1, a.button1:link, a.button1:visited, a.button1:active, a.button2, a.button2:link, a.button2:visited, a.button2:active {
+	text-decoration: none;
+    color: #1ec73f;
+	padding: 2px 8px;
+	line-height: 250%;
+	vertical-align: text-bottom;
+}
+
+/* Hover states */
+a.button1:hover, input.button1:hover, a.button2:hover, input.button2:hover, input.button3:hover {
+    border-color: #d6db75;
+    background: #fc1b7a;
+    color: #daa820;
+}
+
+input.disabled {
+	font-weight: normal;
+	color: #888;
+}
+
+/* Topic and forum Search */
+.search-box {
+	margin-left: 5px;
+	float: left;
+}
+
+.search-box input {
+}
+
+input.search {
+	background-image: url("{T_THEME_PATH}/images/search_mini.png");
+	background-repeat: no-repeat;
+	background-position: 8px 6px;
+	padding-left: 25px;
+	padding-right: 12px;
+}
+
+.full { width: 95%; }
+.medium { width: 50%;}
+.narrow { width: 25%;}
+.tiny { width: 10%;}
+
+/* Animated buttons */
+.search-box input.button2 {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    -o-transition: opacity 0.25s ease;
+    -ms-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+}
+.search-box:hover input.button2, .search-box.focus input.button2 {
+    opacity: 1;
+}

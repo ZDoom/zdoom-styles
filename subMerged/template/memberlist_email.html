@@ -1,0 +1,118 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript" language="JavaScript">
+<!--
+
+function checkForm(formObj)
+{
+	return;
+
+	formErrors = false;
+
+	if (formObj.message.value.length < 2)
+	{
+		formErrors = "{LA_EMPTY_MESSAGE_EMAIL}";
+	}
+	else if ( formObj.subject.value.length < 2)
+	{
+		formErrors = "{LA_EMPTY_SUBJECT_EMAIL}";
+	}
+
+	if (formErrors) 
+	{
+		alert(formErrors);
+		return false;
+	}
+}
+//-->
+</script>
+<div class="subMerged_title">{L_SEND_EMAIL}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" /> <!-- IF ERROR_MESSAGE -->
+<table width="80%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%"><span class="gensmall" style="color:red">{ERROR_MESSAGE}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<form action="{S_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)">
+	<table width="80%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+			<td colspan="2">{L_SEND_EMAIL}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- IF S_SEND_USER -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="35%"><b class="gensmall">{L_RECIPIENT}</b></td>
+			<td class="table_content" width="65%"><b class="gensmall">{USERNAME}</b></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td class="table_content" width="35%"><b class="gensmall">{L_SUBJECT}</b></td>
+			<td class="table_content"><input class="post" type="text" name="subject" value="{SUBJECT}" size="50" maxlength="100" tabindex="2" /></td>
+		</tr>
+		<!-- ELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="35%"><b class="gensmall">{L_EMAIL_ADDRESS}</b></td>
+			<td class="table_content"><input class="post" type="text" name="email" value="{EMAIL}" size="50" maxlength="100" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="35%"><b class="gensmall">{L_REAL_NAME}</b></td>
+			<td class="table_content"><input class="post" type="text" name="name" value="{NAME}" size="50" maxlength="100" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="35%"><b class="gensmall">{L_DEST_LANG}</b><br />
+				<span class="submerged">{L_DEST_LANG_EXPLAIN}</span></td>
+			<td class="table_content"><select name="lang">
+					{S_LANG_OPTIONS}
+				</select></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" valign="top"><b class="gensmall">{L_MESSAGE_BODY}</b><br />
+				<span class="submerged">{L_EMAIL_BODY_EXPLAIN}</span></td>
+			<td class="table_content"><textarea class="post" name="message" rows="15" cols="76" tabindex="3">{MESSAGE}</textarea></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" valign="top"><span class="gen"><b>{L_OPTIONS}</b></span></td>
+			<td class="table_content">
+				<table border="0" cellspacing="0" cellpadding="1">
+					<tr>
+						<td><input class="radio" type="checkbox" name="cc_email" value="1" checked="checked" /></td>
+						<td class="gen">{L_CC_EMAIL}</td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SEND_EMAIL}" tabindex="6" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<div align="center"><!-- INCLUDE jumpbox.html --></div>
+<!-- INCLUDE overall_footer.html -->

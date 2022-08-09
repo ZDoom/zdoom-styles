@@ -1,0 +1,80 @@
+<!-- INCLUDE simple_header.html --><br clear="all" />
+<!--  MSNM info from http://www.cdolive.net/ - doesn't seem to work with MSN Messenger -->
+<form action="{S_IM_ACTION}" method="post">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" align="left">{L_SEND_IM}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td  class="table_content" align="center" colspan="2">
+			<table width="100%" cellspacing="0">
+				<tr>
+ 					<td align="left" colspan="2"><span class="submerged">{L_SEND_IM_EXPLAIN}</span></td>
+ 				</tr>
+				<tr>
+ 					<td align="left"><b class="genmed">{L_IM_RECIPIENT}: </b></td>
+					<td align="left"><span class="gen"><b>{USERNAME}</b><!-- IF S_SEND_ICQ or S_SEND_AIM or S_SEND_MSNM or S_NO_SEND_JABBER --> [ {IM_CONTACT} ]<!-- ENDIF --></span> <!-- IF PRESENCE_IMG -->{PRESENCE_IMG}<!-- ENDIF --></td>
+ 				</tr>
+				<!-- IF S_SEND_AIM -->
+				<tr>
+ 					<td align="left" colspan="2" align="center"><br />
+						<a class="gen" href="aim:addbuddy?screenname={IM_CONTACT}">{L_IM_ADD_CONTACT}</a><br />
+						<a class="gen" href="aim:goim?screenname={IM_CONTACT}&message={SITENAME}">{L_IM_SEND_MESSAGE}</a><br />
+						<br />
+						<a class="gensmall" href="http://www.aol.co.uk/aim/index.html" target="_blank">{L_IM_DOWNLOAD_APP}</a> | <a class="gensmall" href="http://aimexpress.oscar.aol.com/aimexpress/launch.adp?Brand=AIM" target="_blank">{L_IM_AIM_EXPRESS}</a></td>
+ 				</tr>
+				<tr>
+ 					<td align="left" colspan="2" align="center"> </td>
+ 				</tr>
+				<!-- ENDIF -->
+				<!-- IF S_SEND_MSNM -->
+				<tr>
+ 					<td align="left" colspan="2" align="center"><object id="objMessengerApp" classid="clsid:FB7199AB-79BF-11d2-8D94-0000F875C541" codetype="applitable_contention/x-oleobject" height="0" width="0"></object><br />
+						<a class="gen" href="javascript:objMessengerApp.LaunchAddContactUI('{IM_CONTACT}')">{L_IM_ADD_CONTACT}</a><br />
+						<a class="gen" href="javascript:objMessengerApp.LaunchIMUI('{IM_CONTACT}')">{L_IM_SEND_MESSAGE}</a></td>
+ 				</tr>
+				<tr>
+ 					<td align="left" colspan="2" align="center"> </td>
+ 				</tr>
+				<!-- ENDIF -->
+				<!-- IF S_SEND_JABBER -->
+				<tr>
+ 					<td align="left"><b class="genmed">{L_IM_MESSAGE}: </b></td>
+					<td align="left"><textarea class="post" name="message" rows="5" cols="45"></textarea></td>
+ 				</tr>
+				<tr>
+ 					<td align="left" colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_IM_SEND}" /></td>
+ 				</tr>
+				<!-- ENDIF -->
+				<!-- IF S_NO_SEND_JABBER -->
+				<tr>
+ 					<td align="left" colspan="2"><span class="genmed">{L_IM_NO_JABBER}</span></td>
+ 				</tr>
+				<tr>
+ 					<td align="left" colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_IM_SEND}" /></td>
+ 				</tr>
+				<!-- ENDIF -->
+				<!-- IF S_SENT_JABBER -->
+				<tr>
+ 					<td align="left" colspan="2" align="center"><span class="gen">{L_IM_SENT_JABBER}</span></td>
+ 				</tr>
+				<tr>
+ 					<td align="left" colspan="2" align="center"></td>
+ 				</tr>
+ 			
+				<!-- ENDIF -->
+				</table></td>
+ 			<td width="1%"></td>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="9" align="center"> </td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<a class="nav" href="#" onclick="window.close(); return false;">{L_CLOSE_WINDOW}</a>
+<!-- INCLUDE simple_footer.html -->

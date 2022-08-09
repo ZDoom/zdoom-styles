@@ -1,0 +1,75 @@
+
+<!-- INCLUDE mcp_header.html --><!-- IF U_VIEW_FORUM_LOGS -->
+<div align="center">
+	<a href="{U_VIEW_FORUM_LOGS}">{L_VIEW_FORUM_LOGS}</a><br  />
+	<span class="submerged">{L_DISPLAY_TOPICS}:</span> {S_SELECT_SORT_DAYS} <span class="submerged">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+<!-- ENDIF -->
+<form id="mcp" action="{S_MCP_ACTION}" method="post">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="2" align="left">&nbsp;{L_TOPICS}&nbsp;</td>
+			<td align="center" class="table_title" nowrap="nowrap" width="8%">&nbsp;{L_REPLIES}&nbsp;</td>
+			<td align="center" class="table_title" nowrap="nowrap" width="17%">&nbsp;{L_LAST_POST}&nbsp;</td>
+			<td align="center" class="table_title" nowrap="nowrap" width="5%">&nbsp;{L_MARK}&nbsp;</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- BEGIN topicrow -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%" class="table_side"></td>
+			<td align="center" width="25">{topicrow.TOPIC_FOLDER_IMG} <!-- IF S_TOPIC_ICONS -->{topicrow.TOPIC_ICON_IMG} <!-- ENDIF --></td>
+			<td><!-- IF topicrow.S_SELECT_TOPIC --><span class="submerged">[ <a href="{topicrow.U_SELECT_TOPIC}">{L_SELECT}</a> ] </span> <!-- ENDIF -->
+				{topicrow.NEWEST_POST_IMG} {topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a> <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a>  <!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED  and topicrow.U_MCP_REPORT --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a>  <!-- ENDIF -->
+			</td>
+			<td class="topicdetails" align="center" width="50">{topicrow.REPLIES}</td>
+			<td class="submerged" align="center" nowrap="nowrap" width="120">{topicrow.LAST_POST_TIME}</td>
+			<td align="center"><!-- IF not topicrow.S_MOVED_TOPIC --><input type="checkbox" class="radio" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+			<td width="1%" class="table_side"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5">
+				<hr />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5" align="center">
+				<p class="gen">{L_NO_TOPICS}</p>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END topicrow -->
+		<!-- IF not S_MERGE_SELECT -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="5" align="right">
+			<b class="submerged"><a href="javascript:marklist('mcp', 'topic_id_list', true); updateCheckImage()">{L_MARK_ALL}</a> :: <a href="javascript:marklist('mcp', 'topic_id_list', false); updateCheckImage()">{L_UNMARK_ALL}</a></b><br />
+			<select name="action">
+			<option value="" selected="selected">{L_SELECT_ACTION}</option>
+					<!-- IF S_CAN_DELETE -->
+					<option value="delete_topic">{L_DELETE}</option>
+					<!-- ENDIF -->
+					<!-- IF S_CAN_MOVE -->
+					<option value="move">{L_MOVE}</option>
+					<!-- ENDIF -->
+					<!-- IF S_CAN_FORK -->
+					<option value="fork">{L_FORK}</option>
+					<!-- ENDIF -->
+					<!-- IF S_CAN_LOCK -->
+					<option value="lock">{L_LOCK}</option>
+					<option value="unlock">{L_UNLOCK}</option>
+					<!-- ENDIF -->
+					<!-- IF S_CAN_SYNC -->
+					<option value="resync">{L_RESYNC}</option>
+					<!-- ENDIF -->
+				</select> <input class="btnmain" type="submit" value="{L_SUBMIT}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

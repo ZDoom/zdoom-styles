@@ -1,0 +1,110 @@
+<script type="text/javascript">
+<!--
+	/**
+	* Show upload progress bar
+	*/
+	function popup_progress_bar()
+	{
+		close_waitscreen = 0;
+		popup('{UA_PROGRESS_BAR}', 400, 200, '_upload');
+	}
+//-->
+</script>
+
+<!-- IF S_CLOSE_PROGRESS_WINDOW -->
+	<script type="text/javascript">
+	<!--
+		close_waitscreen = 1;
+	//-->
+	</script>
+<!-- ENDIF -->
+<table width="<!-- IF not S_PRIVMSGS -->80<!-- ELSE -->100<!-- ENDIF -->%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_attach.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_ADD_ATTACHMENT}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="5">
+				<tr>
+					<td colspan="2" width="1%">{L_ADD_ATTACHMENT_EXPLAIN}</td>
+				</tr>
+				<tr>
+					<td align="left" width="22%"><b class="gensmall">{L_FILENAME}:</b></td>
+					<td align="left" width="78%">
+						<table border="0" cellspacing="0" cellpadding="2">
+							<tr>
+								<td width="95%"><input style="width: 99%;" type="file" name="fileupload" value="" size="40" maxlength="{FILESIZE}" /></td>
+								<td width="5%" valign="top"><input class="btnlite" style="width:100px" onclick="javascript:popup_progress_bar();" type="submit" name="add_file" value="{L_ADD_FILE}" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td align="left"><b class="gensmall">{L_FILE_COMMENT}:</b></td>
+					<td align="left">
+						<textarea style="width:99%;" class="post" name="filecomment" rows="3" cols="35">{FILE_COMMENT}</textarea>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- IF S_HAS_ATTACHMENTS -->
+<table width="<!-- IF not S_PRIVMSGS -->80<!-- ELSE -->100<!-- ENDIF -->%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_attach.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_POSTED_ATTACHMENTS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="5">
+			<!-- BEGIN attach_row -->
+				<tr>
+					<td align="left" width="22%"><b class="gensmall">{L_FILENAME}:</b></td>
+					<td align="left" width="78%"><a class="gen" href="{attach_row.U_VIEW_ATTACHMENT}" target="_blank">{attach_row.FILENAME}</a></td>
+				</tr>
+				<tr>
+					<td><b class="gensmall">{L_FILE_COMMENT}:</b></td>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="2">
+							<tr>
+								<td><textarea class="post" name="comment_list[{attach_row.ASSOC_INDEX}]" rows="3" cols="35" wrap="virtual">{attach_row.FILE_COMMENT}</textarea> </td>
+								<td valign="top">
+									<table border="0" cellspacing="4" cellpadding="0">
+										<tr>
+											<td><input class="btnlite" style="width:150px" type="submit" name="edit_comment[{attach_row.ASSOC_INDEX}]" value="{L_UPDATE_COMMENT}" /></td>
+										</tr>
+										<tr>
+											<td><input class="btnlite" style="width:150px" type="submit" name="delete_file[{attach_row.ASSOC_INDEX}]" value="{L_DELETE_FILE}" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<!-- END attach_row -->{attach_row.S_HIDDEN}
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->

@@ -1,0 +1,80 @@
+<!-- INCLUDE ucp_header.html --><!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%"><span class="gensmall" style="color:red">{ERROR}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%">{L_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="98%">
+		<table width="100%" cellspacing="3">
+			<!-- IF S_FORCE_PASSWORD -->
+			<tr>
+				<td colspan="2" align="center" class="submerged">{L_FORCE_PASSWORD_EXPLAIN}</td>
+			</tr>
+			<!-- ENDIF -->
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_USERNAME}: </b><br />
+					<span class="submerged">{L_USERNAME_EXPLAIN}</span></td>
+				<td align="left"><!-- IF S_CHANGE_USERNAME --><input class="post" type="text" name="username" value="{USERNAME}" size="30" maxlength="30" /><!-- ELSE --><b class="gen">{USERNAME}</b><!-- ENDIF --></td>
+			</tr>
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_EMAIL_ADDRESS}: </b></td>
+				<td align="left"><!-- IF S_CHANGE_EMAIL --><input class="post" type="text" name="email" value="{EMAIL}" size="30" maxlength="60" /><!-- ELSE --><b class="gen">{EMAIL}</b><!-- ENDIF --></td>
+			</tr>
+			<!-- IF S_CHANGE_EMAIL -->
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_CONFIRM_EMAIL}: </b><br />
+					<span class="submerged">{L_CONFIRM_EMAIL_EXPLAIN}</span></td>
+				<td align="left"><input class="post" type="text" name="email_confirm" value="{CONFIRM_EMAIL}" size="30" maxlength="60" /></td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- IF S_CHANGE_PASSWORD -->
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_NEW_PASSWORD}: </b><br />
+					<span class="submerged">{L_CHANGE_PASSWORD_EXPLAIN}</span></td>
+				<td align="left"><input class="post" type="password" name="new_password" value="{NEW_PASSWORD}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" width="100%" class="gensmall"><b>{L_CONFIRM_CHANGES}</b></td>
+			</tr>
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_CONFIRM_PASSWORD}: </b><br />
+					<span class="submerged">{L_CONFIRM_PASSWORD_EXPLAIN}</span></td>
+				<td align="left"><input class="post" type="password" name="password_confirm" value="{PASSWORD_CONFIRM}" size="30" maxlength="255" /></td>
+			</tr>
+			<tr>
+				<td align="left" width="35%" class="gensmall"><b>{L_CURRENT_PASSWORD}: </b><br />
+					<span class="submerged">{L_CURRENT_PASSWORD_EXPLAIN}</span></td>
+				<td align="left"><input class="post" type="password" name="cur_password" value="{CUR_PASSWORD}" size="30" maxlength="255" /></td>
+			</tr>
+			<!-- ENDIF -->
+		</table></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

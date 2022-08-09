@@ -1,0 +1,170 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">
+   {L_SEARCH_QUERY}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form action="{S_SEARCH_ACTION}" method="post">
+   <table width="80%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+         <td width="1%"><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_SEARCH}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH}"><img src="{T_THEME_PATH}/images/table_icon_search.gif" alt="" height="35" width="35" border="0" /></a></td>
+         <td class="table_title" align="left" nowrap="nowrap" width="98%">{SEARCH_MATCHES}</td>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="table_content" align="center" width="98%">
+            <table width="100%" cellspacing="5" style="height:80px;">
+               <tr>
+                  <td class="gensmall" align="right" width="40%"><!-- IF SEARCH_TOPIC -->{L_SEARCHED_TOPIC}: <a href="{U_SEARCH_TOPIC}"><b>{SEARCH_TOPIC}</b></a><br />
+                     <!-- ENDIF --><!-- IF SEARCH_WORDS -->{L_SEARCHED_FOR}:</td>
+                  <td class="gensmall" align="left" width="60%"><a href="{U_SEARCH_WORDS}"><b>{SEARCH_WORDS}</b></a><!-- ENDIF --><!-- IF IGNORED_WORDS --> {L_IGNORED_TERMS}: <b>{IGNORED_WORDS}</b><!-- ENDIF --></td>
+               </tr>
+               <tr>
+                  <td class="gensmall" align="right" width="40%"><!-- IF SEARCH_IN_RESULTS -->{L_SEARCH_IN_RESULTS}:</td>
+                  <td class="gensmall" align="left" width="60%"><input type="text" name="add_keywords" value="" /> <input class="btnlite" type="submit" name="submit" value="{L_GO}" /><!-- ENDIF --></td>
+               </tr>
+            </table>
+         </td>
+         <td width="1%"></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="table_bot" align="left" width="98%"> </td>
+         <td width="1%"></td>
+      </tr>
+   </table>
+   <!-- IF PAGINATION -->
+   <table width="79%" cellspacing="0">
+      <tr>
+         <td nowrap="nowrap" width="1%"><!-- IF PREVIOUS_PAGE --><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_PREVIOUS}</td></tr></table>');" onmouseout="return nd();" href="{PREVIOUS_PAGE}"><img src="{T_IMAGESET_PATH}/topic_prev.gif" alt="" height="25" width="25" border="0" /></a><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="5" /> <!-- ELSE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="30" /> <!-- ENDIF --></td>
+         <td class="submerged" align="left" valign="bottom" nowrap="nowrap">{PAGE_NUMBER}<br />
+            <b><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b>
+          
+         </td>
+         <td align="right" valign="middle" nowrap="nowrap"></td>
+         <td nowrap="nowrap" width="1%"><!-- IF NEXT_PAGE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="20" /><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_NEXT}</td></tr></table>');" onmouseout="return nd();" href="{NEXT_PAGE}"><img src="{T_IMAGESET_PATH}/topic_next.gif" alt="" height="25" width="25" border="0" /></a><!-- ELSE --> <img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="45" /><!-- ENDIF --></td>
+      </tr>
+   </table>
+   <!-- ENDIF --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="10" width="1" /> <!-- IF S_SHOW_TOPICS -->
+   <table width="80%" cellspacing="0">
+      <tr>
+         <td width="1%"><a href="{forumrow.U_VIEWFORUM}"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" border="0" /></a></td>
+         <td class="table_title" colspan="2" align="left"> {L_TOPICS} </td>
+         <td class="table_title" align="center"> {L_AUTHOR} </td>
+         <td class="table_title" align="center"> {L_REPLIES} </td>
+         <td class="table_title" align="center"> {L_VIEWS} </td>
+         <td class="table_title" align="center"> {L_LAST_POST} </td>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <!-- BEGIN searchresults -->
+      <tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+         <td width="1%" class="table_side"></td>
+         <td style="padding-left:5px;padding-right:5px;" align="center" valign="top" width="1%">{searchresults.TOPIC_FOLDER_IMG}</td>
+         <td align="left"><!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a><!-- IF searchresults.TOPIC_ICON_IMG --> <img title="" src="{T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}" alt="" height="{searchresults.TOPIC_ICON_IMG_HEIGHT}" width="{searchresults.TOPIC_ICON_IMG_WIDTH}" /> <!-- ENDIF --><!-- ENDIF -->{searchresults.ATTACH_ICON_IMG} <a href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a> <!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}">{searchresults.UNAPPROVED_IMG}</a>  <!-- ENDIF --><!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}">{REPORTED_IMG}</a>  <!-- ENDIF --><!-- IF topicrow.PAGINATION --><br />
+            <span class="submerged">{GOTO_PAGE_IMG}{L_GOTO_PAGE}: {searchresults.PAGINATION}</span> <!-- ENDIF --><!-- IF searchresults.S_TOPIC_GLOBAL -->
+            <p class="gensmall">{L_GLOBAL}</p>
+            <!-- ELSE --><br />
+            {L_IN} <!-- IF searchresults.S_UNREAD_TOPIC --><a class="submerged" href="{searchresults.U_VIEW_FORUM}" style="font-weight: bold; color: #FF0000"><!-- ELSE --><a class="submerged" href="{searchresults.U_VIEW_FORUM}"><!-- ENDIF -->{searchresults.FORUM_TITLE}</a> <!-- ENDIF --></td>
+         <td class="submerged" align="center" width="100">{searchresults.TOPIC_AUTHOR_FULL}</td>
+         <td class="submerged" align="center" width="50">{searchresults.TOPIC_REPLIES}</td>
+         <td class="submerged" align="center" width="50">{searchresults.TOPIC_VIEWS}</td>
+         <td align="right" nowrap="nowrap" width="160">
+            <p class="submerged">{searchresults.LAST_POST_TIME}</p>
+            <p class="submerged">{searchresults.LAST_POST_AUTHOR_FULL}
+               <a href="{searchresults.U_LAST_POST}">{LAST_POST_IMG}</a>
+            </p></td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+      <!-- BEGINELSE -->
+      <tr valign="middle">
+         <td width="1%" class="table_side"></td>
+         <td class="row3" colspan="6" align="center">{L_NO_SEARCH_RESULTS}</td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+      <!-- END searchresults -->
+      <tr>
+         <td width="1%" class="table_side"></td>
+         <td class="table_bot" colspan="6" align="right">
+         <!-- IF S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY --><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS}<!-- IF S_SELECT_SORT_KEY --> <span class="gensmall">{L_SORT_BY}:</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}<!-- ENDIF --> <input class="btnlite" type="submit" name="sort" value="{L_GO}" /><!-- ENDIF --></td>
+         <td width="1%" class="table_side"></td>
+      </tr>
+   </table>
+   <!-- ELSE -->
+   <!-- BEGIN searchresults -->
+   <table width="80%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+         <td width="1%"><a href="{searchresults.U_VIEW_POST}"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" border="0" /></a></td>
+         <td class="table_title" colspan="2" align="center" nowrap="nowrap" width="10%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td class="submerged" align="left" width="90%" height="18"><a href="{searchresults.U_VIEW_POST}">{searchresults.MINI_POST_IMG}</a> <a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a></a></td>
+                  <td class="submerged" align="right" valign="middle" nowrap="nowrap">{L_POSTED}: {searchresults.POST_DATE}</td>
+               </tr>
+            </table>
+         </td>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="table_content" align="center" width="10%"><b class="name">{searchresults.POST_AUTHOR_FULL}</b></td>
+         <td class="table_content" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td class="submerged" align="left">
+                  <!-- IF searchresults.S_IGNORE_POST -->
+                  {searchresults.L_IGNORE_POST} 
+                  <!-- ELSE -->
+                  <a name="p{searchresults.POST_ID}" id="p{searchresults.POST_ID}"></a>
+                  <!-- IF searchresults.FORUM_TITLE --><b>{L_FORUM}:</b> <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a> <!-- ELSE -->{L_GLOBAL} <!-- ENDIF --><br />
+                     <b>{L_TOPIC}: </b><a href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a></td>
+                  <td class="submerged" align="right"><b>{L_REPLIES}: </b>{searchresults.TOPIC_REPLIES} <b>{L_VIEWS}:</b> {searchresults.TOPIC_VIEWS}</td>
+               </tr>
+            </table>
+         </td>
+         <td width="1%"></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="table_content" align="center" valign="top" width="120"></td>
+         <td class="table_content" align="left" valign="top"><span class="postbody">{searchresults.MESSAGE}</span></td>
+         <td width="1%"></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="table_bot" colspan="2"></td>
+         <td width="1%"></td>
+      </tr>
+   </table>
+   <!-- ENDIF --><!-- BEGINELSE -->
+   <table width="80%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" border="0" /></td>
+         <td class="table_title" align="center" nowrap="nowrap" width="98%"> </td>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <tr>
+         <td width="1%"></td>
+         <td class="gensmall" align="center">{L_NO_SEARCH_RESULTS}</td>
+         <td width="1%"></td>
+      </tr>
+   </table>
+   <!-- END searchresults -->
+   <table width="80%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+         <td align="right" width="100%"><!-- IF S_SELECT_SORT_KEY --><span class="gensmall">{L_SORT_BY}:</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" /><!-- ENDIF --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="17" /></td>
+      </tr>
+   </table>
+   <!-- ENDIF -->
+</form>
+<br />
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" /> <!-- IF PAGINATION -->
+<table width="80%" cellspacing="0">
+   <tr>
+      <td nowrap="nowrap" width="1%"><!-- IF PREVIOUS_PAGE --><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_PREVIOUS}</td></tr></table>');" onmouseout="return nd();" href="{PREVIOUS_PAGE}"><img src="{T_IMAGESET_PATH}/topic_prev.gif" alt="" height="25" width="25" border="0" /></a><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="5" /> <!-- ELSE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="30" /> <!-- ENDIF --></td>
+      <td class="submerged" align="left" valign="bottom" nowrap="nowrap">{PAGE_NUMBER}<br />
+         <b><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b></td>
+      </td>
+      <td align="right" valign="middle" nowrap="nowrap"></td>
+      <td nowrap="nowrap" width="1%"><!-- IF NEXT_PAGE --><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="20" /><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_NEXT}</td></tr></table>');" onmouseout="return nd();" href="{NEXT_PAGE}"><img src="{T_IMAGESET_PATH}/topic_next.gif" alt="" height="25" width="25" border="0" /></a><!-- ELSE --> <img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="45" /><!-- ENDIF --></td>
+   </tr>
+</table>
+<!-- ENDIF --><!-- INCLUDE overall_footer.html -->

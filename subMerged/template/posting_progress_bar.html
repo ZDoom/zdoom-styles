@@ -1,0 +1,63 @@
+<!-- INCLUDE simple_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Close upload popup
+	*/
+	function close_popup()
+	{
+		if (opener != null)
+		{
+			if (opener.close_waitscreen != null)
+			{
+				if (opener.close_waitscreen == 1)
+				{
+					opener.close_waitscreen = 0;
+					self.close();
+					return 0;
+				}
+			}
+		}
+		setTimeout("close_popup()", 1000);
+		return 0;
+	}
+// ]]>
+</script>
+
+<table width="100%" cellspacing="25" cellpadding="10">
+	<tr>
+		<td align="center" valign="middle" width="100%">
+			<table width="95%" cellspacing="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_attach.gif" alt="" height="35" width="35" /></td>
+					<td class="table_title" colspan="2" align="center" width="98%">{L_UPLOAD_IN_PROGRESS}</td>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_content" align="center" width="100%">{PROGRESS_BAR} <object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=5,0,0,0" height="1" width="1">
+							<param name="movie" value="{T_THEME_PATH}/images/fla/ping.swf" />
+							<param name="menu" value="false" />
+							<param name="quality" value="best" />
+							<param name="loop" value="false" />
+							<param name="wmode" value="transparent" />
+							<embed height="1" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?p1_prod_version=shockwaveflash" src="{T_THEME_PATH}/images/fla/ping.swf" menu="false" quality="best" wmode="transparant" type="application/x-shockwave-flash" width="1"></embed> 
+						</object></td>
+					<td width="1%"></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_bot" colspan="2" align="center"> </td>
+					<td width="1%"></td>
+				</tr>
+			</table>
+			<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="25" width="1" /> <a href="javascript:window.close();">{L_CLOSE_WINDOW}</a></td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+// <![CDATA[
+	close_popup();	
+// ]]>
+</script>
+<!-- INCLUDE simple_footer.html -->

@@ -1,0 +1,142 @@
+<!-- INCLUDE ucp_header.html -->
+<!-- DEFINE $S_SIGNATURE = 1 -->
+<!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%"><span class="gen" style="color:red">{ERROR}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<!-- IF SIGNATURE_PREVIEW -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_l.gif" alt="" height="17" width="17" /></td>
+		<td class="table_title" align="left" width="98%">{L_SIGNATURE_PREVIEW}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="22%" class="name" align="center" valign="top"><b>{USERNAME_PREVIEW}</b></td>
+				<td width="78%" align="left" class="postbody">
+				<span class="sig">
+				<hr style="width:30%;text-align:left;" />
+				{SIGNATURE_PREVIEW}</span>
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="center"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" align="left" width="98%">{L_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" valign="top" width="98%">
+		<table width="100%" cellspacing="3">
+			<tr>
+				<td width="22%" class="gensmall" valign="top">
+				<b>{L_SIGNATURE}: </b><br />
+					<span class="submerged">{L_SIGNATURE_EXPLAIN}</span></td>
+				<td width="78%">
+				<script type="text/javascript">
+		// <![CDATA[
+			var form_name = 'ucp';
+			var text_name = 'signature';
+		// ]]>
+		</script>
+					<table width="100%" cellspacing="3">
+						<!-- INCLUDE posting_buttons.html -->
+						<tr>
+							<td><textarea  style="width: 99%;" class="post" name="signature" rows="10" cols="60" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{SIGNATURE}</textarea></td>
+						</tr>
+						<tr>
+							<td colspan="9">
+								<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr>
+										<td align="left">
+											<script type="text/javascript">
+						           // <![CDATA[
+							            colorPalette('h', 6, 5)
+						           // ]]>
+						          </script>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="22%" valign="top" class="gensmall"><b>{L_OPTIONS}</b><br />
+					<table border="0" cellspacing="3">
+						<tr>
+							<td class="submerged">{BBCODE_STATUS}</td>
+						</tr>
+						<tr>
+							<td class="submerged">{IMG_STATUS}</td>
+						</tr>
+						<tr>
+							<td class="submerged">{FLASH_STATUS}</td>
+						</tr>
+						<tr>
+							<td class="submerged">{SMILIES_STATUS}</td>
+						</tr>
+					</table>
+				</td>
+				<td valign="top">
+					<table cellspacing="0" cellpadding="1" border="0">
+					<!-- IF S_BBCODE_ALLOWED -->
+						<tr>
+							<td><input type="checkbox" class="radio" name="disable_bbcode"{S_BBCODE_CHECKED} /></td>
+							<td class="gensmall">{L_DISABLE_BBCODE}</td>
+						</tr>
+					<!-- ENDIF -->
+					<!-- IF S_SMILIES_ALLOWED -->
+						<tr>
+							<td><input type="checkbox" class="radio" name="disable_smilies"{S_SMILIES_CHECKED} /></td>
+							<td class="gensmall">{L_DISABLE_SMILIES}</td>
+						</tr>
+					<!-- ENDIF -->
+					<tr>
+						<td><input type="checkbox" class="radio" name="disable_magic_url"{S_MAGIC_URL_CHECKED} /></td>
+						<td class="gensmall">{L_DISABLE_MAGIC_URL}</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+		</table></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnlite" type="submit" name="preview" value="{L_PREVIEW}" />  <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table><!-- INCLUDE ucp_footer.html -->

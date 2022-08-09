@@ -1,0 +1,50 @@
+<!-- INCLUDE mcp_header.html -->
+<form id="mcp" action="{S_MCP_ACTION}" method="post" name="mcp">
+<div align="center"><span class="gensmall">{L_DISPLAY_ITEMS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <span class="gensmall">{L_FORUM}</span> 
+<select name="f">{S_FORUM_OPTIONS}</select>   <!-- IF TOPIC_ID --><input class="radio" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" />  <b>{L_ONLY_TOPIC}</b>   <!-- ENDIF --><input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+	
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title"> <!-- IF S_TOPICS -->{L_TOPIC}<!-- ELSE -->{L_POST}<!-- ENDIF --> </td>
+			<td class="table_title">&nbsp;{L_AUTHOR}&nbsp;</td>
+			<td class="table_title">&nbsp;{L_POST_TIME}&nbsp;</td>
+			<td class="table_title" width="5%"> {L_SELECT}&nbsp;</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- BEGIN postrow -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%" class="table_side"></td>
+			<td style="padding: 4px;">
+				<p class="topictitle"><a href="{postrow.U_VIEWPOST}">{postrow.POST_SUBJECT}</a></p>
+				<span class="gensmall"><!-- IF postrow.U_VIEWFORUM -->{L_FORUM}: <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a><!-- ELSE -->{postrow.FORUM_NAME}<!-- ENDIF --></span></td>
+			<td style="padding: 4px;" align="left" valign="top" nowrap="nowrap"><span class="name">{postrow.POST_AUTHOR_FULL}</span><br />
+				<span class="gensmall">[ <a href="{postrow.U_VIEW_DETAILS}">{L_VIEW_DETAILS}</a> ]</span></td>
+			<td class="submerged" align="left" valign="top" nowrap="nowrap">{postrow.POST_TIME}</td>
+			<td align="center"><input class="radio" type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}" /></td>
+			<td width="1%" class="table_side"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="4">
+				<hr />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="4" align="center"><span class="genmed">{L_NO_POSTS}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END postrow -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="4" align="right"><b class="gensmall"><a href="javascript:marklist('mcp', '', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="javascript:marklist('mcp', '', false); updateCheckImage();">{L_UNMARK_ALL}</a></b><br />
+			<input class="btnmain" type="submit" name="action[approve]" value="{L_APPROVE}" />  <input class="btnlite" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

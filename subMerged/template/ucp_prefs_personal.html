@@ -1,0 +1,128 @@
+<!-- INCLUDE ucp_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Set display of page element
+	* s[-1,0,1] = hide,toggle display,show
+	*/
+	function dE(n,s)
+	{
+		var e = document.getElementById(n);
+		if (!s)
+		{
+			s = (e.style.display == '') ? -1 : 1;
+		}
+		e.style.display = (s == 1) ? 'block' : 'none';
+	}
+
+	var default_dateformat = '{A_DEFAULT_DATEFORMAT}';
+// ]]>
+</script>
+<!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="center" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="center" width="98%"><b class="gen" style="color:red">{ERROR}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" align="left" width="98%">{L_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="98%">
+			<table width="100%" cellspacing="5">
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_SHOW_EMAIL}:</b></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="viewemail" value="1" <!-- IF S_VIEW_EMAIL --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="viewemail" value="0" <!-- IF not S_VIEW_EMAIL -->checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_ADMIN_EMAIL}:</b></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="massemail" value="1" <!-- IF S_MASS_EMAIL --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="massemail" value="0" <!-- IF not S_MASS_EMAIL --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_ALLOW_PM}:</b><br />
+						<span class="submerged">{L_ALLOW_PM_EXPLAIN}</span></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="allowpm" value="1" <!-- IF S_ALLOW_PM --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="allowpm" value="0" <!-- IF not S_ALLOW_PM --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<!-- IF S_CAN_HIDE_ONLINE -->
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_HIDE_ONLINE}:</b></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="hideonline" value="1" <!-- IF S_HIDE_ONLINE -->checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="hideonline" value="0" <!-- IF not S_HIDE_ONLINE --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<!-- ENDIF --><!-- IF S_SELECT_NOTIFY -->
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_NOTIFY_METHOD}:</b><br />
+						<span class="submerged">{L_NOTIFY_METHOD_EXPLAIN}</span></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="notifymethod" value="0" <!-- IF S_NOTIFY_EMAIL --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NOTIFY_METHOD_EMAIL}</span>  <input class="radio" type="radio" name="notifymethod" value="1" <!-- IF S_NOTIFY_IM --> checked="checked"<!-- ENDIF --> /><span class="gensmall">{L_NOTIFY_METHOD_IM}</span>  <input type="radio" name="notifymethod" value="2" <!-- IF S_NOTIFY_BOTH --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NOTIFY_METHOD_BOTH}</span></td>
+				</tr>
+				<!-- ENDIF -->
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_NOTIFY_ON_PM}:</b></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="notifypm" value="1" <!-- IF S_NOTIFY_PM -->checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="notifypm" value="0" <!-- IF not S_NOTIFY_PM --> checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_POPUP_ON_PM}:</b></td>
+					<td align="left" valign="top"><input class="radio" type="radio" name="popuppm" value="1" <!-- IF S_POPUP_PM -->checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="popuppm" value="0" <!-- IF not S_POPUP_PM -->checked="checked" <!-- ENDIF --> /><span class="gensmall">{L_NO}</span></td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_BOARD_LANGUAGE}:</b></td>
+					<td align="left" valign="top"><select name="lang">
+							{S_LANG_OPTIONS}
+						</select></td>
+				</tr>
+				<!-- IF S_STYLE_OPTIONS -->
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_BOARD_STYLE}:</b></td>
+					<td align="left" valign="top"><select name="style">
+							{S_STYLE_OPTIONS}
+						</select></td>
+				</tr>
+				<!-- ENDIF -->
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_BOARD_DATE_FORMAT}:</b><br />
+						<span class="submerged">{L_BOARD_DATE_FORMAT_EXPLAIN}</span></td>
+					<td align="left" valign="top"><select id="dateoptions" name="dateoptions" onchange="if(this.value=='custom'){dE('custom_date',1);}else{dE('custom_date',-1);} if (this.value == 'custom') { document.getElementById('dateformat').value = '{A_DEFAULT_DATEFORMAT}'; } else { document.getElementById('dateformat').value = this.value; }">
+							{S_DATEFORMAT_OPTIONS} 
+						</select>
+						<div id="custom_date" <!-- IF not S_CUSTOM_DATEFORMAT --> style="display:none;" <!-- ENDIF -->>
+							<input id="dateformat" class="post" style="margin-top: 3px;" type="text" name="dateformat" value="{DATE_FORMAT}" maxlength="30" /></div>
+					</td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b class="gensmall">{L_BOARD_TIMEZONE}:</b></td>
+					<td align="left" valign="top">
+							<select class="timezone" name="tz">
+								{S_TZ_OPTIONS}
+							</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right" width="35%" class="gensmall"><b>{L_BOARD_DST}:</b></td>
+               <td align="left" valign="top" class="gensmall"><input class="radio" type="radio" name="dst" value="1" <!-- IF S_DST --> checked="checked"<!-- ENDIF -->  /> {L_YES}  <input class="radio" type="radio" name="dst" value="0" <!-- IF not S_DST --> checked="checked"<!-- ENDIF --> /> {L_NO}</td>
+				</tr>
+			</table></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

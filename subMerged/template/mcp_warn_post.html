@@ -1,0 +1,81 @@
+<!-- INCLUDE mcp_header.html -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_POST}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td width="98%" align="left" valign="top" class="table_content">
+			<table border="0" cellspacing="5" width="100%">
+				<tr>
+					<td align="center" width="22%">
+					<table border="0" cellspacing="5">
+						<tr>
+							<td align="center"><!-- IF USER_COLOR --><span class="name" style="color: #{USER_COLOR}"><!-- ELSE --><b><!-- ENDIF -->{USERNAME}</b></span></td>
+						</tr>
+						<!-- IF RANK_TITLE -->
+						<tr>
+							<td class="postdetails" align="center">{RANK_TITLE}</td>
+						</tr>
+						<!-- ENDIF -->
+						<!-- IF RANK_IMG -->
+						<tr>
+							<td align="center">{RANK_IMG}</td>
+						</tr>
+						<!-- ENDIF -->
+						<tr>
+							<td align="center"><!-- IF AVATAR_IMG -->{AVATAR_IMG}<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" /><!-- ENDIF --></td>
+						</tr>
+					</table>
+					</td>
+					<td width="78%" align="left" valign="top" class="postbody">{POST}</td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<form action="{U_POST_ACTION}" method="post" name="mcp">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_report.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_ADD_WARNING}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+				<table width="100%" cellspacing="5">
+					<tr>
+						<td align="center"><span class="genmed">{L_ADD_WARNING_EXPLAIN}</span></td>
+					</tr>
+					<tr>
+						<td align="center"><textarea style="width:99%;" name="warning" rows="10" cols="76">{L_WARNING_POST_DEFAULT}</textarea></td>
+					</tr>
+					<!-- IF S_CAN_NOTIFY -->
+					<tr>
+						<td align="center"><input class="radio" type="checkbox" name="notify_user" checked="checked" /><span class="genmed">{L_NOTIFY_USER_WARN}</span></td>
+					</tr>
+					<!-- ENDIF -->
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="center" width="98%"><input class="btnmain" type="submit" name="action[add_warning]" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+
+<br clear="all" /><br />
+<!-- INCLUDE mcp_footer.html -->

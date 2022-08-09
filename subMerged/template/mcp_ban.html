@@ -1,0 +1,132 @@
+
+<!-- INCLUDE mcp_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+
+	var ban_length = new Array();
+		ban_length[-1] = "";
+	<!-- BEGIN ban_length -->
+		ban_length['{ban_length.BAN_ID}'] = "{ban_length.A_LENGTH}";
+	<!-- END ban_length -->
+
+	var ban_reason = new Array();
+		ban_reason[-1] = "";
+	<!-- BEGIN ban_reason -->
+		ban_reason['{ban_reason.BAN_ID}'] = "{ban_reason.A_REASON}";
+	<!-- END ban_reason -->
+
+	var ban_give_reason = new Array();
+		ban_give_reason[-1] = "";
+	<!-- BEGIN ban_give_reason -->
+		ban_give_reason['{ban_give_reason.BAN_ID}'] = "{ban_give_reason.A_REASON}";
+	<!-- END ban_give_reason -->
+
+	function display_details(option)
+	{
+		document.getElementById('mcp_ban').unbangivereason.value = ban_give_reason[option];
+		document.getElementById('mcp_ban').unbanreason.value = ban_reason[option];
+		document.getElementById('mcp_ban').unbanlength.value = ban_length[option];
+	}
+
+// ]]>
+</script>
+<form id="mcp_ban" action="{U_ACTION}" method="post">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_TITLE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="3">
+				<tr>
+					<td valign="top" width="100%" colspan="2">{L_EXPLAIN}</td>
+				</tr>
+				<tr>
+					<td valign="top" width="45%"><b>{L_BAN_CELL}:</b></td>
+					<td><textarea id="ban" class="post" name="ban" rows="3" cols="40"></textarea> <!-- IF S_USERNAME_BAN --><br />
+						<span class="submerged">[ <a onclick="window.open('{U_FIND_USER}', '_phpbbsearch', 'height=500, resizable=yes, scrollbars=yes, width=740'); return false;" href="#">{L_FIND_USERNAME}</a> ]</span><!-- ENDIF --></td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_LENGTH}:</b></td>
+					<td><select name="banlength">
+							{S_BAN_END_OPTIONS}
+						</select><br />
+						<input class="post" type="text" name="banlengthother" /> (YYYY-MM-DD)</td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_EXCLUDE}:</b><br />
+						<span class="gensmall">{L_BAN_EXCLUDE_EXPLAIN}</span></td>
+					<td><input class="radio" type="radio" name="banexclude" value="1" /> {L_YES}  <input class="radio" type="radio" name="banexclude" value="0" checked="checked" /> {L_NO}</td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_REASON}:</b></td>
+					<td><input class="post" type="text" name="banreason" /></td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_GIVE_REASON}:</b></td>
+					<td><input class="post" type="text" name="bangivereason" /></td>
+				</tr>
+			</table></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="center"><input class="btnmain" type="submit" name="bansubmit" value="{L_SUBMIT}" /> <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_UNBAN_TITLE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="3">
+				<tr>
+					<td valign="top" width="100%" colspan="2">{L_EXPLAIN}</td>
+				</tr>
+				<tr>
+					<td colspan="2">{L_UNBAN_EXPLAIN}</td>
+				</tr>
+				<!-- IF S_BANNED_OPTIONS -->
+				<tr>
+					<td valign="top" width="45%"><b>{L_BAN_CELL}:</b></td>
+					<td><select style="width: 50%" name="unban[]" size="10" multiple="multiple" onchange="if (this.selectedIndex > -1) display_details(this.options[this.selectedIndex].value); else display_details(-1);">
+							{BANNED_OPTIONS}
+						</select></td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_LENGTH}:</b></td>
+					<td><input style="border: 0px; width: 100%" type="text" name="unbanlength" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_REASON}:</b></td>
+					<td><textarea style="border: 0px; width: 100%" name="unbanreason" readonly="readonly" rows="5" cols="80">&nbsp;</textarea></td>
+				</tr>
+				<tr>
+					<td valign="top"><b>{L_BAN_GIVE_REASON}:</b></td>
+					<td><textarea style="border: 0px; width: 100%" name="unbangivereason" readonly="readonly" rows="5" cols="80">&nbsp;</textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input class="btnmain" type="submit" name="unbansubmit" value="{L_SUBMIT}" /> <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+				</tr>
+				<!-- ELSE -->
+			</table></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td width="98%" align="center" class="table_bot"><b>{L_NO_BAN_CELL}</b></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

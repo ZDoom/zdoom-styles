@@ -1,0 +1,34 @@
+<div class="subMerged_title">
+	{L_GROUP_INFORMATION}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<table width="80%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" width="90%">{L_GROUP_INFORMATION}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="20%"><b class="gensmall">{L_GROUP_NAME}:</b></td>
+		<td class="table_content"><b class="gen" <!-- IF GROUP_COLOR -->="<!-- IF GROUP_COLOR -->" style="color:#{GROUP_COLOR}" <!-- ENDIF -->="<!-- ENDIF -->">{GROUP_NAME}</b></td>
+		<!-- IF AVATAR_IMG or RANK_IMG or GROUP_RANK or U_PM -->
+		<td class="table_content" rowspan="2" align="center" width="33%"><!-- IF AVATAR_IMG -->{AVATAR_IMG}<br />
+			<!-- ENDIF --><!-- IF RANK_IMG -->{RANK_IMG}<!-- ENDIF --><!-- IF GROUP_RANK --><span class="gensmall">{GROUP_RANK}</span><br />
+			<br />
+			<!-- ENDIF --><!-- IF U_PM --><a href="{U_PM}">{PM_IMG}</a><!-- ENDIF --></td>
+		<td width="1%"></td>
+		<!-- ENDIF --></tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="20%"><b class="gensmall">{L_GROUP_DESC}:</b></td>
+		<td class="table_content"><span class="gen">{GROUP_DESC}</span>
+			<p class="forumdesc">{GROUP_TYPE}</p>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>

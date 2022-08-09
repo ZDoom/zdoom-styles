@@ -1,0 +1,93 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="right" width="100%"><!-- IF S_USER_LOGGED_IN --><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_MARK_FORUMS_READ}</td></tr></table>');" onmouseout="return nd();" href="{U_MARK_FORUMS}"><img src="{T_THEME_PATH}/images/mark_read.gif" height="21" width="19" border="0" alt="{L_MARK_FORUMS_READ}" /></a> <!-- ENDIF --></td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left">{L_FORUMS}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td align="left" width="98%">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<!-- BEGIN forumrow -->
+			<!-- IF forumrow.S_IS_CAT -->
+			<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+				<td style="padding-bottom:10px;padding-left:4px;padding-right:4px;" colspan="2" align="left" width="100%">
+				<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="float: left; margin-right: 5px;">{forumrow.FORUM_IMAGE}</div>
+				<!-- ENDIF -->
+				<span class="forumcatdesc"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></span><br />
+				<span class="forumdesc">
+				{forumrow.FORUM_DESC}</span>
+				<img src="{T_THEME_PATH}/images/spacer.gif" height="14" width="1" alt="" /></td>
+			</tr>
+			<!-- ELSEIF forumrow.S_IS_LINK -->
+			<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+				<td align="center" valign="top" width="1%" nowrap="nowrap">&nbsp;<a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_FOLDER_IMG}</a>&nbsp;</td>
+				<td align="left" width="99%">
+				<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="float: left; margin-right: 5px;">{forumrow.FORUM_IMAGE}</div>
+				<!-- ENDIF -->
+				<a class="forumlink" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+					<table width="99%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td class="forumdesc" align="left" valign="top" width="60%">{forumrow.FORUM_DESC}</td>
+							<td class="submerged" align="right" valign="bottom" nowrap="nowrap" width="40%">
+							<!-- IF forumrow.CLICKS -->
+							{L_REDIRECTS}: {forumrow.CLICKS}
+							<!-- ENDIF --></td>
+						</tr>
+					</table>
+				<img src="{T_THEME_PATH}/images/spacer.gif" height="14" width="1" alt="" /></td>
+			</tr>
+			<!-- ELSE -->
+			<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+				<td width="1%" align="center" valign="top" nowrap="nowrap">&nbsp;<a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_FOLDER_IMG}</a>&nbsp;</td>
+				<td align="left">
+				
+				<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="float: left; margin-right: 5px;">{forumrow.FORUM_IMAGE}</div>
+				<!-- ENDIF -->
+				
+				<a class="forumlink" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><br />
+					<span class="forumdesc">{forumrow.FORUM_DESC}</span><br />
+					<!-- IF forumrow.SUBFORUMS -->
+					<img src="{T_THEME_PATH}/images/mini_bubble.gif" alt="" height="10" width="10" /> <span class="forumdesc"><b>{forumrow.L_SUBFORUM_STR}</b> {forumrow.SUBFORUMS}</span><br />
+					<!-- ENDIF -->
+					<img src="{T_THEME_PATH}/images/spacer.gif" height="5" width="1" alt="" /><br />
+					<table width="99%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td class="submerged" align="left" valign="bottom" width="60%"><b>{L_TOPICS}:</b> {forumrow.TOPICS} <b>{L_POSTS}:</b> {forumrow.POSTS}<br />
+								<!-- IF forumrow.MODERATORS --><b>{forumrow.L_MODERATOR_STR}:</b> {forumrow.MODERATORS} <!-- ENDIF -->
+								</td>
+							<td class="submerged" align="right" valign="bottom" nowrap="nowrap" width="40%"><!-- IF forumrow.LAST_POST_TIME --><p class="topicdetails"><!-- IF forumrow.U_UNAPPROVED_TOPICS --><a href="{forumrow.U_UNAPPROVED_TOPICS}">{UNAPPROVED_IMG}</a>&nbsp;<!-- ENDIF -->{forumrow.LAST_POST_TIME}</p>
+                                  <p class="topicdetails">{forumrow.LAST_POSTER_FULL}
+                                    <!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a><!-- ENDIF -->
+                                  </p>
+                                <!-- ELSE -->
+                                  <p class="topicdetails">{L_NO_POSTS}</p>
+                                <!-- ENDIF --></td>
+                                  </tr>
+                                </table>
+				<img src="{T_THEME_PATH}/images/spacer.gif" height="14" width="1" alt="" /></td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="table_title" colspan="2" align="center">
+					<p class="gensmall">{L_NO_FORUMS}</p>
+				</td>
+			</tr>
+			<!-- END forumrow -->
+			<tr>
+				<td class="table_bot" colspan="2" width="98%"></td>
+			</tr>
+		</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+</table>

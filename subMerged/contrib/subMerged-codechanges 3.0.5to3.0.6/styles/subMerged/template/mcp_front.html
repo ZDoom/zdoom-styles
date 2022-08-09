@@ -1,0 +1,201 @@
+
+<!-- INCLUDE mcp_header.html -->
+<!-- IF S_SHOW_UNAPPROVED -->
+<form name="mcp_queue" method="post" action="{S_MCP_QUEUE_ACTION}">
+<b class="gensmall"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_LATEST_UNAPPROVED}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_last5.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left">{L_FORUM}</td>
+		<td class="table_title" align="left">{L_TOPIC}</td>
+		<td class="table_title" align="left">{L_SUBJECT}</td>
+		<td class="table_title" align="left">{L_AUTHOR}</td>
+		<td class="table_title" align="left">{L_POST_TIME}</td>
+		<td class="table_title" align="left">{L_SELECT}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN unapproved -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="left" valign="top" width="15%"><span class="gensmall"><!-- IF unapproved.U_FORUM --><a href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --></span><!-- IF unapproved.U_MCP_FORUM --><br />
+			<span class="submerged">[ <a href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a> ]</span><!-- ENDIF --> </td>
+		<td align="left" valign="top"> <span class="gensmall"><a href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a></span> <br />
+			<span class="submerged">[ <a href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a> ]</span></td>
+		<td align="left" valign="top"> <span class="gensmall">{unapproved.SUBJECT}</span> <br />
+			<span class="submerged">[ <a href="{unapproved.U_POST_DETAILS}">{L_VIEW_DETAILS}</a> ]</span></td>
+		<td align="left" valign="top" nowrap="nowrap" width="15%"> <span class="gensmall">{unapproved.AUTHOR_FULL}</span> </td>
+		<td align="center" valign="top" nowrap="nowrap" width="15%"> <span class="submerged">{unapproved.POST_TIME}</span> </td>
+		<td align="center" valign="top" nowrap="nowrap"><input type="checkbox" class="radio" name="post_id_list[]" value="{unapproved.POST_ID}" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="6" align="center">{L_UNAPPROVED_POSTS_ZERO_TOTAL}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END unapproved --><!-- IF S_HAS_UNAPPROVED_POSTS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="6" align="center">{L_UNAPPROVED_TOTAL}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="6" align="center">{S_HIDDEN_FIELDS}<input class="btnlite" type="submit" name="action[approve]" value="{L_APPROVE}" />&nbsp;&nbsp;<input class="btnlite" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+{S_FORM_TOKEN}
+</form>
+
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"></td>
+		<td align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b class="gensmall"><a href="#" onclick="marklist('mcp_queue', '', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('mcp_queue', '', false); updateCheckImage();">{L_UNMARK_ALL}</a></b></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+
+<br clear="all" /><br />
+<!-- ENDIF -->
+<!-- IF S_SHOW_REPORTS -->
+<b class="gensmall"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_LATEST_REPORTED}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_report.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left">{L_FORUM} </td>
+		<td class="table_title" align="left"> {L_TOPIC} </td>
+		<td class="table_title" align="left"> {L_SUBJECT} </td>
+		<td class="table_title" align="left"> {L_REPORTER} </td>
+		<td class="table_title" align="left"> {L_REPORT_TIME} </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN report -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td align="left" valign="top" width="15%"><span class="gensmall"><b><!-- IF report.U_FORUM --><a href="{report.U_FORUM}">{report.FORUM_NAME}</a><!-- ELSE -->{report.FORUM_NAME}<!-- ENDIF --></b></span><b> <!-- IF report.U_MCP_FORUM --><br />
+				<span class="submerged">[ <a href="{report.U_MCP_FORUM}">{L_MODERATE}</a> ]</span> <!-- ENDIF --></b></td>
+		<td align="left" valign="top"> <span class="gensmall"><b><a href="{report.U_TOPIC}">{report.TOPIC_TITLE}</a></b></span> <br />
+			<span class="submerged">[ <a href="{report.U_MCP_TOPIC}">{L_MODERATE}</a> ]</span></td>
+		<td align="left" valign="top"> <span class="gensmall">{report.SUBJECT}</span> <br />
+			<span class="submerged">[ <a href="{report.U_POST_DETAILS}">{L_VIEW_DETAILS}</a> ]</span></td>
+		<td align="left" valign="top" nowrap="nowrap" width="15%"> <span class="name">{report.REPORTER_FULL}</span> </td>
+		<td align="center" valign="top" nowrap="nowrap" width="15%"> <span class="submerged">{report.REPORT_TIME}</span> </td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="5" align="center">{L_REPORTS_ZERO_TOTAL}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END report -->
+	<!-- IF S_HAS_REPORTS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="5" align="center">{L_REPORTS_TOTAL}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+</table>
+
+	<br clear="all" /><br />
+<!-- ENDIF -->
+
+<!-- IF S_SHOW_PM_REPORTS -->
+<b class="gensmall"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_LATEST_REPORTED_PMS}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_report.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left">{L_PM_SUBJECT}</td>
+		<td class="table_title" align="left">{L_PM_FROM}</td>
+		<td class="table_title" align="left">{L_TO} &amp; {L_BCC}</td>
+		<td class="table_title" align="left">{L_SENT_AT}</td>
+		<td class="table_title" align="left">{L_REPORTER}</td>
+		<td class="table_title" align="left">{L_REPORT_TIME}</td>
+	</tr>
+	<!-- BEGIN pm_report -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%" class="table_side"></td>
+			<td align="left" valign="top" width="15%"><span class="gensmall">{pm_report.PM_SUBJECT}</span><br /><span class="gensmall">[ <a href="{pm_report.U_PM_DETAILS}">{L_VIEW_DETAILS}</a> ]</span></td>
+			<td align="center" width="15%" nowrap="nowrap" valign="top"><span class="gensmall">{pm_report.PM_AUTHOR_FULL}</span></td>
+			<td align="center" width="15%" nowrap="nowrap" valign="top"><span class="gensmall">{pm_report.RECIPIENTS}</span></td>
+			<td align="center" width="10%" nowrap="nowrap" valign="top"><span class="submerged">{pm_report.PM_TIME}</span></td>
+			<td align="center" width="15%" nowrap="nowrap" valign="top"><span class="name">{pm_report.REPORTER_FULL}</span></td>
+			<td align="center" width="10%" nowrap="nowrap" valign="top"><span class="submerged">{pm_report.REPORT_TIME}</span></td>
+			<td width="1%" class="table_side"></td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="6" align="center"><span class="gensmall">{L_PM_REPORTS_ZERO_TOTAL}</span></td>
+			<td width="1%"></td>
+		</tr>
+	<!-- END pm_report -->
+	<!-- IF S_HAS_PM_REPORTS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="6"><span class="gensmall">{L_PM_REPORTS_TOTAL}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+</table>
+<!-- ENDIF -->
+<!-- IF S_SHOW_LOGS -->
+<b class="gensmall"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_LATEST_LOGS}</b>
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_log.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" width="15%">{L_USERNAME} </td>
+		<td class="table_title" align="left" width="12%"> {L_IP} </td>
+		<td class="table_title" align="left" width="45%"> {L_ACTION} </td>
+		<td class="table_title" align="left" width="18%"> {L_TIME}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- BEGIN log -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td nowrap="nowrap"> <span class="name">{log.USERNAME}</span> </td>
+		<td align="left" nowrap="nowrap"> <span class="submerged">{log.IP} </span></td>
+		<td> <span class="gensmall">{log.ACTION}</span><br />
+		<span class="submerged"><!-- IF log.U_VIEW_TOPIC --><a href="{log.U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><!-- IF log.U_VIEWLOGS --> | <!-- ENDIF --><!-- ENDIF --><!-- IF log.U_VIEWLOGS --><a href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF --></span></td>
+		<td align="left" nowrap="nowrap"> <span class="submerged">{log.TIME}</span></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4" align="center"><span class="gensmall">{L_NO_ENTRIES}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END log -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF --><!-- INCLUDE mcp_footer.html -->

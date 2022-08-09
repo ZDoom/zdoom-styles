@@ -1,0 +1,35 @@
+***************
+*** 216,235 ****
+  		<!-- BEGINELSE -->
+  
+  			<tr>
+- 				<!-- IF S_TOPIC_ICONS -->
+- 					<td class="row1" colspan="7" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+- 				<!-- ELSE -->
+- 					<td class="row1" colspan="6" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+- 				<!-- ENDIF -->
+  			</tr>
+  		<!-- END topicrow -->
+  
+  		<tr align="center">
+- 			<!-- IF S_TOPIC_ICONS -->
+- 				<td class="cat" colspan="7">
+- 			<!-- ELSE -->
+- 				<td class="cat" colspan="6">
+- 			<!-- ENDIF -->
+  					<form method="post" action="{S_FORUM_ACTION}"><span class="gensmall">{L_DISPLAY_TOPICS}:</span>&nbsp;{S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_GO}" /></form>
+  				</td>
+  		</tr>
+--- 210,221 ----
+  		<!-- BEGINELSE -->
+  
+  			<tr>
++ 				<td class="row1" colspan="{SUBCOLSPANLONG}" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+  			</tr>
+  		<!-- END topicrow -->
+  
+  		<tr align="center">
++ 			<td class="cat" colspan="{SUBCOLSPANLONG}">
+  					<form method="post" action="{S_FORUM_ACTION}"><span class="gensmall">{L_DISPLAY_TOPICS}:</span>&nbsp;{S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_GO}" /></form>
+  				</td>
+  		</tr>

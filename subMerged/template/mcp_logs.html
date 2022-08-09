@@ -1,0 +1,58 @@
+<!-- INCLUDE mcp_header.html -->
+<form action="{U_POST_ACTION}" method="post" name="mcp">
+<div align="center"><span class="submerged">{L_DISPLAY_LOG}:</span> {S_SELECT_SORT_DAYS} <span class="submerged">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_log.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" width="20%">{L_USERNAME}</td>
+			<td class="table_title" width="20%">{L_IP}</td>
+			<td class="table_title" width="38%">{L_ACTION}</td>
+			<td class="table_title" width="20%">{L_TIME}</td>
+			<!-- IF S_CLEAR_ALLOWED -->
+			<td class="table_title"> {L_MARK} </td>
+			<!-- ENDIF -->
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- IF S_LOGS --><!-- BEGIN log -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%" class="table_side"></td>
+			<td class="name" align="left"> {log.USERNAME} </td>
+			<td class="gensmall" align="left"> {log.IP} </td>
+			<td class="gensmall" align="left"> {log.ACTION}<br />
+				{log.DATA}</td>
+			<td class="submerged" align="left" nowrap="nowrap"> {log.DATE} </td>
+			<!-- IF S_CLEAR_ALLOWED -->
+			<td align="center" width="5%"><input class="radio" type="checkbox" name="mark[]" value="{log.ID}" /></td>
+			<!-- ENDIF -->
+			<td width="1%" class="table_side"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->">
+				<hr />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END log -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->"><span class="gen">{L_SEARCH_KEYWORDS}:</span> <input type="text" name="keywords" value="{S_KEYWORDS}" />&nbsp;<input type="submit" class="btnlite" name="filter" value="{L_SEARCH}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- IF S_CLEAR_ALLOWED -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="5" align="right"><input class="btnlite" type="submit" name="action[del_marked]" value="{L_DELETE_MARKED}" />  <input class="btnlite" type="submit" name="action[del_all]" value="{L_DELETE_ALL}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF --><!-- ELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->" align="center"><span class="gen">{L_NO_ENTRIES}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

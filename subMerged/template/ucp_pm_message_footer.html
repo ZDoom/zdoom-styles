@@ -1,0 +1,28 @@
+<!-- IF not S_VIEW_MESSAGE -->
+  {S_FORM_TOKEN}
+	</form>
+
+<!-- ENDIF -->
+<!-- IF not S_VIEW_MESSAGE -->
+<div style="padding-right:20px;" align="right">
+	<b class="gensmall"><a href="javascript:marklist('viewfolder', 'marked_msg_id', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="javascript:marklist('viewfolder', 'marked_msg_id', false); updateCheckImage();">{L_UNMARK_ALL}</a></b></div>
+<!-- ENDIF -->
+<br /><br />
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left"><!-- IF PAGINATION --><b><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b><!-- ENDIF --></td>
+		<td align="right"><!-- IF S_VIEW_MESSAGE -->
+			<form style="margin:0px" action="{S_PM_ACTION}" method="post" name="movepm">
+				<input type="hidden" name="marked_msg_id[]" value="{MSG_ID}" /> <input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" /> <input type="hidden" name="p" value="{MSG_ID}" /> <select name="dest_folder">
+					{S_TO_FOLDER_OPTIONS}
+				</select> <input class="btnlite" type="submit" name="move_pm" value="{L_MOVE_TO_FOLDER}" />
+				{S_FORM_TOKEN}
+			</form>
+			<!-- ELSE -->
+			<form style="margin:0px" action="{S_PM_ACTION}" method="post" name="sortmsg">
+				<span class="gensmall">{L_DISPLAY_MESSAGES}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" />
+				{S_FORM_TOKEN}
+			</form>
+			<!-- ENDIF --></td>
+	</tr>
+</table>

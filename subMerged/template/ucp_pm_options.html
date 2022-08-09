@@ -1,0 +1,252 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF ERROR_MESSAGE or NOTIFICATION_MESSAGE -->
+	<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td class="table_title" align="center">
+			<!-- IF ERROR_MESSAGE --><span class="genmed error">{ERROR_MESSAGE}</span><!-- ENDIF -->
+			<!-- IF NOTIFICATION_MESSAGE --><span class="genmed error">{NOTIFICATION_MESSAGE}</span><!-- ENDIF -->
+		</td>
+	</tr>
+	</table>
+	<div style="padding: 2px;"></div>
+<!-- ENDIF -->
+
+<form action="{S_UCP_ACTION}" method="post" name="ucp">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="3" align="center" width="98%">{L_ADD_NEW_RULE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+<!-- IF S_CHECK_DEFINED -->
+	<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="{S_CONTENT_FLOW_BEGIN}" valign="top" width="50"><b class="gen">{L_IF}:</b></td>
+			<td class="table_content" align="center" valign="top"><!-- IF S_CHECK_SELECT --><select name="check_option">
+					{S_CHECK_OPTIONS}
+				</select><!-- ELSE --><b class="gen">{CHECK_CURRENT}</b><input type="hidden" name="check_option" value="{CHECK_OPTION}" /><!-- ENDIF --></td>
+			<td class="table_content" align="{S_CONTENT_FLOW_BEGIN}" valign="top" width="50"><!-- IF S_CHECK_SELECT --><input type="submit" name="next" value="{L_NEXT_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+			<td width="1%"></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF S_RULE_DEFINED -->
+	<tr>
+		<td class="table_content" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_RULE_SELECT --><input type="submit" name="back[rule]" value="{L_PREVIOUS_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<td class="table_content" align="center" valign="top"><!-- IF S_RULE_SELECT --><select name="rule_option">{S_RULE_OPTIONS}</select><!-- ELSE --><b class="gen">{RULE_CURRENT}</b><input type="hidden" name="rule_option" value="{RULE_OPTION}" /><!-- ENDIF --></td>
+		<td class="table_content" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_RULE_SELECT --><input type="submit" name="next" value="{L_NEXT_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+	</tr>
+<!-- ENDIF -->
+	
+<!-- IF S_COND_DEFINED -->
+	<!-- IF S_COND_SELECT or COND_CURRENT -->
+		<tr>
+		  <td width="1%"></td>
+			<td class="table_content" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_COND_SELECT --><input type="submit" name="back[cond]" value="{L_PREVIOUS_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+			<td class="table_content" align="center" valign="top">
+				<!-- IF S_COND_SELECT -->
+					<!-- IF S_TEXT_CONDITION -->
+						<input type="text" name="rule_string" value="{CURRENT_STRING}" size="30" maxlength="250" class="post" />
+					<!-- ELSEIF S_USER_CONDITION -->
+						<input type="text" class="post" name="rule_string" value="{CURRENT_STRING}" size="20" />&nbsp;<span class="submerged">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span>
+					<!-- ELSEIF S_GROUP_CONDITION -->
+						<input type="hidden" name="rule_string" value="{CURRENT_STRING}" /><!-- IF S_GROUP_OPTIONS --><select name="rule_group_id">{S_GROUP_OPTIONS}</select><!-- ELSE -->{L_NO_GROUPS}<!-- ENDIF -->
+					<!-- ENDIF -->
+				<!-- ELSE -->
+					<b class="gen">{COND_CURRENT}</b>
+						<input type="hidden" name="rule_string" value="{CURRENT_STRING}" /><input type="hidden" name="rule_user_id" value="{CURRENT_USER_ID}" /><input type="hidden" name="rule_group_id" value="{CURRENT_GROUP_ID}" />
+				<!-- ENDIF -->
+			</td>
+			<td class="table_content" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_COND_SELECT --><input type="submit" name="next" value="{L_NEXT_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		</tr>
+	<!-- ENDIF -->
+	<input type="hidden" name="cond_option" value="{COND_OPTION}" />
+<!-- ENDIF -->
+
+<!-- IF NONE_CONDITION --><input type="hidden" name="cond_option" value="none" /><!-- ENDIF -->
+
+<!-- IF S_ACTION_DEFINED -->
+	<tr>
+	  <td width="1%"></td>
+		<td class="table_content" width="50" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><!-- IF S_ACTION_SELECT --><input type="submit" name="back[action]" value="{L_PREVIOUS_STEP}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<td class="table_content" align="center" valign="top"><!-- IF S_ACTION_SELECT --><select name="action_option">{S_ACTION_OPTIONS}</select><!-- ELSE --><b class="gen">{ACTION_CURRENT}</b><input type="hidden" name="action_option" value="{ACTION_OPTION}" /><!-- ENDIF --></td>
+		<td class="table_content" width="50" align="{S_CONTENT_FLOW_END}" valign="top"><!-- IF S_ACTION_SELECT --><input type="submit" name="add_rule" value="{L_ADD_RULE}" class="btnlite" /><!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<td width="1%"></td>
+	</tr>
+<!-- ENDIF -->
+    <tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="6" align="center"> </td>
+			<td width="1%"></td>
+		</tr>
+</table>
+
+<div style="padding: 2px;"></div>
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="6" align="center" width="98%">{L_DEFINED_RULES}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+<!-- BEGIN rule -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%"></td>
+			<td align="center" width="25"><span class="gen">{rule.COUNT}</span></td>
+			<td width="120"><span class="gen">{rule.CHECK}</span></td>
+			<td width="120"><span class="gen">{rule.RULE}</span></td>
+			<td width="120"><span class="gen"><!-- IF rule.STRING -->{rule.STRING}<!-- ENDIF --></span></td>
+			<td><span class="gen">{rule.ACTION}<!-- IF rule.FOLDER --> -&gt; {rule.FOLDER}<!-- ENDIF --></span></td>
+			<td width="25"><input class="btnlite" type="submit" name="delete_rule[{rule.RULE_ID}]" value="{L_DELETE_RULE}" /></td>
+			<td width="1%"></td>
+		</tr>
+<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="6" align="center"><span class="gen">{L_NO_RULES_DEFINED}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END rule -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="6" align="center"> </td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+
+<div style="padding: 2px;"></div>
+
+<!-- IF S_FOLDER_OPTIONS -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="2" align="center" width="98%">{L_RENAME_FOLDER}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gen">{L_RENAME_FOLDER}: </b></td>
+			<td class="table_content"><select name="rename_folder_id">
+					{S_FOLDER_OPTIONS}
+				</select></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gen">{L_NEW_FOLDER_NAME}: </b></td>
+			<td class="table_content"><input class="post" type="text" name="new_folder_name" size="30" maxlength="30" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="right"><input class="btnlite" style="width:150px" type="submit" name="rename_folder" value="{L_RENAME}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<div style="padding: 2px;"></div>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="3" align="center" width="98%">{L_ADD_FOLDER}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- IF S_MAX_FOLDER_REACHED -->
+		<tr>
+			<td width="1%"></td>
+			<td colspan="2">{L_MAX_FOLDER_REACHED}</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gensmall">{L_ADD_FOLDER}: </b></td>
+			<td class="table_content"><input class="post" type="text" name="foldername" size="30" maxlength="30" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center"><input class="btnlite" style="width:150px" type="submit" name="addfolder" value="{L_ADD}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+	</table>
+	<div style="padding: 2px;"></div>
+	<!-- IF S_FOLDER_OPTIONS -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="3" align="center" width="98%">{L_REMOVE_FOLDER}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gen">{L_REMOVE_FOLDER}: </b></td>
+			<td class="table_content"><select name="remove_folder_id">
+					{S_FOLDER_OPTIONS}
+				</select></td>
+			<td class="table_content"><b class="gensmall">{L_AND}</b></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"> </td>
+			<td class="table_content" colspan="2"><input class="radio" type="radio" name="remove_action" value="1" checked="checked" /> <span class="gensmall">{L_MOVE_DELETED_MESSAGES_TO} </span> <select name="move_to">
+					{S_TO_FOLDER_OPTIONS}
+				</select></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td class="table_content" width="200"> </td>
+			<td class="table_content" colspan="2"><input class="radio" type="radio" name="remove_action" value="2" /> <span class="gensmall">{L_DELETE_MESSAGES_IN_FOLDER}</span></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="bot" width="200"> </td>
+			<td class="bot" colspan="2" align="right"><input class="btnlite" style="width:150px" type="submit" name="remove_folder" value="{L_REMOVE}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<div style="padding: 2px;"></div>
+	<!-- ENDIF -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_pref.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="2" align="center" width="98%">{L_FOLDER_OPTIONS}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gensmall">{L_IF_FOLDER_FULL}: </b></td>
+			<td class="table_content"><input class="radio" type="radio" name="full_action" value="1"{S_DELETE_CHECKED}/> <span class="gensmall">{L_DELETE_OLDEST_MESSAGES}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"> </td>
+			<td class="table_content"><input class="radio" type="radio" name="full_action" value="2"{S_MOVE_CHECKED}/> <span class="gensmall">{L_MOVE_TO_FOLDER}: </span><select name="full_move_to">
+					{S_FULL_FOLDER_OPTIONS}
+				</select></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"> </td>
+			<td class="table_content"><input class="radio" type="radio" name="full_action" value="3"{S_HOLD_CHECKED}/> <span class="gensmall">{L_HOLD_NEW_MESSAGES}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" width="200"><b class="gensmall">{L_DEFAULT_ACTION}: </b><br />
+				<span class="submerged">{L_DEFAULT_ACTION_EXPLAIN}</span></td>
+			<td class="table_content"><span class="gensmall">{DEFAULT_ACTION}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center"><input class="btnlite" style="width:150px" type="submit" name="fullfolder" value="{L_CHANGE}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE ucp_footer.html -->

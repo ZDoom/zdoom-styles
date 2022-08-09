@@ -1,0 +1,167 @@
+<!-- INCLUDE mcp_header.html -->
+<form id="mcp" action="{S_MCP_ACTION}" method="post" name="mcp">
+	<table width="100%" cellspacing="0">
+		<!-- IF S_CAN_SPLIT -->
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="2" align="left" nowrap="nowrap" width="98%">{L_SPLIT_TOPIC}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="2" align="left"><span class="gensmall">{L_SPLIT_TOPIC_EXPLAIN}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" nowrap="nowrap"><span class="gensmall">{L_SPLIT_SUBJECT}</span></td>
+			<td class="table_content"><input class="post" style="width: 350px" type="text" name="subject" value="{SPLIT_SUBJECT}" size="35" maxlength="100" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" nowrap="nowrap"><span class="gensmall">{L_SPLIT_FORUM}</span></td>
+			<td class="table_content"><select name="to_forum_id">
+					{S_FORUM_SELECT}
+				</select></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- IF S_SHOW_TOPIC_ICONS -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><span class="gensmall">{L_TOPIC_ICON}</span></td>
+			<td class="table_content">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><input class="radio" type="radio" name="icon" value="0" <!-- IF not S_TOPIC_ICON -->="<!-- IF not S_TOPIC_ICON -->" checked="checked" <!-- ENDIF -->="<!-- ENDIF -->" /><span class="gensmall">{L_NO_TOPIC_ICON}</span> <!-- BEGIN topic_icon --><input class="radio" type="radio" name="icon" value="{topic_icon.ICON_ID}" <!-- IF topic_icon.S_CHECKED -->="<!-- IF topic_icon.S_CHECKED -->" checked="checked" <!-- ENDIF -->="<!-- ENDIF -->" /><img title="" src="{topic_icon.ICON_IMG}" alt="" height="{topic_icon.ICON_HEIGHT}" width="{topic_icon.ICON_WIDTH}" hspace="2" vspace="2" /> <!-- END topic_icon --></td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="right"></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<!-- ENDIF -->
+	<!-- IF S_CAN_MERGE -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="2" align="left" nowrap="nowrap" width="98%">{L_MERGE_TOPIC}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="2" align="left"><span class="gensmall">{L_MERGE_TOPIC_EXPLAIN}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td width="22%" class="table_content" nowrap="nowrap"><span class="gensmall">{L_MERGE_TOPIC_ID}</span></td>
+			<td width="78%" class="table_content"><input class="post" type="text" name="to_topic_id" value="{TO_TOPIC_ID}" size="6" /> <a href="{U_SELECT_TOPIC}">{L_SELECT_TOPIC}</a></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- IF TO_TOPIC_INFO -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="2" align="center"><b class="gensmall">{TO_TOPIC_INFO}</b></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- ENDIF -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2"></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<!-- ENDIF -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td width="98%" class="table_title" colspan="2" align="left" nowrap="nowrap">{L_DISPLAY_OPTIONS}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td width="22%" class="table_content" nowrap="nowrap"><span class="gensmall">{L_POSTS_PER_PAGE}</span><br />
+			<span class="gensmall">{L_POSTS_PER_PAGE_EXPLAIN}</span></td></span></td>
+			<td width="78%" class="table_content"><input class="post" type="text" name="posts_per_page" value="{POSTS_PER_PAGE}" size="6" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="2" align="center"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center"><span class="gensmall">{RETURN_TOPIC}</span></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<!-- BEGIN postrow -->
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" width="49%">{postrow.MINI_POST_IMG}{postrow.POST_SUBJECT}</td>
+			<td class="table_title" align="right" width="49%"><span class="submerged">{L_POSTED}: {postrow.POST_DATE}</span> <input type="checkbox" class="radio" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> /></td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%" class="table_side"></td>
+			<td align="left" colspan="2" class="table_content">
+				<table width="100%" cellspacing="0">
+					<tr>
+						<td align="center" width="22%"><span class="name">{postrow.POST_AUTHOR_FULL}</span></td>
+						<td width="78%" align="left" class="postbody" valign="top">{postrow.MESSAGE}</td>
+					</tr>
+					<tr>
+						<td width="22%"></td>
+						<td width="78%" valign="bottom">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr valign="middle">
+									<td width="100%"><!-- IF postrow.S_POST_UNAPPROVED and postrow.U_MCP_APPROVE --> <span class="postapprove">{UNAPPROVED_IMG}<a href="{postrow.U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a></span><!-- ENDIF --> <!-- IF postrow.S_POST_REPORTED and postrow.U_MCP_REPORT --><span class="postreported">{REPORTED_IMG}<a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF --></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="right"><span class="gensmall">[ <a href="{postrow.U_POST_DETAILS}">{L_POST_DETAILS}</a> ]</span></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<!-- END postrow -->
+	<table width="100%" border="0" cellspacing="2" cellpadding="2" align="center">
+		<tr>
+			<td align="right" valign="top" nowrap="nowrap"><b class="gensmall"><a href="javascript:marklist('mcp', '', true); updateCheckImage();">{L_MARK_ALL}</a> :: <a href="javascript:marklist('mcp', '', false); updateCheckImage();">{L_UNMARK_ALL}</a></b></td>
+				<td width="1%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="17" border="0" /></td>
+		</tr>
+	</table>
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td align="right"><select name="action">
+					<option selected="selected" value="">{L_SELECT_ACTION}</option><!-- IF S_CAN_APPROVE -->
+					<option value="approve">{L_APPROVE_POSTS}</option><!-- ENDIF --><!-- IF S_CAN_LOCK -->
+					<option value="lock_post">{L_LOCK_POST_POSTS} [ {L_LOCK_POST_EXPLAIN} ]</option>
+					<option value="unlock_post">{L_UNLOCK_POST_POSTS}</option><!-- ENDIF --><!-- IF S_CAN_DELETE -->
+					<option value="delete_post">{L_DELETE_POSTS}</option><!-- ENDIF --><!-- IF S_CAN_MERGE -->
+					<option selected="selected" value="merge_posts" <!-- IF ACTION eq 'merge' -->="<!-- IF ACTION eq 'merge' -->" <!-- ENDIF -->="<!-- ENDIF -->">{L_MERGE_POSTS}</option><!-- ENDIF --><!-- IF S_CAN_SPLIT -->
+					<option selected="selected" value="split_all" <!-- IF ACTION eq 'split' -->="<!-- IF ACTION eq 'split' -->" <!-- ENDIF -->="<!-- ENDIF -->">{L_SPLIT_POSTS}</option>
+					<option value="split_beyond">{L_SPLIT_AFTER}</option><!-- ENDIF -->
+				</select> <input class="btnmain" type="submit" name="mcp_topic_submit" value="{L_SUBMIT}" /></td>
+				<td width="1%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="17" border="0" /></td>
+		</tr>
+	</table>
+	{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<br /><br />
+<!-- INCLUDE mcp_footer.html -->

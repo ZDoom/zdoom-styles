@@ -1,0 +1,173 @@
+<!-- INCLUDE ucp_header.html -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" width="98%">{L_UCP}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<p class="submerged">{L_DRAFTS_EXPLAIN}</p>
+			<script language="javascript" type="text/javascript">
+				<!--
+				var form_name = 'ucp';
+
+				var text_name = 'message';
+
+				//-->
+
+			</script>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- IF ERROR -->
+<table width="80%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="center" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="center" width="98%"><b class="gen" style="color:red">{ERROR}</b></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<!-- IF not S_EDIT_DRAFT --><!-- IF S_DRAFT_ROWS -->
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title">{L_DRAFT_TITLE}</td>
+		<td class="table_title">{L_SAVE_DATE}</td>
+		<td class="table_title">{L_OPTIONS}</td>
+		<td class="table_title">{L_DELETE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- BEGIN draftrow -->
+	<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+		<td width="1%" class="table_side"></td>
+		<td style="padding: 4px;" valign="top" width="100%"><img src="{T_IMAGESET_PATH}/icon_post_target.gif" alt="" height="9" width="12" border="0" /> {draftrow.DRAFT_SUBJECT}<br />
+			<!-- IF draftrow.S_LINK_TOPIC --><span class="gensmall">{L_TOPIC}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span> <!-- ELSEIF draftrow.S_LINK_FORUM --><span class="gensmall">{L_FORUM}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span> <!-- ELSEIF draftrow.S_LINK_PM --><span class="gensmall">{L_PRIVATE_MESSAGE}</span> <!-- ELSE --><span class="gensmall">{L_NO_TOPIC_FORUM}</span><!-- ENDIF --></td>
+		<td class="submerged" style="padding: 4px;" valign="top" nowrap="nowrap">{draftrow.DATE}</td>
+		<td style="padding: 4px;" align="center" nowrap="nowrap"><span class="gensmall"><!-- IF draftrow.U_INSERT --><a href="{draftrow.U_INSERT}">{L_LOAD_DRAFT}</a><br />
+				<!-- ENDIF --><a href="{draftrow.U_VIEW_EDIT}">{L_VIEW_EDIT}</a></span></td>
+		<td style="padding: 4px;" align="center"><input class="radio" type="checkbox" name="d[{draftrow.DRAFT_ID}]" /></td>
+		<td width="1%" class="table_side"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="4">
+			<hr />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="gensmall" colspan="4" align="center" width="98%">{L_NO_SAVED_DRAFTS}</td>
+		<td width="1%"></td>
+	</tr>
+	<!-- END draftrow --><!-- IF S_DRAFT_ROWS -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5" align="left" width="98%"><!-- IF not S_NO_DISPLAY_BOOKMARKS -->
+			<div class="gensmall" style="float: right; padding-top: 2px;">
+				<b><a href="javascript:marklist('ucp', 'd', true);">{L_MARK_ALL}</a> :: <a href="javascript:marklist('ucp', 'd', false);">{L_UNMARK_ALL}</a></b></div>
+			<!-- ENDIF --> </td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="4" align="right" width="98%"><input class="btnlite" type="submit" name="delete" value="{L_DELETE_MARKED}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+</table>
+<!-- ELSEIF S_EDIT_DRAFT -->
+<script type="text/javascript" language="javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="right" width="22%">{L_SUBJECT}:</td>
+		<td class="table_title"><input class="post" style="width:100%" type="text" name="subject" value="{DRAFT_SUBJECT}" size="45" maxlength="60" tabindex="2" /></td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" valign="top" width="22%"><b class="gensmall">{L_MESSAGE}: </b><br />
+			<span class="submerged">{L_EDIT_DRAFT_EXPLAIN}</span></td>
+		<td class="table_content">
+			<table border="0" cellspacing="3">
+				<tr align="center" valign="middle">
+					<td><input class="btnbbcode" style="font-weight:bold; width: 30px" onclick="bbstyle(0)" onmouseover="helpline('b')" type="button" name="addbbcode0" value=" B " accesskey="b" /></td>
+					<td><input class="btnbbcode" style="font-style:italic; width: 30px" onclick="bbstyle(2)" onmouseover="helpline('i')" type="button" name="addbbcode2" value=" i " accesskey="i" /></td>
+					<td><input class="btnbbcode" style="text-decoration: underline; width: 30px" onclick="bbstyle(4)" onmouseover="helpline('u')" type="button" name="addbbcode4" value=" u " accesskey="u" /></td>
+					<td><input class="btnbbcode" style="width: 50px" onclick="bbstyle(6)" onmouseover="helpline('q')" type="button" name="addbbcode6" value="Quote" accesskey="q" /></td>
+					<td><input class="btnbbcode" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" type="button" name="addbbcode8" value="Code" accesskey="c" /></td>
+					<td><input class="btnbbcode" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" type="button" name="addbbcode10" value="List" accesskey="l" /></td>
+					<td><input class="btnbbcode" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" type="button" name="addbbcode12" value="List=" accesskey="o" /></td>
+					<td><input class="btnbbcode" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" type="button" name="addbbcode14" value="Img" accesskey="p" /></td>
+					<td><input class="btnbbcode" style="text-decoration: underline; width: 40px" onclick="bbstyle(18)" onmouseover="helpline('w')" type="button" name="addbbcode18" value="URL" accesskey="w" /></td>
+				</tr>
+				<tr>
+					<td colspan="9">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><span class="genmed"> {L_FONT_SIZE}:</span> <select onmouseover="helpline('f')" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;">
+										<option value="7">{L_FONT_TINY}</option>
+										<option value="9">{L_FONT_SMALL}</option>
+										<option selected="selected" value="12">{L_FONT_NORMAL}</option>
+										<option value="18">{L_FONT_LARGE}</option>
+										<option value="24">{L_FONT_HUGE}</option>
+									</select></td>
+								<td class="gensmall" align="right" nowrap="nowrap"><a onmouseover="helpline('a')" href="javascript:bbstyle(-1)">{L_CLOSE_TAGS}</a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="9"><input class="helpline" type="text" name="helpbox" value="{L_STYLES_TIP}" size="45" maxlength="100" /></td>
+				</tr>
+			</table>
+			<table width="100%" cellspacing="3">
+				<tr>
+					<td colspan="9"><textarea class="post" onclick="storeCaret(this);" onkeyup="storeCaret(this);" name="message" rows="12" cols="76" onselect="storeCaret(this);" onfocus="initInsertions();">{DRAFT_MESSAGE}</textarea></td>
+					<td class="gensmall" align="center" valign="top">
+					{L_FONT_COLOR}<br />
+						<script type="text/javascript">
+						<!--
+							colorPalette('v', 10, 8)
+						//-->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2" align="center" width="98%">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center" width="98%"><a href="{S_UCP_ACTION}">{L_BACK_TO_DRAFTS}</a> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF --><!-- INCLUDE ucp_footer.html -->

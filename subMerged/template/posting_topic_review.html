@@ -1,0 +1,72 @@
+<center>
+<table width="80%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" align="left" width="98%">{L_TOPIC_REVIEW} - {TOPIC_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td valign="top" width="1%"><img src="{T_THEME_PATH}/images/table_bubble_2.gif" alt="" height="40" width="35" /></td>
+		<td align="center" valign="top" width="99%">
+			<div class="topic_review">
+				<table width="100%" cellspacing="10">
+					<tr>
+						<td width="100%">
+						<!-- BEGIN topic_review_row -->
+						<a id="pr{topic_review_row.U_POST_ID}"></a>
+							<table width="100%" cellspacing="0">
+								<tr>
+									<!-- IF topic_review_row.S_IGNORE_POST -->
+									<td colspan="2">{topic_review_row.L_IGNORE_POST}</td>
+									<!-- ELSE -->
+									<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+									<td class="table_title" colspan="2" align="left" width="98%">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td class="submerged" width="90%" height="18"><a href="{topic_review_row.U_MINI_POST}">{topic_review_row.MINI_POST_IMG}</a>{topic_review_row.POST_SUBJECT}</td>
+												<td class="submerged" valign="middle" nowrap="nowrap" height="10%">{L_POSTED}: {topic_review_row.POST_DATE}</td>
+											</tr>
+										</table>
+									</td>
+									<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+								</tr>
+								<tr>
+									<td width="1%"></td>
+									<td class="table_content" align="center" valign="top" width="15%"><span class="name"<!-- IF topic_review_row.POST_AUTHOR_COLOUR --> style="color: {topic_review_row.POST_AUTHOR_COLOUR}"<!-- ENDIF -->>{topic_review_row.POST_AUTHOR}</b></td>
+									<td class="table_content" align="left" width="85%">
+									<!-- IF topic_review_row.U_QUOTE and topic_review_row.DECODED_MESSAGE -->
+										<div align="right">
+											<!-- IF topic_review_row.U_MCP_DETAILS --><a title="{L_POST_DETAILS}" href="{topic_review_row.U_MCP_DETAILS}"><img src="{T_IMAGESET_PATH}/icon_post_info.gif" alt="" height="18" width="22" /></a><!-- ENDIF --> <a href="{topic_review_row.U_QUOTE}">{QUOTE_IMG}</a></div>
+										<!-- ENDIF -->
+										<div class="postbody">
+											{topic_review_row.MESSAGE}</div>
+										<!-- IF topic_review_row.U_QUOTE and topic_review_row.DECODED_MESSAGE -->
+										<div id="message_{topic_review_row.U_POST_ID}" style="display: none;">
+											{topic_review_row.DECODED_MESSAGE}</div>
+										<!-- ENDIF -->
+										</td>
+									<td width="1%"></td>
+									<!-- ENDIF -->
+								</tr>
+								<tr>
+									<td width="1%"></td>
+									<td class="table_bot" colspan="2"> </td>
+									<td width="1%"></td>
+								</tr>
+							</table>
+							<!-- END topic_review_row -->
+							</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+</center>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />

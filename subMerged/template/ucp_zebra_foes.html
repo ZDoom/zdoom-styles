@@ -1,0 +1,55 @@
+<!-- INCLUDE ucp_header.html --><!-- IF ERROR -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="98%"> </td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%"><span class="gensmall" style="color:red">{ERROR}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+<table width="100%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_foe.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" colspan="2" align="left" width="98%">{L_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2"><span class="submerged">{L_FOES_EXPLAIN}</span></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="40%"><b class="gensmall">{L_YOUR_FOES}:</b><br />
+			<span class="submerged">{L_YOUR_FOES_EXPLAIN}</span></td>
+		<td class="table_content" align="center"><!-- IF S_USERNAME_OPTIONS --><select name="usernames[]" size="5" multiple="multiple">
+				{S_USERNAME_OPTIONS}
+			</select><!-- ELSE --><b class="gensmall">{L_NO_FOES}</b><!-- ENDIF --></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content"><b class="gensmall">{L_ADD_FOES}:</b><br />
+			<span class="submerged">{L_ADD_FOES_EXPLAIN}<br />
+				[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+		<td class="table_content" align="center"><textarea name="add" rows="5" cols="30">{USERNAMES}</textarea><br />
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE ucp_footer.html -->

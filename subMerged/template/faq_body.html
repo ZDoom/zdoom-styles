@@ -1,0 +1,62 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{L_FAQ_TITLE}</div>
+<a name="faqtop"></a><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_faq.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_FAQ_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="1">
+				<tr>
+					<td align="left" width="100%"><!-- BEGIN faq_block --><span class="genmed"><b>{faq_block.BLOCK_TITLE}</b></span><br />
+						<!-- BEGIN faq_row --><a class="gensmall" href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a><br />
+						<!-- END faq_row --><br />
+						<!-- END faq_block --></td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"><!-- INCLUDE jumpbox.html --></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" /> <!-- BEGIN faq_block -->
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_faq.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{faq_block.BLOCK_TITLE}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="1">
+				<!-- BEGIN faq_row -->
+				<tr>
+					<td valign="top" class="postbody"><a name="f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}"></a><b>{faq_block.faq_row.FAQ_QUESTION}</b><br />
+					<div class="gensmall">{faq_block.faq_row.FAQ_ANSWER}</div>
+					<div align="right">
+					<a title="{L_BACK_TO_TOP}" href="#faqtop"><img src="{T_THEME_PATH}/images/nav_back2top.gif" alt="" height="15" width="12" border="0" /></a></div>
+					</td>
+				</tr>
+				<!-- END faq_row -->
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="left" width="98%"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- END faq_block -->
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,88 @@
+<center><h3>{L_PREVIEW}</h3></center>
+
+<!-- IF S_HAS_POLL_OPTIONS -->
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_poll.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="left" width="70%">{L_VIEW_TOPIC_POLL}</td>
+					<td class="submerged" align="right" nowrap="nowrap" width="30%">{L_POLL_LENGTH}</td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="center" width="98%"><h4 style="text-align:left;padding-bottom:15px;">{POLL_QUESTION}</h4>
+		<table  style="background-color:#123756;border-width: 1px solid #123756;" border="0" cellspacing="5" cellpadding="5">
+			<!-- BEGIN poll_option -->
+			<tr>
+				<td><!-- IF S_IS_MULTI_CHOICE --><input class="radio" type="checkbox" name="vote_id" value="" /> <!-- ELSE --><input class="radio" type="radio" name="vote_id" value="" /> <!-- ENDIF --></td>
+				<td><span class="gensmed">{poll_option.POLL_OPTION_CAPTION}</span></td>
+			</tr>
+			<!-- END poll_option -->
+		</table></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td width="98%" align="center" class="table_bot"><span class="submerged">{L_MAX_VOTES}</span></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+	
+<!-- ENDIF -->
+	
+<table width="<!-- IF not S_PRIVMSGS -->80<!-- ELSE -->100<!-- ENDIF -->%" cellspacing="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_message.gif" alt="" height="35" width="35" /></td>
+		<td class="table_title" align="left" width="49%"><span class="postdetails">{MINI_POST_IMG}{L_POST_SUBJECT}: {PREVIEW_SUBJECT}</span></td>
+		<td class="table_title" align="right" width="49%"><span class="submerged">{POST_DATE}</span></td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" colspan="2" align="left">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" valign="top" width="22%"></td>
+					<td align="left" width="78%">
+						<div class="postbody">
+							{PREVIEW_MESSAGE}</div>
+						<!-- IF .attachment -->
+						<table width="90%" cellspacing="0">
+							<tr>
+								<td width="1%"><a onmouseover="return overlib('<table class=overlib_info><tr><td valign=middle nowrap>{L_TOTAL_ATTACHMENTS}</td></tr></table>');" onmouseout="return nd();" href="#"><img src="{T_THEME_PATH}/images/table_attach_tl.gif" alt="" height="18" width="18" border="0" /></a></td>
+								<td class="table_attach_title" valign="bottom"></td>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_tr.gif" alt="" height="18" width="18" border="0" /></td>
+							</tr>
+							<!-- BEGIN attachment -->
+							<tr>
+								<td class="table_attach_cell" colspan="3" align="center"><span class="submerged">{attachment.DISPLAY_ATTACHMENT}</span></td>
+							</tr>
+							<!-- END attachment -->
+							<tr>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_bl.gif" alt="" height="18" width="18" border="0" /></td>
+								<td class="table_attach_bot" width="98%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+								<td width="1%"><img src="{T_THEME_PATH}/images/table_attach_br.gif" alt="" height="18" width="18" border="0" /></td>
+							</tr>
+						</table>
+						<!-- ENDIF --><!-- IF PREVIEW_SIGNATURE --><span class="sig">
+							<hr style="width:30%;text-align:left;" />
+							{PREVIEW_SIGNATURE} </span><!-- ENDIF --></td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" colspan="2"> </td>
+		<td width="1%"></td>
+	</tr>
+</table>
+
+<br clear="all" />

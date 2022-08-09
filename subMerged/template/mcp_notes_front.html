@@ -1,0 +1,24 @@
+<!-- INCLUDE mcp_header.html -->
+<form action="{U_POST_ACTION}" method="post" name="mcp">
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="2" align="left" nowrap="nowrap" width="98%">{L_SELECT_USER}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="right" width="46%"><b class="gensmall">{L_FIND_USERNAME}: </b><br />
+				<span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+			<td class="table_content" align="left" width="52%"><input class="post" type="text" name="username" size="20" maxlength="50" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="2" align="center" width="98%"><input class="btnmain" type="submit" name="submituser" value="{L_SUBMIT}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE mcp_footer.html -->

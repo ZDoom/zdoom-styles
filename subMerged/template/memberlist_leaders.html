@@ -1,0 +1,85 @@
+<!-- INCLUDE overall_header.html -->
+<form action="{S_MODE_ACTION}" method="post">
+	<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+	<table class="tablebg" width="80%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_members.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" nowrap="nowrap" width="20%">{L_USERNAME}</td>
+			<td class="table_title" nowrap="nowrap" width="25%">{L_FORUMS}</th></td>
+			<td class="table_title" nowrap="nowrap" width="20%">{L_PRIMARY_GROUP}</td>
+			<td class="table_title" nowrap="nowrap" width="15%">{L_RANK}</th></td>
+			<td class="table_title" nowrap="nowrap" width="11%">{L_SEND_MESSAGE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5"><b class="gensmall">{L_ADMINISTRATORS}</b></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGIN admin -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%"></td>
+			<td class="name" align="left">{admin.USERNAME_FULL}</td>
+			<td> </td>
+			<td class="gensmall" align="left" nowrap="nowrap">
+			<!-- IF admin.U_GROUP -->
+
+			<a<!-- IF admin.GROUP_COLOR --> style="color:#{admin.GROUP_COLOR}"<!-- ENDIF --> href="{admin.U_GROUP}">{admin.GROUP_NAME}</a>
+
+			<!-- ELSE -->
+	
+				{admin.GROUP_NAME}
+	
+			<!-- ENDIF --> </td>
+			<td align="left">{admin.RANK_IMG}</td>
+			<td align="left"> <!-- IF admin.U_PM --><a href="{admin.U_PM}">{PM_IMG}</a><!-- ENDIF --> </td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5" align="center"><span class="gen">{L_NO_ADMINISTRATORS}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END admin --><t></t>
+		<td width="1%"></td>
+		<td class="table_content" colspan="5" align="left"><b class="gensmall">{L_MODERATORS}</b></td>
+		<td width="1%"></td>
+		</tr><!-- BEGIN mod -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%"></td>
+			<td class="name" align="left">{mod.USERNAME_FULL}</td>
+			<td align="center"><!-- IF not mod.FORUMS -->{L_ALL_FORUMS}<!-- ELSE --><select style="width: 200px;">
+					{mod.FORUMS}
+				</select><!-- ENDIF --> </td>
+			<td class="gensmall" align="center" nowrap="nowrap">
+			
+			<!-- IF mod.U_GROUP -->
+
+			<a<!-- IF mod.GROUP_COLOR --> style="color:#{mod.GROUP_COLOR}"<!-- ENDIF --> href="{mod.U_GROUP}">{mod.GROUP_NAME}</a>
+
+			<!-- ELSE -->
+	
+				{mod.GROUP_NAME}
+	
+			<!-- ENDIF -->
+			</td>
+			<td align="left">{mod.RANK_IMG}</td>
+			<td align="left"> <!-- IF mod.U_PM --><a href="{mod.U_PM}">{PM_IMG}</a><!-- ENDIF --> </td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5" align="center" width="99%"><span class="gen">{L_NO_MODERATORS}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END mod -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="5" width="99%">&nbsp;</td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+</form>
+<!-- INCLUDE overall_footer.html -->

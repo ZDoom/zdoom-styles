@@ -1,0 +1,13 @@
+</td></tr></table><!-- IF PAGINATION -->
+<table width="80%" cellspacing="1" align="right">
+	<tr>
+		<td class="nav" valign="middle" nowrap="nowrap"> {PAGE_NUMBER}</td>
+		<td class="gensmall" nowrap="nowrap"> [ {TOTAL} ] </td>
+		<td class="gensmall" align="right" nowrap="nowrap" width="100%"><!-- IF PAGINATION --><b><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --></b><!-- ENDIF --></td>
+	</tr>
+</table>
+<br />
+<!-- ENDIF -->
+<div style="padding-right: 50px;padding-top: 10px;" align="right">
+	<!-- INCLUDE jumpbox.html --></div>
+<!-- INCLUDE overall_footer.html -->

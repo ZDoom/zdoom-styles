@@ -1,0 +1,157 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Change language
+	*/
+	function change_language(lang_iso)
+	{
+		document.forms['register'].change_lang.value = lang_iso;
+		document.forms['register'].submit.click();
+	}
+
+	var old_func = window.onload;
+
+	function disable(disabl)
+	{
+		document.getElementById("submit").disabled = disabl;
+	}
+
+	function disable_and_handle()
+	{
+		if (old_func)
+		{
+			old_func();
+		}
+		disable(true);
+	}
+
+	<!-- IF S_TIME -->
+		window.onload = disable_and_handle;
+		setInterval("disable(false)", {S_TIME});
+	<!-- ENDIF -->
+// ]]>
+</script>
+
+	<div class="subMerged_title">
+		{MESSAGE_TITLE}</div>
+	<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+	<form action="{S_UCP_ACTION}" method="post" name="register">
+		<!-- IF ERROR -->
+		<table width="80%" cellspacing="0">
+			<tr>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_rules.gif" alt="" height="35" width="35" /></td>
+				<td class="table_title" align="left" width="98%"> </td>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td class="table_content" align="left" width="98%"><span class="gensmall" style="color:red">{ERROR}</span></td>
+				<td width="1%"></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td class="table_bot" align="left" width="98%"> </td>
+				<td width="1%"></td>
+			</tr>
+		</table>
+		<!-- ENDIF -->
+		<!-- IF S_COPPA -->
+		<table width="80%" cellspacing="0">
+			<tr>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" /></td>
+				<td class="table_title" align="left" width="98%">{L_COPPA_COMPLIANCE}</td>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td class="table_content" align="left">{L_COPPA_EXPLAIN}</td>
+				<td width="1%"></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td class="table_bot" align="left" width="98%"> </td>
+				<td width="1%"></td>
+			</tr>
+		</table>
+		<!-- ENDIF -->
+		<table width="80%" cellspacing="0">
+			<tr>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_reg.gif" alt="" height="35" width="35" border="0" /></td>
+				<td width="98%" class="table_title" align="left" colspan="2" nowrap="nowrap">{L_REGISTRATION}</td>
+				<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+			</tr>
+			<tr>
+				<td width="1%"></td>
+				<td width="98%" align="left" class="table_content">
+				<table width="100%" cellspacing="5">
+					<!-- IF L_REG_COND -->
+					<tr>
+						<td colspan="2" align="left" width="100%" class="gensmall">{L_REG_COND}</td>
+					</tr>
+					<!-- ENDIF -->
+
+					<tr>
+						<td align="left" valign="top" width="38%" class="gensmall"><b>{L_USERNAME}: </b><br />
+							<span class="submerged">{L_USERNAME_EXPLAIN}</span></td>
+						<td align="left" valign="top" width="62%"><input class="post" type="text" name="username" value="{USERNAME}" size="25" maxlength="40" /></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_EMAIL_ADDRESS}: </b></td>
+						<td align="left" valign="top"><input class="post" type="text" name="email" value="{EMAIL}" size="25" maxlength="255" /></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_CONFIRM_EMAIL}: </b></td>
+						<td align="left" valign="top"><input class="post" type="text" name="email_confirm" value="{EMAIL_CONFIRM}" size="25" maxlength="255" /></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_PASSWORD}: </b><br />
+							<span class="submerged">{L_PASSWORD_EXPLAIN}</span></td>
+						<td align="left" valign="top"><input class="post" type="password" name="new_password" value="{PASSWORD}" size="25" maxlength="100" /></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_CONFIRM_PASSWORD}: </b></td>
+						<td align="left" valign="top"><input class="post" type="password" name="password_confirm" value="{PASSWORD_CONFIRM}" size="25" maxlength="100" /></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_LANGUAGE}: </b></td>
+						<td align="left" valign="top"><select name="lang" onchange="javascript:change_language(this.value);">
+								{S_LANG_OPTIONS}
+							</select></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_TIMEZONE}: </b></td>
+						<td align="left" valign="top"><select class="timezone" name="tz">
+								{S_TZ_OPTIONS}
+							</select></td>
+					</tr>
+					<!-- IF .profile_fields -->
+					<tr>
+						<td class="row2" colspan="2"><span class="gensmall">{L_ITEMS_REQUIRED}</span></td>
+					</tr>
+					<!-- BEGIN profile_fields -->
+					<tr>
+						<td align="left" class="gensmall"><b>{profile_fields.LANG_NAME}: </b><!-- IF profile_fields.S_REQUIRED --><b>*</b><!-- ENDIF --> <!-- IF profile_fields.LANG_EXPLAIN --><br />
+							<span class="submerged">{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF --></td>
+						<td align="left" valign="top">{profile_fields.FIELD}<!-- IF profile_fields.ERROR --><br />
+							<span class="gensmall" style="color:red">{profile_fields.ERROR}</span><!-- ENDIF --></td>
+					</tr>
+					<!-- END profile_fields -->
+					<!-- ENDIF -->
+
+					<!-- IF CAPTCHA_TEMPLATE -->
+					<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+					<!-- ENDIF -->
+				</table></td>
+				<td width="1%"></td>
+			</tr>
+			
+			<tr>
+				<td width="1%"></td>
+				<td class="table_bot" colspan="2" align="center" width="98%">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />  <input class="btnlite" type="reset" name="reset" value="{L_RESET}" /> </td>
+				<td width="1%"></td>
+			</tr>
+		</table>
+		{S_FORM_TOKEN}
+	</form>
+	<!-- INCLUDE overall_footer.html -->

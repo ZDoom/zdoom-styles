@@ -1,0 +1,34 @@
+<!-- INCLUDE simple_header.html -->
+
+<script type="text/javascript">
+// <![CDATA[
+   var form_name = 'postform';
+   var text_name = 'message';
+// ]]>
+</script>
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+
+<table width="100%" cellspacing="25" cellpadding="10" border="0">
+<tr>
+      <td align="center" valign="middle" width="100%">
+         <table width="95%" cellspacing="0">
+            <tr>
+               <td width="1%"><img src="{T_THEME_PATH}/images/table_l.gif" alt="" height="17" width="17" /></td>
+               <td class="table_title" colspan="2" align="center" width="98%">{L_SMILIES}</td>
+               <td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+            </tr>
+            <tr>
+               <td width="1%"></td>
+               <td class="table_content" width="100%"><!-- BEGIN smiley --><a href="#" onclick="initInsertions(); insert_text('{smiley.A_SMILEY_CODE}', true, true); return false;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a> <!-- END smiley --><br />{PAGINATION}<br /></td>
+               <td width="1%"></td>
+            </tr>
+            <tr>
+               <td width="1%"></td>
+               <td class="table_bot" colspan="2" align="center"> </td>
+               <td width="1%"></td>
+            </tr>
+         </table>
+         <img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="25" width="1" /> <a class="nav" href="#" onclick="window.close(); return false;">{L_CLOSE_WINDOW}</a></td>
+   </tr>
+</table>
+<!-- INCLUDE simple_footer.html -->

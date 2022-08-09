@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="content-language" content="{S_USER_LANG}" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="2002-2006 phpBB Group"/>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+<!-- IF S_ENABLE_FEEDS -->
+	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{U_FEED}?mode=topics_active" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF T_STYLESHEET_LINK -->
+<link rel="stylesheet" href="{T_STYLESHEET_LINK}" type="text/css" />
+<!-- ELSE -->
+		<style type="text/css">
+		{T_THEME_DATA}
+		</style>
+		<!-- ENDIF -->
+
+<script type="text/javascript">
+// <![CDATA[
+<!-- IF S_USER_PM_POPUP -->
+	if ({S_NEW_PM})
+	{
+		popup('{UA_POPUP_PM}', 400, 225, '_phpbbprivmsg');
+	}
+<!-- ENDIF -->
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('{LA_JUMP_PAGE}:', '{ON_PAGE}');
+	var per_page = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+	{
+		if (base_url.indexOf('?') == -1)
+		{
+			document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+		}
+		else
+		{
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+		}
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+/**
+* Updated Checked imagae Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function updateCheckImage() {
+    
+    //get all the input fields on the page
+    inputs = document.getElementsByTagName('input');
+ 
+    //cycle trough the input fields
+    for(var i=0; i < inputs.length; i++) {
+ 
+        //check if the input is a checkbox
+        if(inputs[i].getAttribute('type') == 'checkbox') { 
+ 
+            //get image
+            var img = document.getElementById('checkImage'+i);
+            
+            //check if the checkbox is checked
+            if(inputs[i].checked) {
+                img.src = imgTrue;
+            } else {
+                img.src = imgFalse;
+            }
+        }
+    }
+}
+<!-- IF ._file -->
+
+	/**
+	* Play quicktime file by determining it's width/height
+	* from the displayed rectangle area
+	*
+	* Only defined if there is a file block present.
+	*/
+	function play_qt_file(obj)
+	{
+		var rectangle = obj.GetRectangle();
+
+		if (rectangle)
+		{
+			rectangle = rectangle.split(',')
+			var x1 = parseInt(rectangle[0]);
+			var x2 = parseInt(rectangle[2]);
+			var y1 = parseInt(rectangle[1]);
+			var y2 = parseInt(rectangle[3]);
+
+			var width = (x1 < 0) ? (x1 * -1) + x2 : x2 - x1;
+			var height = (y1 < 0) ? (y1 * -1) + y2 : y2 - y1;
+		}
+		else
+		{
+			var width = 200;
+			var height = 0;
+		}
+
+		obj.width = width;
+		obj.height = height + 16;
+
+		obj.SetControllerVisible(true);
+
+		obj.Play();
+	}
+<!-- ENDIF -->
+
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+// copyright 1999 Idocs, Inc. http://www.idocs.com/tags/
+// Distribute this script freely, but please keep this
+// notice with the code.
+
+var rollOverArr=new Array();
+function setrollover(OverImgSrc,pageImageName)
+{
+if (! document.images)return;
+if (pageImageName == null)
+pageImageName = document.images[document.images.length-1].name;
+rollOverArr[pageImageName]=new Object;
+rollOverArr[pageImageName].overImg = new Image;
+rollOverArr[pageImageName].overImg.src=OverImgSrc;
+}
+
+function rollover(pageImageName)
+{
+if (! document.images)return;
+if (! rollOverArr[pageImageName])return;
+if (! rollOverArr[pageImageName].outImg)
+{
+rollOverArr[pageImageName].outImg = new Image;
+rollOverArr[pageImageName].outImg.src = document.images[pageImageName].src;
+}
+document.images[pageImageName].src=rollOverArr[pageImageName].overImg.src;
+}
+
+function rollout(pageImageName)
+{
+if (! document.images)return;
+if (! rollOverArr[pageImageName])return;
+document.images[pageImageName].src=rollOverArr[pageImageName].outImg.src;
+}
+// ]]>
+</script>
+
+    <link href="{T_THEME_PATH}/images/subMerged.png" rel="shortcut icon" />
+		<script src="{T_THEME_PATH}/images/menu/overlib.js" type="text/javascript"></script>
+		<script src="{T_TEMPLATE_PATH}/checkbox.js" type="text/javascript"></script>
+	</head>
+
+<body class="{S_CONTENT_DIRECTION}">
+	<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+  <a name="top"></a>
+    <!-- Start NavMenu -->
+  <div style="position:absolute; top:0px; width:100%; left-margin:auto; right-margin:auto;">
+    <center>		
+      <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center" valign="top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+								<td align="right" valign="top" width="106" height="22"><img src="{T_THEME_PATH}/images/menu/subMenu_l.gif" alt="" height="22" width="109" /></td>
+								<!-- IF S_BOARD_DISABLED -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_bbdown.gif></td><td valign=middle nowrap>{L_BOARD_DISABLED}');" onmouseout="return nd();" href="#"><img src="{T_THEME_PATH}/images/menu/subMenu_bbdown.gif" alt="{L_BOARD_DISABLED}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_home.gif></td><td valign=middle nowrap>{L_INDEX}</td></tr></table>');" onmouseout="return nd();" href="{U_INDEX}"><img src="{T_THEME_PATH}/images/menu/subMenu_home.gif" alt="{L_INDEX}" height="20" width="38" border="0" /></a></td>
+								<!-- IF U_RESTORE_PERMISSIONS -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_loginout.gif></td><td valign=middle nowrap>{L_RESTORE_PERMISSIONS}</td></tr></table>');" onmouseout="return nd();" href="{U_RESTORE_PERMISSIONS}"><img src="{T_THEME_PATH}/images/menu/subMenu_loginout.gif" alt="{L_RESTORE_PERMISSIONS}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_faq.gif></td><td valign=middle nowrap>{L_FAQ}</td></tr></table>');" onmouseout="return nd();" href="{U_FAQ}"><img src="{T_THEME_PATH}/images/menu/subMenu_faq.gif" alt="{L_FAQ}" height="20" width="38" border="0" /></a></td>
+								<!-- IF S_DISPLAY_SEARCH -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_search.gif></td><td valign=middle nowrap>{L_SEARCH}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH}"><img src="{T_THEME_PATH}/images/menu/subMenu_search.gif" alt="{L_SEARCH}" height="20" width="38" border="0" /></a></td>
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_unanswered.gif></td><td valign=middle nowrap>{L_SEARCH_UNANSWERED}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_UNANSWERED}"><img src="{T_THEME_PATH}/images/menu/subMenu_unanswered.gif" alt="{L_SEARCH_UNANSWERED}" height="20" width="38" border="0" /></a></td>
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_active.gif></td><td valign=middle nowrap>{L_SEARCH_ACTIVE_TOPICS}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_ACTIVE_TOPICS}"><img src="{T_THEME_PATH}/images/menu/subMenu_active.gif" alt="{L_SEARCH_ACTIVE_TOPICS}" height="20" width="38" border="0" /></a></td>
+								<!-- IF S_USER_LOGGED_IN -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_unread.gif></td><td valign=middle nowrap>{L_SEARCH_UNREAD}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_UNREAD}"><img src="{T_THEME_PATH}/images/menu/subMenu_unread.gif" alt="{L_SEARCH_UNREAD}" height="20" width="38" border="0" /></a></td>
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_postsince.gif></td><td valign=middle nowrap>{L_SEARCH_NEW}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_NEW}"><img src="{T_THEME_PATH}/images/menu/subMenu_postsince.gif" alt="{L_SEARCH_NEW}" height="20" width="38" border="0" /></a></td>
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_userposts.gif></td><td valign=middle nowrap>{L_SEARCH_SELF}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_SELF}"><img src="{T_THEME_PATH}/images/menu/subMenu_userposts.gif" alt="{L_SEARCH_SELF}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<!-- ENDIF -->
+								<!-- IF S_DISPLAY_MEMBERLIST -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_members.gif></td><td valign=middle nowrap>{L_MEMBERLIST}</td></tr></table>');" onmouseout="return nd();" href="{U_MEMBERLIST}"><img src="{T_THEME_PATH}/images/menu/subMenu_members.gif" alt="{L_MEMBERLIST}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<!-- IF not S_IS_BOT -->
+								<!-- IF S_USER_LOGGED_IN -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_profile.gif></td><td valign=middle nowrap>{L_PROFILE}</td></tr></table>');" onmouseout="return nd();" href="{U_PROFILE}"><img src="{T_THEME_PATH}/images/menu/subMenu_profile.gif" alt="{L_PROFILE}" height="20" width="38" border="0" /></a></td>
+								<!-- ELSEIF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_register.gif></td><td valign=middle nowrap>{L_REGISTER}</td></tr></table>');" onmouseout="return nd();" href="{U_REGISTER}"><img src="{T_THEME_PATH}/images/menu/subMenu_register.gif" alt="{L_REGISTER}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->	
+								<!-- ENDIF -->
+								<!-- IF not S_IS_BOT -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_loginout.gif></td><td valign=middle nowrap>{L_LOGIN_LOGOUT}</td></tr></table>');" onmouseout="return nd();" href="{U_LOGIN_LOGOUT}"><img src="{T_THEME_PATH}/images/menu/subMenu_loginout.gif" alt="{L_LOGIN_LOGOUT}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<td align="left" valign="top" width="106" height="22"><img src="{T_THEME_PATH}/images/menu/subMenu_r.gif" alt="" height="22" width="109" /></td>
+							 </tr>
+						  </table>
+					
+					  </td>
+				  </tr>
+			  </table>
+			</center>
+		</div>
+		<!-- End NavMenu -->
+		<table class="top" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top" width="1%"><a onmouseover="return overlib('<table class=overlib_info><tr><td>{L_INDEX}</td></tr></table>');" onmouseout="return nd();" href="{U_INDEX}">{SITE_LOGO_IMG}</a></td>
+				<td align="left" valign="bottom" width="98%">
+					<!-- IF not $S_IN_INDEX -->
+					<!-- INCLUDE breadcrumbs.html -->
+					<!-- ENDIF -->
+					<!-- Start Site Title -->
+					<div style="position:absolute;right:90px;top:28px;z-index:1;">
+						<table width="300" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td align="right" class="sitetitle" nowrap="nowrap">{SITENAME}</td>
+							</tr>
+							<tr>
+								<td align="right" class="sitedescription">{SITE_DESCRIPTION}</td>
+							</tr>
+						</table>
+					</div>
+					<!-- End Site Title --></td>
+				<td valign="top" width="1%"><img src="{T_THEME_PATH}/images/top_sub.gif" alt="" height="80" width="96" /></td>
+			</tr>
+		</table>
+		<table class="center" width="99%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="left_spacing" width="1%"></td>
+				<td align="center" valign="top" width="99%">

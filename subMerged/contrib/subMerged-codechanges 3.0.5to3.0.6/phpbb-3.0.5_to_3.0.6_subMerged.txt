@@ -1,0 +1,1143 @@
+############################################################## 
+## Title: phpBB 3.0.5 to phpBB 3.0.6 subMerged Changes
+## Author: Acyd Burn (Meik Sievertsen)
+## Description: 
+##
+##		These are the phpBB 3.0.5 to phpBB 3.0.6 subMerged Changes summed up into a
+##		little Mod. These changes are only partial and do not include any code changes,
+##		therefore not meant for updating phpBB.
+##
+## Files To Edit: 
+##		styles/subMerged/imageset/imageset.cfg
+##		styles/subMerged/style.cfg
+##		styles/subMerged/template/forumlist_body.html
+##		styles/subMerged/template/login_body.html
+##		styles/subMerged/template/mcp_front.html
+##		styles/subMerged/template/mcp_logs.html
+##		styles/subMerged/template/mcp_notes_user.html
+##		styles/subMerged/template/mcp_post.html
+##		styles/subMerged/template/mcp_reports.html
+##		styles/subMerged/template/mcp_topic.html
+##		styles/subMerged/template/memberlist_im.html
+##		styles/subMerged/template/memberlist_view.html
+##		styles/subMerged/template/overall_header.html
+##		styles/subMerged/template/posting_body.html
+##		styles/subMerged/template/posting_smilies.html
+##		styles/subMerged/template/report_body.html
+##		styles/subMerged/template/search_results.html
+##		styles/subMerged/template/template.cfg
+##		styles/subMerged/template/ucp_agreement.html
+##		styles/subMerged/template/ucp_groups_manage.html
+##		styles/subMerged/template/ucp_main_drafts.html
+##		styles/subMerged/template/ucp_main_front.html
+##		styles/subMerged/template/ucp_pm_viewfolder.html
+##		styles/subMerged/template/ucp_pm_viewmessage.html
+##		styles/subMerged/template/ucp_profile_signature.html
+##		styles/subMerged/template/ucp_register.html
+##		styles/subMerged/template/viewtopic_body.html
+##		styles/subMerged/template/viewtopic_print.html
+##		styles/subMerged/theme/stylesheet.css
+##		styles/subMerged/theme/theme.cfg
+##
+## Included Files: 
+##		styles/subMerged/template/captcha_default.html
+##		styles/subMerged/template/captcha_qa.html
+##		styles/subMerged/template/captcha_recaptcha.html
+##		styles/subMerged/template/quickreply_editor.html
+##		styles/subMerged/template/editor.js
+## License: http://opensource.org/licenses/gpl-license.php GNU General Public License v2 
+############################################################## 
+
+#
+#-----[ COPY ]------------------------------------------
+#
+copy styles/subMerged/template/captcha_default.html to styles/subMerged/template/captcha_default.html
+copy styles/subMerged/template/captcha_qa.html to styles/subMerged/template/captcha_qa.html
+copy styles/subMerged/template/captcha_recaptcha.html to styles/subMerged/template/captcha_recaptcha.html
+copy styles/subMerged/template/quickreply_editor.html to styles/subMerged/template/quickreply_editor.html
+copy styles/subMerged/template/editor.js to styles/subMerged/template/editor.js
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/imageset/imageset.cfg
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 11
+version = 3.0.5
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+version = 3.0.6
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 110
+img_button_topic_reply = button_topic_reply.gif*40*40
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+img_button_quick_reply = button_quick_reply.gif*40*40
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/style.cfg
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 23
+version = 3.0.5
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+version = 3.0.6
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/forumlist_body.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 67
+							<td class="submerged" align="right" valign="bottom" nowrap="nowrap" width="40%"><!-- IF forumrow.LAST_POST_TIME --><p class="topicdetails">{forumrow.LAST_POST_TIME}</p>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+							<td class="submerged" align="right" valign="bottom" nowrap="nowrap" width="40%"><!-- IF forumrow.LAST_POST_TIME --><p class="topicdetails"><!-- IF forumrow.U_UNAPPROVED_TOPICS --><a href="{forumrow.U_UNAPPROVED_TOPICS}">{UNAPPROVED_IMG}</a>&nbsp;<!-- ENDIF -->{forumrow.LAST_POST_TIME}</p>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/login_body.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 92
+					<!-- IF S_CONFIRM_CODE -->
+					<tr>
+						<td colspan="2">
+							<h3>{L_LOGIN_CONFIRMATION}</h3>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="gensmall">{L_LOGIN_CONFIRM_EXPLAIN}</span></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="hidden" name="confirm_id" value="{CONFIRM_ID}" />{CONFIRM_IMAGE}</td>
+					</tr>
+					<tr>
+						<td><b class="genmed">{L_CONFIRM_CODE}: </b><br />
+							<span class="gensmall">{L_CONFIRM_CODE_EXPLAIN}</span></td>
+						<td><input class="post" type="text" name="confirm_code" size="8" maxlength="8" /></td>
+					</tr>
+					<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+					<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+						<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+					<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/mcp_logs.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 19
+<td class="submerged" align="left" nowrap="nowrap"> {log.DATE} </td>
+			<!-- IF S_CLEAR_ALLOWED -->
+			<td align="center" width="5%"><input class="radio" type="checkbox" name="mark[]" value="{log.ID}" /></td>
+			<!-- ENDIF -->
+			<td width="1%" class="table_side"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->">
+				<hr />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END log -->
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="<!-- IF S_CLEAR_ALLOWED -->5<!-- ELSE -->4<!-- ENDIF -->"><span class="gen">{L_SEARCH_KEYWORDS}:</span> <input type="text" name="keywords" value="{S_KEYWORDS}" />&nbsp;<input type="submit" class="btnlite" name="filter" value="{L_SEARCH}" /></td>
+			<td width="1%"></td>
+		</tr>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/mcp_notes_user.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 55
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" colspan="5" align="left" width="98%">{L_FEEDBACK}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- IF S_USER_NOTES -->
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5"><span class="submerged">{L_SEARCH_KEYWORDS}:</span> <input type="text" name="keywords" value="{S_KEYWORDS}" />&nbsp;<input type="submit" class="btnlite" name="filter" value="{L_SEARCH}" /></td>
+			<td width="1%"></td>
+		</tr>
+
+#
+#-----[ OPEN ]---------------------------------------------  {DO THIS ONE LATER}
+#
+styles/subMerged/template/mcp_post.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 3
+		<th colspan="2" align="center">{L_REPORT_DETAILS}</th>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+		<th colspan="2" align="center"><!-- IF S_PM -->{L_PM_REPORT_DETAILS}<!-- ELSE -->{L_REPORT_DETAILS}<!-- ENDIF --></th>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 41
+	<th colspan="2" align="center">{L_POST_DETAILS}</th>
+</tr>
+<tr>
+	<td class="row3" colspan="2" align="center"><span class="gensmall"><!-- IF S_MCP_QUEUE -->{RETURN_QUEUE} | {RETURN_TOPIC_SIMPLE} | {RETURN_POST}<!-- ELSEIF S_MCP_REPORT -->{RETURN_REPORTS} | <a href="{U_VIEW_POST}">{L_VIEW_POST}</a> | <a href="{U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a> | <a href="{U_VIEW_FORUM}">{L_VIEW_FORUM}</a><!-- ELSE -->{RETURN_TOPIC}<!-- ENDIF --></span></td>
+</tr>
+<tr>
+	<td class="row1"><b class="gen">{L_POST_SUBJECT}: </b></td>
+	<td class="row2"><span class="gen">{POST_SUBJECT}</span> <!-- IF S_POST_UNAPPROVED --><span class="postapprove">{UNAPPROVED_IMG} <a href="{U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a></span> <!-- ENDIF --> <!-- IF S_POST_REPORTED and not S_MCP_REPORT --><span class="postreported">{REPORTED_IMG} <a href="{U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF --></td>
+</tr>
+<tr>
+	<td class="row1" width="20%"><b class="gen">{L_POSTER}: </b></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+	<th colspan="2" align="center"><!-- IF S_PM -->{L_PM}<!-- ELSE -->{L_POST_DETAILS}<!-- ENDIF --></th>
+</tr>
+<tr>
+	<td class="row3" colspan="2" align="center"><span class="gensmall"><!-- IF S_MCP_QUEUE -->{RETURN_QUEUE} | {RETURN_TOPIC_SIMPLE} | {RETURN_POST}<!-- ELSEIF S_MCP_REPORT -->{RETURN_REPORTS}<!-- IF not S_PM --> | <a href="{U_VIEW_POST}">{L_VIEW_POST}</a> | <a href="{U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a> | <a href="{U_VIEW_FORUM}">{L_VIEW_FORUM}</a><!-- ENDIF --><!-- ELSE -->{RETURN_TOPIC}<!-- ENDIF --></span></td>
+</tr>
+<tr>
+	<td class="row1"><b class="gen"><!-- IF S_PM -->{L_PM_SUBJECT}<!-- ELSE -->{L_POST_SUBJECT}<!-- ENDIF -->: </b></td>
+	<td class="row2"><span class="gen">{POST_SUBJECT}</span> <!-- IF S_POST_UNAPPROVED --><span class="postapprove">{UNAPPROVED_IMG} <a href="{U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a></span> <!-- ENDIF --> <!-- IF S_POST_REPORTED and not S_MCP_REPORT --><span class="postreported">{REPORTED_IMG} <a href="{U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF --></td>
+</tr>
+<tr>
+	<td class="row1" width="20%"><b class="gen"><!-- IF S_PM -->{L_PM_FROM}<!-- ELSE -->{L_POSTER}<!-- ENDIF -->: </b></td>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 67
+	<td class="row1"><b class="gen">{L_POSTED}: </b></td>
+	<td class="row2"><span class="postdetails">{POST_DATE}</span></td>
+</tr>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+	<td class="row1"><b class="gen"><!-- IF S_PM -->{L_SENT_AT}<!-- ELSE -->{L_POSTED}<!-- ENDIF -->: </b></td>
+	<td class="row2"><span class="postdetails">{POST_DATE}</span></td>
+</tr>
+<!-- IF S_TO_RECIPIENT -->
+	<tr>
+		<td class="row1" nowrap="nowrap" width="150"><b class="gen">{L_TO}:</b></td>
+		<td class="row2 gen">
+		<!-- BEGIN to_recipient -->
+			<!-- IF to_recipient.IS_GROUP --><span class="sep"><a href="{to_recipient.U_VIEW}">{to_recipient.NAME}</a></span><!-- ELSE -->{to_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END to_recipient -->
+		</td>
+	</tr>
+<!-- ENDIF -->
+
+<!-- IF S_BCC_RECIPIENT -->
+	<tr>
+		<td class="row1" nowrap="nowrap" width="150"><b class="gen">{L_BCC}:</b></td>
+		<td class="row2 gen">
+		<!-- BEGIN bcc_recipient -->
+			<!-- IF bcc_recipient.IS_GROUP --><span class="sep"><a href="{bcc_recipient.U_VIEW}">{bcc_recipient.NAME}</a></span><!-- ELSE -->{bcc_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END bcc_recipient -->
+		</td>
+	</tr>
+<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/mcp_reports.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 4
+<div align="center"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <span class="gensmall">{L_FORUM}</span> 
+<select name="f">
+{S_FORUM_OPTIONS}
+</select>   <!-- IF TOPIC_ID --><input class="radio" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" />  <b>{L_ONLY_TOPIC}</b>   <!-- ENDIF --><input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+
+   <table width="100%" cellspacing="0">
+      <tr>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+         <td class="table_title" align="left">{L_POST}</td>
+         <td class="table_title" align="left">{L_AUTHOR}</td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+<div align="center"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}<!-- IF not S_PM -->&nbsp;<span class="gensmall">{L_FORUM}</span> 
+<select name="f">
+{S_FORUM_OPTIONS}
+</select>   <!-- IF TOPIC_ID --><input class="radio" type="checkbox" name="t" value="{TOPIC_ID}" checked="checked" />  <b>{L_ONLY_TOPIC}</b>   <!-- ENDIF --><input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+
+   <table width="100%" cellspacing="0">
+      <tr>
+         <td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+		 <!-- IF S_PM -->
+		 <td class="table_title" align="left">{L_PM}</td>
+         <td class="table_title" align="left">{L_TO}</td>
+		 <!-- ELSE -->
+         <td class="table_title" align="left">{L_POST}</td>
+         <td class="table_title" align="left">{L_AUTHOR}</td>
+		 <!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 22
+<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+      </tr>
+      <!-- BEGIN postrow -->
+      <tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+         <td width="1%" class="table_side"></td>
+
+	<th width="5%">&nbsp;{L_SELECT}&nbsp;</th>
+</tr>
+<!-- BEGIN postrow -->
+
+	<!-- IF postrow.S_ROW_ is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+		 <!-- IF S_PM -->
+		<td class="topictitle"><a href="{postrow.U_VIEW_DETAILS}">{postrow.PM_SUBJECT}</a>
+			<span class="submerged">{L_PM_FROM}: {postrow.PM_AUTHOR_FULL}</span></td>
+		<td align="left" valign="top" class="gensmall" nowrap="nowrap"><span class="submerged">{postrow.RECIPIENTS}</span><br />
+			<span class="submerged">{L_SENT_AT}: {postrow.PM_TIME}</span></td>
+		<!-- ELSE -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 34
+         <td class="topictitle">
+            <a href="{postrow.U_VIEWPOST}">{postrow.POST_SUBJECT}</a><br />
+            <span class="submerged"><!-- IF postrow.U_VIEWFORUM -->{L_FORUM}: <a href="{postrow.U_VIEWFORUM}">{postrow.FORUM_NAME}</a><!-- ELSE -->{postrow.FORUM_NAME}<!-- ENDIF --></span></td>
+         <td align="left" valign="top" class="gensmall" nowrap="nowrap">{postrow.POST_AUTHOR_FULL}<br />
+            <span class="submerged">{postrow.POST_TIME}</span></td>>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+		<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/mcp_topic.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 127
+									<td width="100%"><!-- IF postrow.S_POST_UNAPPROVED and postrow.U_MCP_APPROVE -->{UNAPPROVED_IMG} <span class="postapprove"><a href="{postrow.U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a></span><!-- ENDIF --> <!-- IF postrow.S_POST_REPORTED and postrow.U_MCP_REPORT -->{REPORTED_IMG}<span class="postreported"><a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF --></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+									<td width="100%"><!-- IF postrow.S_POST_UNAPPROVED and postrow.U_MCP_APPROVE --> <span class="postapprove">{UNAPPROVED_IMG}<a href="{postrow.U_MCP_APPROVE}">{L_POST_UNAPPROVED}</a></span><!-- ENDIF --> <!-- IF postrow.S_POST_REPORTED and postrow.U_MCP_REPORT --><span class="postreported">{REPORTED_IMG}<a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF --></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/memberlist_im.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 19
+					<td align="left"><span class="gen"><b>{USERNAME}</b> [ {IM_CONTACT} ]</span> <!-- IF PRESENCE_IMG -->{PRESENCE_IMG}<!-- ENDIF --></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+					<td align="left"><span class="gen"><b>{USERNAME}</b><!-- IF S_SEND_ICQ or S_SEND_AIM or S_SEND_MSNM or S_NO_SEND_JABBER --> [ {IM_CONTACT} ]<!-- ENDIF --></span> <!-- IF PRESENCE_IMG -->{PRESENCE_IMG}<!-- ENDIF --></td>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 79
+{S_FORM_TOKEN}
+</form>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+<a class="nav" href="#" onclick="window.close(); return false;">{L_CLOSE_WINDOW}</a>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/memberlist_view.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 52
+<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FRIEND}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FRIEND}"><img src="{T_IMAGESET_PATH}/friend.gif" alt="" height="18" width="22" border="0" /></a> <a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FOE}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FOE}"><img src="{T_IMAGESET_PATH}/foe.gif" alt="" height="18" width="22" border="0" /></a>
+
+					<td class="genmed" align="center">[ <!-- IF U_ADD_FRIEND and U_ADD_FOE--><a href="{U_ADD_FRIEND}">{L_ADD_FRIEND}</a> | <a href="{U_ADD_FOE}">{L_ADD_FOE}</a><!-- ENDIF --><!-- IF U_REMOVE_FRIEND --><a href="{U_REMOVE_FRIEND}">{L_REMOVE_FRIEND}</a><!-- ENDIF --><!-- IF U_REMOVE_FOE --><a href="{U_REMOVE_FOE}">{L_REMOVE_FOE}</a><!-- ENDIF --> ]</td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+							<!-- IF U_REMOVE_FRIEND -->
+							<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_REMOVE_FRIEND}</td></tr></table>');" onmouseout="return nd();" href="{U_REMOVE_FRIEND}"><img src="{T_IMAGESET_PATH}/remove_friend.gif" alt="" height="18" width="22" border="0" /></a>
+							<!-- ELSEIF U_REMOVE_FOE -->
+							<a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_REMOVE_FOE}</td></tr></table>');" onmouseout="return nd();" href="{U_REMOVE_FOE}"><img src="{T_IMAGESET_PATH}/remove_foe.gif" alt="" height="18" width="22" border="0" /></a>
+							<!-- ELSE -->
+								<!-- IF U_ADD_FRIEND --><a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FRIEND}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FRIEND}"><img src="{T_IMAGESET_PATH}/add_friend.gif" alt="" height="18" width="22" border="0" /></a><!-- ENDIF --><!-- IF U_ADD_FOE --><!-- IF U_ADD_FRIEND --> | <!-- ENDIF --> <a onmouseover="return overlib('<table><tr><td class=overlib_info nowrap>{L_ADD_FOE}</td></tr></table>');" onmouseout="return nd();" href="{U_ADD_FOE}"><img src="{T_IMAGESET_PATH}/add_foe.gif" alt="" height="18" width="22" border="0" /></a><!-- ENDIF -->
+							<!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 116
+											<!-- IF U_NOTES or U_WARN -->
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_WARNINGS}: </b></td>
+												<td class="gensmall" align="left" width="100%">{WARNINGS}<br />
+													[ <a href="{U_NOTES}">{L_VIEW_NOTES}</a> <!-- IF U_WARN -->| <a href="{U_WARN}">{L_WARN_USER}</a> <!-- ENDIF -->]</td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+											<!-- IF S_WARNINGS -->
+											<tr>
+												<td class="gensmall" align="right" valign="top" nowrap="nowrap"><b>{L_WARNINGS}: </b></td>
+												<td class="gensmall" align="left" width="100%">{WARNINGS}
+													<!-- IF U_NOTES or U_WARN --><br />
+														[ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a> <!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --> <a href="{U_WARN}">{L_WARN_USER}</a> <!-- ENDIF -->]
+													<!-- ENDIF -->
+												</td>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 132
+													<a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+													<!-- IF S_DISPLAY_SEARCH --><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 132
+<!-- IF U_JABBER and S_JABBER_ENABLED --><a onclick="popup('{U_JABBER}', 550, 320); return false" href="{U_JABBER}">{JABBER_IMG}</a> <!-- ELSEIF U_JABBER -->{JABBER_IMG}<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+<!-- IF U_JABBER --><a onclick="popup('{U_JABBER}', 550, 320); return false" href="{U_JABBER}">{JABBER_IMG}</a> <!-- ELSEIF U_JABBER -->{JABBER_IMG}<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/overall_header.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 13
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+<!-- IF S_ENABLE_FEEDS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" />
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_TOPICS}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
+<!-- ENDIF -->
+
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 253
+								<!-- IF not S_USER_LOGGED_IN -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_register.gif></td><td valign=middle nowrap>{L_REGISTER}</td></tr></table>');" onmouseout="return nd();" href="{U_REGISTER}"><img src="{T_THEME_PATH}/images/menu/subMenu_register.gif" alt="{L_REGISTER}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+								<!-- IF S_USER_LOGGED_IN -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_profile.gif></td><td valign=middle nowrap>{L_PROFILE}</td></tr></table>');" onmouseout="return nd();" href="{U_PROFILE}"><img src="{T_THEME_PATH}/images/menu/subMenu_profile.gif" alt="{L_PROFILE}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+								<!-- IF not S_IS_BOT -->
+								<!-- IF S_USER_LOGGED_IN -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_profile.gif></td><td valign=middle nowrap>{L_PROFILE}</td></tr></table>');" onmouseout="return nd();" href="{U_PROFILE}"><img src="{T_THEME_PATH}/images/menu/subMenu_profile.gif" alt="{L_PROFILE}" height="20" width="38" border="0" /></a></td>
+								<!-- ELSEIF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_register.gif></td><td valign=middle nowrap>{L_REGISTER}</td></tr></table>');" onmouseout="return nd();" href="{U_REGISTER}"><img src="{T_THEME_PATH}/images/menu/subMenu_register.gif" alt="{L_REGISTER}" height="20" width="38" border="0" /></a></td>
+								<!-- ENDIF -->	
+								<!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 199
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_postsince.gif></td><td valign=middle nowrap>{L_SEARCH_NEW}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_NEW}"><img src="{T_THEME_PATH}/images/menu/subMenu_postsince.gif" alt="{L_SEARCH_NEW}" height="20" width="38" border="0" /></a></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_unread.gif></td><td valign=middle nowrap>{L_SEARCH_UNREAD}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_UNREAD}"><img src="{T_THEME_PATH}/images/menu/subMenu_unread.gif" alt="{L_SEARCH_UNREAD}" height="20" width="38" border="0" /></a></td>
+								<td class="header_menu" height="22"><a onmouseover="return overlib('<table class=overlib_info><tr><td><img src={T_THEME_PATH}/images/menu/subMenu_postsince.gif></td><td valign=middle nowrap>{L_SEARCH_NEW}</td></tr></table>');" onmouseout="return nd();" href="{U_SEARCH_NEW}"><img src="{T_THEME_PATH}/images/menu/subMenu_postsince.gif" alt="{L_SEARCH_NEW}" height="20" width="38" border="0" /></a></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/posting_body.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 302
+							<tr>
+								<td class="submerged" align="left">{FLASH_STATUS}</td>
+							</tr>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+							<tr>
+								<td class="gensmall">{URL_STATUS}</td>
+							</tr>
+							<!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 309
+							<tr>
+								<td class="submerged" align="left">{SMILIES_STATUS}</td>
+							</tr>
+							<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+# 
+							<tr>
+								<td class="submerged" align="left">{SMILIES_STATUS}</td>
+							</tr>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 388
+				<!-- IF S_CONFIRM_CODE -->
+				<tr>
+					<td colspan="2" align="left" width="100%">{L_POST_CONFIRMATION}</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><span class="submerged">{L_POST_CONFIRM_EXPLAIN}</span></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="hidden" name="confirm_id" value="{CONFIRM_ID}" />{CONFIRM_IMAGE}</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><b class="submerged">{L_CONFIRM_CODE}: </b><input class="post" type="text" name="confirm_code" size="8" maxlength="8" /><br />
+						<span class="submerged">{L_CONFIRM_CODE_EXPLAIN}</span></td>
+				</tr>
+				<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+				<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+				<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+				<!-- ENDIF -->
+
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/posting_smilies.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 22
+               <td class="table_content" width="100%"><!-- BEGIN smiley --><a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true, true); return false;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a> <!-- END smiley --><br /></td>
+
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+				<td class="table_content" width="100%"><!-- BEGIN smiley --><a href="#" onclick="initInsertions(); insert_text('{smiley.A_SMILEY_CODE}', true, true); return false;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a> <!-- END smiley --><br />{PAGINATION}<br /></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/report_body.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 3
+<div class="subMerged_title">
+	{L_REPORT_POST}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form id="report" action="{S_REPORT_ACTION}" method="post">
+	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_report.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_REPORT_POST}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+				<table width="100%" cellspacing="5">
+					<tr>
+						<td colspan="2"><span class="gensmall">{L_REPORT_POST_EXPLAIN}</span><br />
+							<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="10" width="1" /></td>
+					</tr>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+<div class="subMerged_title">
+	<!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF --></div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form id="report" action="{S_REPORT_ACTION}" method="post">
+	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_report.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%"><!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF --></td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+				<table width="100%" cellspacing="5">
+					<tr>
+						<td colspan="2"><span class="gensmall"><!-- IF S_REPORT_POST -->{L_REPORT_POST_EXPLAIN}<!-- ELSE -->{L_REPORT_MESSAGE_EXPLAIN}<!-- ENDIF --></span><br />
+							<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="10" width="1" /></td>
+					</tr>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/search_results.html (No Change Required)
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 22
+                  <td class="gensmall" align="right" width="40%"><!-- IF SEARCH_IN_RESULTS -->{L_SEARCH_IN_RESULTS}:</td>
+                  <td class="gensmall" align="left" width="60%"><input type="text" name="add_keywords" value="" /> <input class="btnlite" type="submit" name="submit" value="{L_GO}" /><!-- ENDIF --></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+                  <td class="gensmall" align="right" width="40%"><!-- IF SEARCH_IN_RESULTS -->{L_SEARCH_IN_RESULTS}:</td>
+                  <td class="gensmall" align="left" width="60%"><input type="text" name="add_keywords" value="" /> <input class="btnlite" type="submit" name="submit" value="{L_GO}" /><!-- ENDIF --></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/template.cfg
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 22
+version = 3.0.5
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+version = 3.0.6
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_agreement.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 5
+<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+<!-- IF S_LANG_OPTIONS -->
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Change language
+	*/
+	function change_language(lang_iso)
+	{
+		document.forms['register'].change_lang.value = lang_iso;
+		document.forms['register'].submit();
+	}
+
+// ]]>
+</script>
+
+	<form method="post" action="{S_UCP_ACTION}" id="register">
+		<table width="100%" cellspacing="0">
+			<tr>
+				<td class="gensmall" align="{S_CONTENT_FLOW_END}">{L_LANGUAGE}: <select name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select></td>
+			</tr>
+		</table>
+		{S_HIDDEN_FIELDS}
+	</form>
+<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_groups_manage.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 112
+	<!-- IF S_CAN_UPLOAD -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadfile">{L_UPLOAD_AVATAR_FILE}:</label></td>
+		<td class="table_content"><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_MAX_FILESIZE}" /><input id="uploadfile" type="file" name="uploadfile" /></td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadurl">{L_UPLOAD_AVATAR_URL}:</label><br />
+			<span>{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></td>
+		<td class="table_content"><input id="uploadurl" type="text" name="uploadurl" value="" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+	<!-- IF S_UPLOAD_AVATAR_FILE -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadfile">{L_UPLOAD_AVATAR_FILE}:</label></td>
+		<td class="table_content"><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_MAX_FILESIZE}" /><input id="uploadfile" type="file" name="uploadfile" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF S_UPLOAD_AVATAR_URL -->
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="uploadurl">{L_UPLOAD_AVATAR_URL}:</label><br />
+			<span>{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></td>
+		<td class="table_content"><input id="uploadurl" type="text" name="uploadurl" value="" /></td>
+		<td width="1%"></td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF S_LINK_AVATAR -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 137
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" width="35%"><label for="width">{L_LINK_REMOTE_SIZE}:</label><br />
+			<span>{L_LINK_REMOTE_SIZE_EXPLAIN}</span></td>
+		<td class="table_content"><input id="width" type="text" name="width" value="{AVATAR_WIDTH}" size="3" /> <span>px X </span><input type="text" name="height" value="{AVATAR_HEIGHT}" size="3" /> <span>px</span></td>
+		<td width="1%"></td>
+	</tr>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+	<!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 313
+		<td class="table_content" align="left"><span class="submerged">{L_ADD_USERS_EXPLAIN}</span></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+		<td class="table_content" align="left"><span class="submerged">{L_ADD_USERS_UCP_EXPLAIN}</span></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_main_drafts.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 148
+					<td width=""><textarea style="width:99%;" class="post" onclick="storeCaret(this);" onkeyup="storeCaret(this);" name="message" rows="12" cols="76" onselect="storeCaret(this);">{DRAFT_MESSAGE}</textarea></td>
+					<td class="gensmall" align="center" valign="top" width="40">
+					{L_FONT_COLOR}<br />
+						<script type="text/javascript">
+						<!--
+							colorPalette('v', 40, 20, 6)
+						//-->
+						</script>
+					</td>
+
+				<td colspan="9"><textarea class="post" name="message" rows="10" cols="70" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">{DRAFT_MESSAGE}</textarea></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+					<td colspan="9"><textarea class="post" onclick="storeCaret(this);" onkeyup="storeCaret(this);" name="message" rows="12" cols="76" onselect="storeCaret(this);" onfocus="initInsertions();">{DRAFT_MESSAGE}</textarea></td>
+					<td class="gensmall" align="center" valign="top">
+					{L_FONT_COLOR}<br />
+						<script type="text/javascript">
+						<!--
+							colorPalette('v', 10, 8)
+						//-->
+						</script>
+					</td>
+
+				<td colspan="9"><textarea class="post" name="message" rows="10" cols="70" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{DRAFT_MESSAGE}</textarea></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_main_front.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 71
+								<td><!-- IF POSTS_PCT neq 0 -->{POSTS}<br />
+									<span class="submerged">[{POSTS_PCT} / {POSTS_DAY}]<br />
+										<a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a></span><!-- ELSE --><b class="gensmall">{POSTS}</b><!-- ENDIF --></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+								<td><!-- IF POSTS_PCT -->{POSTS}<br />
+									<span class="submerged">[{POSTS_PCT} / {POSTS_DAY}]<!-- IF S_DISPLAY_SEARCH --><br />
+										<a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a><!-- ENDIF --></span><!-- ELSE --><b class="gensmall">{POSTS}</b><!-- ENDIF -->
+								</td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_pm_viewfolder.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 88
+		<td class="table_content" colspan="{$COLSPAN}" align="center" valign="middle" height="30"><span class="gen">{L_NO_MESSAGES}</span></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+		<td class="table_content" colspan="{$COLSPAN}" align="center" valign="middle" height="30"><span class="gen">
+		<!-- IF S_COMPOSE_PM_VIEW and S_NO_AUTH_SEND_MESSAGE -->
+			<!-- IF S_USER_NEW -->{L_USER_NEW_PERMISSION_DISALLOWED}<!-- ELSE -->{L_NO_AUTH_SEND_MESSAGE}<!-- ENDIF -->
+		<!-- ELSE -->
+			{L_NO_MESSAGES}
+		<!-- ENDIF -->
+		</span></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_pm_viewmessage.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 15
+		<td align="right" width="50%" class="table_content"><!-- IF U_PRINT_PM --><a title="{L_PRINT_PM}" href="{U_PRINT_PM}"><img src="{T_IMAGESET_PATH}/icon_post_print.gif" alt="" height="18" width="22" border="0" /></a>  <!-- ENDIF -->  <!-- IF U_DELETE --><a href="{U_DELETE}">{DELETE_IMG}</a>  <!-- ENDIF --><!-- IF U_QUOTE --><a href="{U_QUOTE}">{QUOTE_IMG}</a>  <!-- ENDIF --> <!-- IF U_EDIT --><a href="{U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF --></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+		<td align="right" width="50%" class="table_content"><!-- IF U_PRINT_PM --><a title="{L_PRINT_PM}" href="{U_PRINT_PM}"><img src="{T_IMAGESET_PATH}/icon_post_print.gif" alt="" height="18" width="22" border="0" /></a>  <!-- ENDIF -->  <!-- IF U_REPORT --><a href="{U_REPORT}">{REPORT_IMG}</a> <!-- ENDIF --><!-- IF U_DELETE --><a href="{U_DELETE}">{DELETE_IMG}</a>  <!-- ENDIF --><!-- IF U_QUOTE --><a href="{U_QUOTE}">{QUOTE_IMG}</a>  <!-- ENDIF --> <!-- IF U_EDIT --><a href="{U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF --></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_profile_signature.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 76			
+							<td><textarea  style="width: 99%;" class="post" name="signature" rows="10" cols="60" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">{SIGNATURE}</textarea></td>
+							<td></td>
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#			
+							<td><textarea  style="width: 99%;" class="post" name="signature" rows="10" cols="60" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{SIGNATURE}</textarea></td>
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/ucp_register.html
+
+
+#-----[ FIND ]---------------------------------------------
+# Around Line 93
+					<!-- IF .profile_fields -->
+					<tr>
+						<td colspan="2" align="left" width="100%" class="gensmall"><span>{L_ITEMS_REQUIRED}</td>
+					</tr>
+					<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+# Just remove/delete the lines (replacing with an empty line)
+
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 121
+					</tr>
+					<tr>
+						<td align="left" valign="top" class="gensmall"><b>{L_TIMEZONE}: </b></td>
+						<td align="left" valign="top"><select class="timezone" name="tz">
+								{S_TZ_OPTIONS}
+							</select></td>
+					</tr>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+					<!-- IF .profile_fields -->
+					<tr>
+						<td class="row2" colspan="2"><span class="gensmall">{L_ITEMS_REQUIRED}</span></td>
+					</tr>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 140
+<!-- IF S_CONFIRM_CODE -->
+					<tr>
+						<td colspan="2" align="left" width="100%" class="gensmall"><b>{L_CONFIRMATION}</b></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="left"><span class="submerged">{L_CONFIRM_EXPLAIN}</span></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center" style="padding:10px;"><input type="hidden" name="confirm_id" value="{CONFIRM_ID}" />{CONFIRM_IMG}</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><b class="submerged">{L_CONFIRM_CODE}: </b><input class="post" type="text" name="confirm_code" size="8" maxlength="8" /><!-- IF S_CONFIRM_REFRESH -->&nbsp;<input type="submit" value="{L_VC_REFRESH}" class="btnlite" /><!-- ENDIF --> <br />
+						<span class="submerged">{L_CONFIRM_CODE_EXPLAIN}<!-- IF S_CONFIRM_REFRESH -->{L_VC_REFRESH_EXPLAIN}<!-- ENDIF --></span></td>
+					</tr>
+					<!-- ENDIF -->
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+					<!-- ENDIF -->
+
+					<!-- IF CAPTCHA_TEMPLATE -->
+					<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+					<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/viewtopic_body.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 159
+					<!-- IF S_CAN_VOTE -->
+					<tr>
+						<td align="center"><span class="gensmall">{L_MAX_VOTES}</span><br />
+							<br />
+							<input class="btnlite" type="submit" name="update" value="{L_SUBMIT_VOTE}" /></td>
+					</tr>
+					<!-- ENDIF -->
+				</table>
+				{S_HIDDEN_FIELDS}
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 121
+			
+			</form>
+			
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+			{S_FORM_TOKEN}
+			</form>
+
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 222
+							<!-- IF postrow.POSTER_AVATAR -->
+							<tr>
+								<td align="center">{postrow.POSTER_AVATAR}</td>
+							</tr>
+							<!-- ENDIF -->
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+							<!-- IF not (postrow.ONLINE_IMG or postrow.RANK_TITLE or postrow.RANK_IMG or postrow.POSTER_AVATAR) -->
+								<tr>
+									<td></td>
+								</tr>
+							<!-- ENDIF -->
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 308
+										<span class="gensmall">{postrow.BUMPED_MESSAGE}</span>
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+										<span class="gensmall"><br /><br />{postrow.BUMPED_MESSAGE}</span>
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 324
+					<td align="left" width="50%"><!--&nbsp;{postrow.FRIEND_IMG}&nbsp;{postrow.FOE_IMG}&nbsp;-->
+					<!-- IF not postrow.S_IGNORE_POST -->
+					<!-- IF postrow.U_PROFILE --><a href="{postrow.U_PROFILE}">{PROFILE_IMG}</a> 
+					<!-- ENDIF -->
+					<!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> 
+					<!-- ENDIF -->
+					<!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> 
+					<!-- ENDIF --></td>
+					<td align="right" width="50%">
+					<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_REPORTED -->
+					<!-- IF postrow.S_POST_REPORTED --><span class="postreported">{REPORTED_IMG} <a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span>
+					</span> <!-- ENDIF -->
+					<!-- ENDIF -->
+					<!-- ENDIF --> 
+					</td>
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+					<td align="left" width="50%"><!--&nbsp;{postrow.FRIEND_IMG}&nbsp;{postrow.FOE_IMG}&nbsp;-->
+					<!-- IF not postrow.S_IGNORE_POST -->
+					<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{PROFILE_IMG}</a> 
+					<!-- ENDIF -->
+					<!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> 
+					<!-- ENDIF -->
+					<!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> 
+					<!-- ENDIF --></td>
+					<td align="right" width="50%">
+					<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_REPORTED -->
+					<!-- IF postrow.S_POST_REPORTED --><span class="postreported">{REPORTED_IMG} <a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span>
+					<!-- ENDIF -->
+					<!-- ENDIF -->
+					<!-- ENDIF --> 
+					</td>
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 363
+		<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a>
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 368
+		<td align="left" valign="middle" nowrap="nowrap"><a href="{U_POST_REPLY_TOPIC}" class="topic_link"><b>{L_REPLY_TO_TOPIC}</b></a></td>
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+		<td align="left" valign="middle" nowrap="nowrap"><a href="{U_POST_REPLY_TOPIC}" class="topic_link"><b>{L_REPLY_TO_TOPIC}</b></a>&nbsp;&nbsp;</td>
+		<!-- IF S_QUICK_REPLY -->
+		<td align="right" valign="middle" nowrap="nowrap" width="35"><a href="javascript:toggle_quick_reply();"><img src="{T_IMAGESET_PATH}/button_quick_reply.gif" alt="" height="40" width="40" border="0" /></a></td>
+		<td align="left" valign="middle" nowrap="nowrap"><a href="javascript:toggle_quick_reply();" class="topic_link"><b>Quick Reply</b></a></td>
+		<!-- ENDIF -->
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 375
+</div>
+<div id="pagefooter"></div>
+
+#
+#-----[ AFTER, ADD ]---------------------------------------------
+#
+<br clear="all" />
+<!-- IF S_QUICK_REPLY -->
+<!-- INCLUDE quickreply_editor.html -->
+<!-- ENDIF -->
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/template/viewtopic_print.html
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 27
+.code,
+.quote {
+	font-size: smaller;
+	border: black solid 1px;
+}
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+.code, .codecontent, 
+.quote, .quotecontent {
+	margin: 0 5px 0 5px;
+	padding: 5px;
+	font-size: smaller;
+	border: black solid 1px;
+}
+
+.quotetitle {
+	color: black;
+	display : block;
+	font-weight: bold;
+}
+
+#
+#-----[ OPEN ]--------------------------------------------- 
+#
+styles/subMerged/theme/theme.cfg
+
+#
+#-----[ FIND ]---------------------------------------------
+# Around Line 11
+version = 3.0.5
+
+#
+#-----[ REPLACE WITH ]---------------------------------------------
+#
+version = 3.0.6
+
+# 
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------ 
+# 
+# EoM

@@ -1,0 +1,161 @@
+<!-- You should retain this javascript in your own template! -->
+
+<!-- IF S_IN_SEARCH_POPUP -->
+	<script type="text/javascript">
+	// <![CDATA[
+		function insert_user(user)
+		{
+			opener.document.forms['{S_FORM_NAME}'].{S_FIELD_NAME}.value = ( opener.document.forms['{S_FORM_NAME}'].{S_FIELD_NAME}.value.length && opener.document.forms['{S_FORM_NAME}'].{S_FIELD_NAME}.type == "textarea" ) ? opener.document.forms['{S_FORM_NAME}'].{S_FIELD_NAME}.value + "\n" + user : user;
+		}
+
+		function insert_marked(users)
+		{
+			if (typeof(users.length) == "undefined")
+			{
+				if (users.checked)
+				{
+					insert_user(users.value);
+				}
+			}
+			else if (users.length > 0)
+			{
+				for (i = 0; i < users.length; i++)
+				{
+					if (users[i].checked)
+					{
+						insert_user(users[i].value);
+					}
+				}
+			}
+
+			self.close();
+		}
+
+		function insert_single(user)
+		{
+			opener.document.forms['{S_FORM_NAME}'].{S_FIELD_NAME}.value = user;
+			self.close();
+		}		
+
+		/**
+		* Mark/unmark checklist
+		* id = ID of parent container, name = name prefix, state = state [true/false]
+		*/
+		function marklist(id, name, state)
+		{
+			var parent = document.getElementById(id);
+			if (!parent)
+			{
+				eval('parent = document.' + id);
+			}
+
+			if (!parent)
+			{
+				return;
+			}
+
+			var rb = parent.getElementsByTagName('input');
+			
+			for (var r = 0; r < rb.length; r++)
+			{
+				if (rb[r].name.substr(0, name.length) == name)
+				{
+					rb[r].checked = state;
+				}
+			}
+		}
+	// ]]>
+	</script>
+<!-- ENDIF -->
+
+<form action="{S_MODE_ACTION}" method="post" name="search">
+	<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+	<table width="80%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_search.gif" alt="" height="35" width="35" /></td>
+			<td class="table_title" colspan="4" align="left">{L_FIND_USERNAME}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="4"><span class="submerged">{L_FIND_USERNAME_EXPLAIN}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_USERNAME}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="username" value="{USERNAME}" /></td>
+			<td class="table_content"><b class="gensmall">{L_ICQ}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="icq" value="{ICQ}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_EMAIL}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="email" value="{EMAIL}" /></td>
+			<td class="table_content"><b class="gensmall">{L_AIM}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="aim" value="{AIM}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_JOINED}:</b></td>
+			<td class="table_content"><select name="joined_select">
+					{S_JOINED_TIME_OPTIONS}
+				</select> <input class="post" type="text" name="joined" value="{JOINED}" /></td>
+			<td class="table_content"><b class="gensmall">{L_YIM}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="yahoo" value="{YAHOO}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_LAST_ACTIVE}:</b></td>
+			<td class="table_content"><select name="active_select">
+					{S_ACTIVE_TIME_OPTIONS}
+				</select> <input class="post" type="text" name="active" value="{ACTIVE}" /></td>
+			<td class="table_content"><b class="gensmall">{L_MSNM}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="msn" value="{MSNM}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_POSTS}:</b></td>
+			<td class="table_content"><select name="count_select">
+					{S_COUNT_OPTIONS}
+				</select> <input class="post" type="text" name="count" value="{COUNT}" /></td>
+			<td class="table_content"><b class="gensmall">{L_JABBER}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="jabber" value="{JABBER}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_SORT_BY}:</b></td>
+			<td class="table_content" nowrap="nowrap"><select name="sk">
+					{S_SORT_OPTIONS}
+				</select> <select name="sd">
+					{S_ORDER_SELECT}
+				</select> </td>
+			<td class="table_content"><b class="gensmall">{L_POST_IP}:</b></td>
+			<td class="table_content"><input class="post" type="text" name="ip" value="{IP}" /></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content"><b class="gensmall">{L_GROUP}:</b></td>
+			<td class="table_content" nowrap="nowrap"><select name="search_group_id">
+					{S_GROUP_SELECT}
+				</select></td>
+			<td class="table_content"> </td>
+			<td class="table_content"> </td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="4" align="center"><input class="btnlite" type="submit" name="submit" value="{L_SEARCH}" />  <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+{S_FORM_TOKEN}
+</form>
+
+<br clear="all" />

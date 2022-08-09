@@ -1,0 +1,182 @@
+<!-- INCLUDE overall_header.html -->
+<!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+	<form action="{S_POST_ACTION}" method="post" name="postform"{S_FORM_ENCTYPE}>
+<!-- ENDIF -->
+<div class="subMerged_title">{L_UCP}</div>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td width="10%" valign="top">
+  <!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" width="132">{L_PM_TO}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">
+						<table width="100%" cellspacing="0">
+				<!-- IF not S_ALLOW_MASS_PM -->
+							<tr>
+								<td align="center"><b class="gensmall">{L_USERNAME}:</b><br />[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</td>
+							</tr>
+				
+							<tr>
+								<td align="center"><input class="post" type="text" name="username_list" size="20" value="" />&nbsp;<input class="post" type="submit" name="add_to" value="{L_ADD}" /></td>
+							</tr>
+							<!-- ELSE -->
+							<tr>
+								<td align="center"><b class="gensmall">{L_USERNAMES}:</b></td>
+							</tr>
+							<tr>
+								<td align="center"><textarea name="username_list" rows="5" cols="22"></textarea><br />
+								[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]
+								</td>
+							</tr>
+							<!-- ENDIF -->
+							<!-- IF S_GROUP_OPTIONS -->
+							<tr>
+								<td align="center"><b class="genmed">{L_USERGROUPS}:</b></td>
+							</tr>
+							<tr>
+								<td align="center"><select name="group_list[]" multiple="multiple" size="5" style="width:150px">{S_GROUP_OPTIONS}</select></td>
+							</tr>
+							<!-- ENDIF -->
+							<!-- IF S_ALLOW_MASS_PM -->
+							<tr>
+								<td align="center"><div style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<input class="post" type="submit" name="add_bcc" value="{L_ADD_BCC}" />&nbsp;</div><div style="float: {S_CONTENT_FLOW_END};">&nbsp;<input class="post" type="submit" name="add_to" value="{L_ADD_TO}" />&nbsp;</div></td>
+							</tr>
+							<!-- ENDIF -->
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<div style="padding: 5px;"></div>
+			<!-- ENDIF -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" width="132">{L_OPTIONS}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<!-- BEGIN l_block1 -->
+				<tr>
+				<!-- IF l_block1.S_SELECTED -->
+					<td class="panel_cell" colspan="3" align="left" width="150"><b class="nav">{l_block1.L_TITLE}</b>
+
+					<!-- IF S_PRIVMSGS -->
+
+				<!-- the ! at the beginning of the loop name forces the loop to be not a nested one of l_block1 (it gets parsed separately) -->
+				<!-- BEGIN !folder -->
+					<!-- IF folder.S_FIRST_ROW -->
+						<ul style="margin: 0px; padding: 2px; list-style-type: none;">
+					<!-- ENDIF -->
+
+					<!-- IF folder.S_CUR_FOLDER -->
+						<li style="padding: 1px 0;">&#187; <a href="{folder.U_FOLDER}">{folder.FOLDER_NAME}<!-- IF folder.S_UNREAD_MESSAGES --> ({folder.UNREAD_MESSAGES})<!-- ENDIF --></a></li>
+					<!-- ELSE -->
+						<li>&#187; <a href="{folder.U_FOLDER}">{folder.FOLDER_NAME}<!-- IF folder.S_UNREAD_MESSAGES --> ({folder.UNREAD_MESSAGES})<!-- ENDIF --></a></li>
+					<!-- ENDIF -->
+
+					<!-- IF folder.S_LAST_ROW -->
+						</ul>
+						<hr />
+					<!-- ENDIF -->
+				<!-- END !folder -->
+
+			<!-- ENDIF -->
+
+						<ul style="margin: 0px; padding: 2px; list-style-type: none;">
+			<!-- BEGIN l_block2 -->
+				<!-- IF l_block1.l_block2.S_SELECTED --><li class="gen"><!-- ELSE --><li><!-- ENDIF -->&#187; <!-- IF l_block1.l_block2.S_SELECTED --><b>{l_block1.l_block2.L_TITLE}</b><!-- ELSE --><a href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}</a><!-- ENDIF --></li>
+			<!-- END l_block2 -->
+						</ul>
+		<!-- ELSE -->
+					<td class="panel_cell" onclick="location.href='{l_block1.U_TITLE}'" colspan="3" align="left" width="150"><a class="nav" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+		<!-- ENDIF -->
+					</td>
+				</tr>
+<!-- END l_block1 -->
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+
+			<div style="padding: 5px;"></div>
+
+			<!-- IF S_SHOW_COLOUR_LEGEND -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" width="132">{L_MESSAGE_COLOURS}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<tr>
+					<td class="panel_cell" colspan="3" align="left" width="150">
+						<table width="100%" border="0" cellspacing="2" cellpadding="0">
+							<!-- BEGIN pm_colour_info -->
+							<tr><!-- IF not pm_colour_info.IMG -->
+								<td class="{pm_colour_info.CLASS}" width="5"><img src="images/spacer.gif" alt="{pm_colour_info.LANG}" width="5" border="0" /></td>
+								<!-- ELSE -->
+								<td align="center" width="25">{pm_colour_info.IMG}</td>
+								<!-- ENDIF -->
+								<td><span class="submerged">{pm_colour_info.LANG}</span></td>
+							</tr>
+							<!-- END pm_colour_info -->
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+			<div style="padding: 5px;"></div>
+			<!-- ENDIF -->
+			<!-- IF S_ZEBRA_ENABLED -->
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+						<td class="panel_top" align="center" width="132">{L_FRIENDS}</td>
+						<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+					</tr>
+					<tr>
+						<td class="panel_cell" colspan="3" align="left" width="150"><b class="genmed" style="color:green">{L_FRIENDS_ONLINE}</b>
+							<ul class="nav" style="margin: 0px; padding: 0px; list-style-type: none; line-height: 175%;">
+								<!-- BEGIN friends_online -->
+								<li>{friends_online.USERNAME_FULL}</li>
+								<!-- IF S_SHOW_PM_BOX -->
+								&nbsp;[ <input class="post" style="font-size: 90%;" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" /> ]
+								<!-- ENDIF -->
+								<!-- BEGINELSE -->
+								<li>{L_NO_FRIENDS_ONLINE}</li>
+								<!-- END friends_online -->
+							</ul>
+							<hr />
+							<b class="genmed" style="color:red">{L_FRIENDS_OFFLINE}</b>
+							<ul class="nav" style="margin: 0px; padding: 0px; list-style-type: none; line-height: 175%;">
+								<!-- BEGIN friends_offline -->
+								<li>{friends_offline.USERNAME_FULL}</li><!-- BEGINELSE -->
+								<li>{L_NO_FRIENDS_OFFLINE}</li>
+								<!-- END friends_offline -->
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+						<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+						<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+					</tr>
+				</table>
+				<!-- ENDIF -->
+		</td>
+		<td width="1%"></td>
+		<td align="left" valign="top" width="89%"><!-- IF not S_PRIVMSGS or S_SHOW_DRAFTS --><form name="ucp" id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}><!-- ENDIF -->

@@ -1,0 +1,35 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{MESSAGE_TITLE}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form action="{S_CONFIRM_ACTION}" method="post" name="confirm">
+	<table width="80%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{MESSAGE_TITLE}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="center" width="98%"><!-- IF ADDITIONAL_MSG --><span class="gensmall" style="color:red">{ADDITIONAL_MSG}</span><br />
+				<!-- ENDIF --><!-- IF S_FORUM_SELECT --><span class="gen"><br />
+					{L_SELECT_DESTINATION_FORUM}  </span> <select name="to_forum_id">
+					{S_FORUM_SELECT}
+				</select><br />
+				<!-- IF S_CAN_LEAVE_SHADOW --><input class="radio" type="checkbox" name="move_leave_shadow" checked="checked" /><span class="gensmall">{L_LEAVE_SHADOW}</span><br />
+				<!-- ENDIF --><br />
+				{S_HIDDEN_FIELDS}<span class="gensmall">{MESSAGE_TEXT}</span><br />
+				<br />
+				<input class="btnmain" type="submit" name="confirm" value="{YES_VALUE}" />  <input class="btnlite" type="submit" name="cancel" value="{L_NO}" /></span> <!-- ELSE --><span class="gensmall">{L_NO_DESTINATION_FORUM}</span><br />
+				<br />
+				{S_HIDDEN_FIELDS} <input class="btnlite" type="submit" name="cancel" value="{L_CANCEL}" /> <!-- ENDIF --></td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="left" width="98%"> </td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE overall_footer.html -->

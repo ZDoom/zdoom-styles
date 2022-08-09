@@ -1,0 +1,41 @@
+
+    <div class="nav-extra nav-extra-footer">
+        <!-- IF U_TEAM --><a href="{U_TEAM}">{L_THE_TEAM}</a> &bull; <!-- ENDIF -->
+        <!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a> &bull; <!-- ENDIF -->
+        <span class="time">{S_TIMEZONE}</span>
+    </div>
+	<div class="nav-links nav-links-footer">
+		<a href="{U_INDEX}" accesskey="h"><span>{L_INDEX}</span></a>
+        <!-- IF not S_IS_BOT -->
+            <!-- IF S_WATCH_FORUM_LINK --><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}"><span>{S_WATCH_FORUM_TITLE}</span></a><!-- ENDIF -->
+            <!-- IF U_WATCH_TOPIC --><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}"><span>{L_WATCH_TOPIC}</span></a><!-- ENDIF -->
+            <!-- IF U_BOOKMARK_TOPIC --><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}"><span>{L_BOOKMARK_TOPIC}</span></a><!-- ENDIF -->
+            <!-- IF U_BUMP_TOPIC --><a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}"><span>{L_BUMP_TOPIC}</span></a><!-- ENDIF -->
+        <!-- ENDIF -->
+	</div>
+	
+</div>
+
+<div id="footer">
+
+	<div class="copyright">
+		<!-- IF U_ACP --><strong><a href="{U_ACP}">{L_ACP}</a></strong><!-- ENDIF -->
+        <!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+	    <p class="copy-left">
+	        {CREDIT_LINE}
+		 <a href="http://www.colorizeit.com/styles/phpbb-30-css-styles/215.air.html#H61e8fc7M1h3gO|H6da7320M1h65O|G6ebebebM4m34n6fd006aO|G6b2b2b2M4m34n6b2ff04O|G6000000M4l33m34n69dff00O">ColorizeIt</a>. 
+	    	<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+    		<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+		</p>
+<!--
+    Please do not remove style author's link below. For updates and support visit http://www.artodia.com/
+//-->
+		<p class="copy-right">
+		    Style designed by <a href="http://www.artodia.com/">Artodia</a>.
+        </p>
+	</div>
+	
+</div>
+
+</body>
+</html>

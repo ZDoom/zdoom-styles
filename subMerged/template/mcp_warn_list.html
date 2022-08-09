@@ -1,0 +1,55 @@
+<!-- INCLUDE mcp_header.html -->
+<form action="{U_POST_ACTION}" method="post" name="mcp">
+<b class="gensmall"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" />{L_WARNED_USERS}</b>
+
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="1" width="35" /></td>
+			<td class="pagination">{PAGE_NUMBER} [ {TOTAL_USERS} ]</td>
+			<td align="right"><span class="pagination"><!-- IF PAGINATION --><a href="javascript:jumpto();">{L_GOTO_PAGE}</a> <!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}">{L_PREVIOUS}</a>  <!-- ENDIF -->{PAGINATION}<!-- IF NEXT_PAGE -->  <a href="{NEXT_PAGE}">{L_NEXT}</a><!-- ENDIF --><!-- ENDIF --></span></td>
+		</tr>
+	</table>
+	<div align="center"><span class="gensmall">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS} <span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input class="btnlite" type="submit" name="sort" value="{L_GO}" /></div>
+	<table width="100%" cellspacing="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left">{L_USERNAME}</td>
+			<td class="table_title" align="center">{L_WARNINGS}</td>
+			<td class="table_title" align="left">{L_LATEST_WARNING_TIME}</td>
+			<td class="table_title"></td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<!-- BEGIN user -->
+		<tr class="table_tr" onmouseover="this.style.backgroundImage='url({T_THEME_PATH}/images/spacer.gif)';" onmouseout="this.style.backgroundImage='url({T_THEME_PATH}/images/fish_net.gif)'">
+			<td width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+			<td align="left" width="15%"><span class="name">{user.USERNAME_FULL}</span></td>
+			<td align="center" width="15%"><span class="gensmall">{user.WARNINGS}</span></td>
+			<td align="left" width="15%"><span class="gensmall">{user.WARNING_TIME}</span></td>
+			<td align="left" width="15%"><span class="gensmall"><a href="{user.U_NOTES}">{L_VIEW_NOTES}</a></span></td>
+			<td width="1%" background="{T_THEME_PATH}/images/sea-bkg.gif"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5">
+				<hr />
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" colspan="5" align="center"><span class="gen">{L_WARNINGS_ZERO_TOTAL}</span></td>
+			<td width="1%"></td>
+		</tr>
+		<!-- END user -->
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" colspan="5"></td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	{S_FORM_TOKEN}
+</form>
+
+<br clear="all" /><br />
+<!-- INCLUDE mcp_footer.html -->

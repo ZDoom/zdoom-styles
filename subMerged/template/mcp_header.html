@@ -1,0 +1,104 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">
+	{L_MCP}</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="top" width="10%">
+			<table width="150" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/panel_tl.gif" alt="" height="23" width="9" border="0" /></td>
+					<td class="panel_top" align="center" width="132">{L_OPTIONS}</td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_tr.gif" alt="" height="23" width="9" border="0" /></td>
+				</tr>
+				<!-- BEGIN l_block1 -->
+				<tr><!-- IF l_block1.S_SELECTED -->
+					<td class="panel_cell" colspan="3" align="left" width="150"><b class="nav">{l_block1.L_TITLE}</b>
+						<ul style="margin: 0px; padding: 0px; list-style-type: none; line-height: 175%;">
+							<!-- BEGIN l_block2 -->
+							<!-- IF l_block1.l_block2.S_SELECTED --><li class="gen"><!-- ELSE --><li><!-- ENDIF -->&#187; <!-- IF l_block1.l_block2.S_SELECTED --><b>{l_block1.l_block2.L_TITLE}</b><!-- ELSE --><a href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}</a><!-- ENDIF --></li>
+							<!-- END l_block2 -->
+						</ul>
+						<!-- ELSE -->
+					<td class="panel_cell" onclick="location.href='{l_block1.U_TITLE}'" colspan="3" align="left" width="150"><a class="nav" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a> <!-- ENDIF --></td>
+				</tr>
+				<!-- END l_block1 -->
+				<tr>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_bl.gif" alt="" height="8" width="9" border="0" /></td>
+					<td class="panel_bot" width="132"><img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="8" width="1" border="0" /></td>
+					<td width="9"><img src="{T_THEME_PATH}/images/panel_br.gif" alt="" height="8" width="9" border="0" /></td>
+				</tr>
+			</table>
+		</td>
+		<td width="1%"></td>
+		<td align="left" valign="top" width="89%"><!-- IF TOPIC_TITLE or FORUM_NAME -->
+			<table width="100%" cellspacing="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_mod.gif" alt="" height="35" width="35" border="0" /></td>
+					<td class="table_title" align="left" nowrap="nowrap" width="98%"><!-- IF TOPIC_TITLE --><a class="titles" href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ELSE --><a class="titles" href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- ENDIF --></td>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_content" align="left" width="98%"><!-- IF MODERATORS -->
+						<p class="moderators">{L_MODERATORS}: {MODERATORS}</p>
+						<!-- ENDIF --><!-- IF U_MCP -->
+						<p class="linkmcp">[ <a href="{U_MCP}">{L_MCP}</a> ]</p>
+						<!-- ENDIF --></td>
+					<td width="1%"></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_bot" align="center" width="98%"> </td>
+					<td width="1%"></td>
+				</tr>
+			</table>
+			<!-- ENDIF --><!-- IF MESSAGE -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" border="0" /></td>
+					<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_MESSAGE}</td>
+					<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_content" align="left" width="98%">
+						<p class="gensmall"><span class="gensmall">{MESSAGE}<br />
+								<br />
+								<!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<br />
+								<br />
+								<!-- END return_links --></span></p>
+					</td>
+					<td width="1%"></td>
+				</tr>
+				<tr>
+					<td width="1%"></td>
+					<td class="table_bot" align="center" width="98%"> </td>
+					<td width="1%"></td>
+				</tr>
+			</table>
+			<!-- ENDIF --><!-- IF CONFIRM_MESSAGE -->
+			<form action="{S_CONFIRM_ACTION}" method="post" name="confirm">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_info.gif" alt="" height="35" width="35" border="0" /></td>
+						<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_PLEASE_CONFIRM}</td>
+						<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+					</tr>
+					<tr>
+						<td width="1%"></td>
+						<td class="table_content" align="left" width="98%"><span class="gensmall"><br />
+								{CONFIRM_MESSAGE}<br />
+								<br />
+								{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="confirm" value="{L_YES}" />  <input class="btnlite" type="submit" name="cancel" value="{L_NO}" /><br />
+								<br />
+							</span></td>
+						<td width="1%"></td>
+					</tr>
+					<tr>
+						<td width="1%"></td>
+						<td class="table_bot" align="center" width="98%"> </td>
+						<td width="1%"></td>
+					</tr>
+				</table>
+			</form>
+			<!-- ENDIF -->

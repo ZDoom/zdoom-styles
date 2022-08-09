@@ -1,0 +1,51 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pagecontent">
+
+	<form name="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th>{MESSAGE_TITLE}<!-- IF TOPIC_TITLE -->: {TOPIC_TITLE}<!-- ENDIF --></th>
+	</tr>
+	<tr>
+		<td class="row1" align="center">
+			<!-- IF ADDITIONAL_MSG -->
+				<span class="gen error">{ADDITIONAL_MSG}</span><br />
+			<!-- ENDIF -->
+	        <!-- IF S_CAN_CHANGE_TAG -->
+		        <span class="gen">{L_CHANGE_TOPIC_TAG}:</span><div class="gen" style="text-align:left; margin: 0 auto; width:30em">
+	            <!-- BEGIN tagrow -->
+	            <label><input type="radio" name="toptags" value="{tagrow.TAG_NAME}" {tagrow.TAG_CHECKED}/> <strong>{tagrow.TAG_NAME}</strong><!-- IF tagrow.TAG_COUNT --> &nbsp; ({tagrow.TAG_COUNT} uses)</label><br /><!-- ENDIF -->
+	            <!-- END tagrow -->
+		        </label><input type="text" name="topic_tag" id="topic_tag" maxlength="24" value="{TOPIC_TAG}" class="inputbox" style="width: 20em" onfocus="document.forms[1].elements['toptags'][10].click();" /><br />
+	            </div>
+	        <!-- ENDIF -->
+			<!-- IF S_FORUM_SELECT -->
+				<span class="gen"><br />{L_SELECT_DESTINATION_FORUM}&nbsp;&nbsp;</span>
+					<select name="to_forum_id">{S_FORUM_SELECT}</select><br />
+				<!-- IF S_CAN_LEAVE_SHADOW -->
+					<input type="checkbox" class="radio" name="move_leave_shadow" /><span class="gen">{L_LEAVE_SHADOW}</span><br />
+				<!-- ENDIF -->
+				<br />{S_HIDDEN_FIELDS}<span class="gen">{MESSAGE_TEXT}</span><br /><br />
+				<input type="submit" name="confirm" value="{YES_VALUE}" class="btnmain" />&nbsp;&nbsp;<input type="submit" name="cancel" value="{L_NO}" class="btnlite" />
+			<!-- ELSE -->
+				<span class="gen">{L_NO_DESTINATION_FORUM}</span><br /><br />
+					{S_HIDDEN_FIELDS}
+					<input type="submit" name="cancel" value="{L_CANCEL}" class="btnlite" />
+			<!-- ENDIF -->
+		</td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}	
+	</form>
+	
+</div>
+
+<br clear="all" />
+
+<!-- INCLUDE breadcrumbs.html -->
+
+<br clear="all" />
+
+<!-- INCLUDE overall_footer.html -->

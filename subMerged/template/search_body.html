@@ -1,0 +1,127 @@
+<!-- INCLUDE overall_header.html -->
+<div class="subMerged_title">{L_SEARCH_QUERY}</div>
+<img src="{T_THEME_PATH}/images/spacer.gif" alt="" height="20" width="1" />
+<form action="{S_SEARCH_ACTION}" method="get">
+	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_search.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_SEARCH_QUERY}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+				<table width="100%" cellspacing="1">
+					<tr>
+						<td colspan="2" width="50%"><b class="gensmall">{L_SEARCH_KEYWORDS}: </b><br />
+							<span class="submerged">{L_SEARCH_KEYWORDS_EXPLAIN}</span></td>
+						<td class="row2" colspan="2" valign="top"><input class="post" style="width: 300px" type="text" name="keywords" size="30" /><br />
+							<input class="radio" type="radio" name="terms" value="all" checked="checked" /> <span class="gensmall">{L_SEARCH_ALL_TERMS}</span><br />
+							<input class="radio" type="radio" name="terms" value="any" /> <span class="gensmall">{L_SEARCH_ANY_TERMS}</span></td>
+					</tr>
+					<tr>
+						<td colspan="2"><b class="gensmall">{L_SEARCH_AUTHOR}:</b><br />
+							<span class="submerged">{L_SEARCH_AUTHOR_EXPLAIN}</span></td>
+						<td class="row2" colspan="2" valign="middle"><input class="post" style="width: 300px" type="text" name="author" size="30" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><b class="gensmall">{L_SEARCH_FORUMS}: </b><br />
+							<span class="submerged">{L_SEARCH_FORUMS_EXPLAIN}</span></td>
+						<td class="row2" colspan="2"><select name="fid[]" size="5" multiple="multiple">
+								{S_FORUM_OPTIONS}
+							</select></td>
+					</tr>
+					<tr>
+						<td class="cat" colspan="4" align="center">{S_HIDDEN_FIELDS}<input class="btnlite" type="submit" name="submit" value="{L_SEARCH}" />  <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="left" width="98%"> </td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+	<table width="80%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_search.gif" alt="" height="35" width="35" border="0" /></td>
+			<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_SEARCH_OPTIONS}</td>
+			<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_content" align="left" width="98%">
+				<table width="100%" cellspacing="1">
+					<tr>
+						<td nowrap="nowrap" width="25%"><b class="gensmall">{L_SEARCH_SUBFORUMS}: </b></td>
+						<td class="row2" nowrap="nowrap" width="25%"><input class="radio" type="radio" name="sc" value="1" checked="checked" /> <span class="gensmall">{L_YES}</span>  <input class="radio" type="radio" name="sc" value="0" /> <span class="gensmall">{L_NO}</span></td>
+						<td nowrap="nowrap" width="25%"><b class="gensmall">{L_SEARCH_WITHIN}: </b></td>
+						<td class="row2" nowrap="nowrap" width="25%"><input class="radio" type="radio" name="sf" value="all" checked="checked" /> <span class="gensmall">{L_SEARCH_TITLE_MSG}</span><br />
+							<input class="radio" type="radio" name="sf" value="msgonly" /> <span class="gensmall">{L_SEARCH_MSG_ONLY}</span><br />
+							<input class="radio" type="radio" name="sf" value="titleonly" /> <span class="gensmall">{L_SEARCH_TITLE_ONLY}</span><br />
+							<input class="radio" type="radio" name="sf" value="firstpost" /> <span class="gensmall">{L_SEARCH_FIRST_POST}</span></td>
+					</tr>
+					<tr>
+						<td><b class="gensmall">{L_RESULT_SORT}: </b></td>
+						<td class="row2" nowrap="nowrap">{S_SELECT_SORT_KEY}<br />
+							<input class="radio" type="radio" name="sd" value="a" /> <span class="gensmall">{L_SORT_ASCENDING}</span><br />
+							<input class="radio" type="radio" name="sd" value="d" checked="checked" /> <span class="gensmall">{L_SORT_DESCENDING}</span></td>
+						<td nowrap="nowrap"><b class="gensmall">{L_DISPLAY_RESULTS}: </b></td>
+						<td class="row2" nowrap="nowrap"><input class="radio" type="radio" name="sr" value="posts" checked="checked" /> <span class="gensmall">{L_POSTS}</span>  <input class="radio" type="radio" name="sr" value="topics" /> <span class="gensmall">{L_TOPICS}</span></td>
+					</tr>
+					<tr>
+						<td width="25%"><b class="gensmall">{L_RESULT_DAYS}: </b></td>
+						<td class="row2" nowrap="nowrap" width="25%">{S_SELECT_SORT_DAYS}</td>
+						<td nowrap="nowrap"><b class="gensmall">{L_RETURN_FIRST}: </b></td>
+						<td class="row2" nowrap="nowrap"><select name="ch">
+								{S_CHARACTER_OPTIONS}
+							</select> <span class="gensmall">{L_POST_CHARACTERS}</span></td>
+					</tr>
+					<tr>
+						<td class="cat" colspan="4" align="center">{S_HIDDEN_FIELDS}<input class="btnlite" type="submit" name="submit" value="{L_SEARCH}" />  <input class="btnlite" type="reset" value="{L_RESET}" /></td>
+					</tr>
+				</table>
+			</td>
+			<td width="1%"></td>
+		</tr>
+		<tr>
+			<td width="1%"></td>
+			<td class="table_bot" align="left" width="98%"> </td>
+			<td width="1%"></td>
+		</tr>
+	</table>
+</form>
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_icon_search.gif" alt="" height="35" width="35" border="0" /></td>
+		<td class="table_title" align="left" nowrap="nowrap" width="98%">{L_RECENT_SEARCHES}</td>
+		<td width="1%"><img src="{T_THEME_PATH}/images/table_r.gif" alt="" height="17" width="17" /></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_content" align="left" width="98%">
+			<table width="100%" cellspacing="1">
+				<!-- BEGIN recentsearch --><!-- IF recentsearch.S_ROW_COUNT is even -->
+				<tr class="row2"><!-- ELSE --></tr>
+				<tr class="row1"><!-- ENDIF -->
+					<td class="gensmall" style="padding: 4px;" align="left" width="70%"><a href="{recentsearch.U_KEYWORDS}">{recentsearch.KEYWORDS}</a></td>
+					<td class="gensmall" style="padding: 4px;" align="left" align="center" width="30%">{recentsearch.TIME}</td>
+				</tr>
+				<!-- BEGINELSE -->
+				<tr>
+					<td colspan="2" align="left"><span class="gensmall">{L_NO_RECENT_SEARCHES}</span></td>
+				</tr>
+				<!-- END recentsearch -->
+			</table>
+		</td>
+		<td width="1%"></td>
+	</tr>
+	<tr>
+		<td width="1%"></td>
+		<td class="table_bot" align="right" width="98%"><!-- INCLUDE jumpbox.html --></td>
+		<td width="1%"></td>
+	</tr>
+</table>
+<!-- INCLUDE overall_footer.html -->
